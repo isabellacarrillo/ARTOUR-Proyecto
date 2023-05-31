@@ -1,20 +1,20 @@
-import React from 'react'
-import Menu from './Menu/Menu'
+import React from "react";
+import Menu from "./Menu/Menu";
 
 export default function NavBar() {
   return (
     <div>
       <div>
-        <img/>
+        <img />
       </div>
-      <Menu/>
-
+      <Menu />
     </div>
-  )
+  );
 }
 
-export default function NavBar() {
+/*export default function NavBar() {
   return (
     <div>NavBar</div>
   )
 }
+*/
