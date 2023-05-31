@@ -1,20 +1,19 @@
 import React from 'react'
 import Menu from './Menu/Menu'
+import { Link } from 'react-router-dom'
 
 export default function NavBar() {
   return (
-    <div>
-      <div>
-        <img/>
+    <div className='w-screen h-32 '>
+      <div className='bg-orange h-8 flex justify-end p-2'>
+        <Link className='text-xs underline underline-offset-1 font-semibold text-white hover:text-blue' path="/login">Iniciar Sesion</Link>
       </div>
-      <Menu/>
-
+      <div className="border-b border-blue">
+        <div >
+          <img/>
+        </div>
+        <Menu/>
+      </div>
     </div>
-  )
-}
-
-export default function NavBar() {
-  return (
-    <div>NavBar</div>
   )
 }
