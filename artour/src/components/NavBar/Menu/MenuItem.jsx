@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 
 export default function MenuItem({display, path}){
   return (
-    <div>
+    <div className='border-x border-blue mt-8 transition ease-in-out duration-300 delay-0  hover:bg-blue hover:text-white'>
       <Link path={path}>
-        <div>
+        <div className='w-fit h-fit p-4'>
           <h4>{display}</h4>
         </div>
       </Link>
