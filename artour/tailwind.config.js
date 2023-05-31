@@ -9,7 +9,12 @@ export default {
       "white":"#FFFCF9",
       "orange":"#EC9134",
       "black":"#1E1E1E",
-      "blue":"#4F759B"
+      "blue":"#4F759B",
+      "bluegray":"#D3DAE1"
+    },
+    fontFamily:{
+      "sans": ["Lato", "sans-serif"],
+
     }
   },
   plugins: [],
