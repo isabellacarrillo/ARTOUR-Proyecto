@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom'
 
 export default function MenuItem({display, path}){
   return (
-    <div className='border-x border-blue mt-8 transition ease-in-out duration-300 delay-0  hover:bg-blue hover:text-white'>
+    <div className='border-x border-b border-blue sm:mt-8 transition ease-in-out duration-300 delay-0  hover:bg-blue hover:text-white'>
       <Link path={path}>
-        <div className='w-fit h-fit p-4'>
-          <h4>{display}</h4>
+        <div className='w-fit h-fit p-2 sm:p-4'>
+          <h4 className='text-xs sm:text-md'>{display}</h4>
         </div>
       </Link>
     </div>

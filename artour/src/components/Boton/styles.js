@@ -1,0 +1,2 @@
+export const PRINCIPAL = "w-fit h-fit bg-orange px-8 py-2 rounded-xl text-white transition ease-in-out duration-300 delay-0 hover:bg-blue";
+export const AUXILIAR = "w-fit h-fit bg-blue px-8 py-2 rounded-xl text-white transition ease-in-out duration-300 delay-0 hover:bg-orange";
