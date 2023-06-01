@@ -13,6 +13,9 @@ export default function Layout() {
       </section>
       <Footer/>
       </main>
+      <footer>
+        <h1>hola</h1>
+      </footer>
     </div>
   )
 }

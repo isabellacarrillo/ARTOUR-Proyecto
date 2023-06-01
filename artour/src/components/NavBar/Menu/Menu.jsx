@@ -1,13 +1,15 @@
-import React from 'react'
-import MenuItem from './MenuItem'
+import React from "react";
+import MenuItem from "./MenuItem";
 
-export default function Menu() {
+function Menu() {
   return (
-    <div className='flex flex-wrap flex-row justify-center'>
-      <MenuItem display="Inicio" path="/"/>
-      <MenuItem display="Buscador" path="/buscar"/>
-      <MenuItem display="Calendario" path="/calendario"/>
-      <MenuItem display="Contacto" path="/contacto"/>
+    <div className="flex flex-wrap flex-col sm:flex-row sm:justify-center">
+      <MenuItem display="Inicio" path="/" />
+      <MenuItem display="Buscador" path="/buscar" />
+      <MenuItem display="Calendario" path="/calendario" />
+      <MenuItem display="Contacto" path="/contacto" />
     </div>
-  )
+  );
 }
+
+export default Menu;
