@@ -6,9 +6,9 @@ import logo from "./foto/1.png";
 export default function NavBar() {
   return (
     <div className="w-screen h-44 sm:32 overflow-clip">
-      <div className="bg-orange h-8 flex justify-end px-12 py-2">
+      <div className="bg-orange h-10 flex content-center justify-end px-12 py-2">
         <Link
-          className="text-xs underline underline-offset-1 font-semibold text-white hover:text-blue"
+          className="text-sm underline underline-offset-1 font-semibold text-white hover:text-blue"
           to="/login"
         >
           Iniciar Sesion

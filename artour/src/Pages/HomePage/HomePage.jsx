@@ -63,24 +63,7 @@ function HomePage() {
         />
       </div>
 
-      <Containers
-        image="https://www.unimet.edu.ve/wp-content/uploads/2019/09/DSC96635666-2.jpg"
-        title="Mision"
-        descripcion="Lorem ipsum dolor sit amet , consectetur adipiscing elit. Vivamus id velit efficitur, mattis quam nec, vehicula odio. Proin ut elit sit amet lectus laoreet placerat. Fusce sit amet cursus nulla, non malesuada arcu. Curabitur posuere ipsum ut gravida imperdiet. Maecenas aliquam ut purus vel sollicitudin. Aenean malesuada leo nunc, sed rutrum velit lacinia vel. Nam sollicitudin sapien nec justo iaculis fermentum. Aliquam consequat, orci ut molestie bibendum, ipsum lorem feugiat odio, eu maximus tellus enim vitae ex."
-        left_image={true}
-      />
-      <Containers
-        image="https://www.unimet.edu.ve/wp-content/uploads/2020/10/Campus-galer%C3%ADa-12.jpg"
-        title="Vision"
-        descripcion="Lorem ipsum dolor sit amet , consectetur adipiscing elit. Vivamus id velit efficitur, mattis quam nec, vehicula odio. Proin ut elit sit amet lectus laoreet placerat. Fusce sit amet cursus nulla, non malesuada arcu. Curabitur posuere ipsum ut gravida imperdiet. Maecenas aliquam ut purus vel sollicitudin. Aenean malesuada leo nunc, sed rutrum velit lacinia vel. Nam sollicitudin sapien nec justo iaculis fermentum. Aliquam consequat, orci ut molestie bibendum, ipsum lorem feugiat odio, eu maximus tellus enim vitae ex."
-        left_image={false}
-      />
-      <Containers
-        image="https://www.unimet.edu.ve/wp-content/uploads/2020/10/Campus-galer%C3%ADa-29.jpg"
-        title="Objetivo"
-        descripcion="Lorem ipsum dolor sit amet , consectetur adipiscing elit. Vivamus id velit efficitur, mattis quam nec, vehicula odio. Proin ut elit sit amet lectus laoreet placerat. Fusce sit amet cursus nulla, non malesuada arcu. Curabitur posuere ipsum ut gravida imperdiet. Maecenas aliquam ut purus vel sollicitudin. Aenean malesuada leo nunc, sed rutrum velit lacinia vel. Nam sollicitudin sapien nec justo iaculis fermentum. Aliquam consequat, orci ut molestie bibendum, ipsum lorem feugiat odio, eu maximus tellus enim vitae ex."
-        left_image={true}
-      />
+      
     </div>
   );
 }
