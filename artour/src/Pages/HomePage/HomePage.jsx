@@ -34,11 +34,32 @@ const Containers = ({ image, title, descripcion , left_image}) => {
 
 function HomePage() {
   return (
-    <div className="bg-white flex flex-wrap flex-col justify-center">
-      <div className="flex flex-row flex-wrap justify-center content-center overflow-clip h-1/8">
-      <img
-        className="w-full object-cover"
-        src="https://www.unimet.edu.ve/wp-content/uploads/2020/10/Campus-galer%C3%ADa-51.jpg"
+    <div className="w-full bg-white">
+      <div className="bg-white flex flex-wrap flex-col justify-center">
+        <div className="flex flex-row flex-wrap justify-center content-center overflow-clip h-1/8">
+          <img
+            className="w-full object-cover"
+            src="https://www.unimet.edu.ve/wp-content/uploads/2020/10/Campus-galer%C3%ADa-51.jpg"
+          />
+        </div>
+
+        <Containers
+          image="https://www.unimet.edu.ve/wp-content/uploads/2019/09/DSC96635666-2.jpg"
+          title="Mision"
+          descripcion="Lorem ipsum dolor sit amet , consectetur adipiscing elit. Vivamus id velit efficitur, mattis quam nec, vehicula odio. Proin ut elit sit amet lectus laoreet placerat. Fusce sit amet cursus nulla, non malesuada arcu. Curabitur posuere ipsum ut gravida imperdiet. Maecenas aliquam ut purus vel sollicitudin. Aenean malesuada leo nunc, sed rutrum velit lacinia vel. Nam sollicitudin sapien nec justo iaculis fermentum. Aliquam consequat, orci ut molestie bibendum, ipsum lorem feugiat odio, eu maximus tellus enim vitae ex."
+          left_image={true}
+        />
+        <Containers
+          image="https://www.unimet.edu.ve/wp-content/uploads/2020/10/Campus-galer%C3%ADa-12.jpg"
+          title="Vision"
+          left_image={false}
+          descripcion="Lorem ipsum dolor sit amet , consectetur adipiscing elit. Vivamus id velit efficitur, mattis quam nec, vehicula odio. Proin ut elit sit amet lectus laoreet placerat. Fusce sit amet cursus nulla, non malesuada arcu. Curabitur posuere ipsum ut gravida imperdiet. Maecenas aliquam ut purus vel sollicitudin. Aenean malesuada leo nunc, sed rutrum velit lacinia vel. Nam sollicitudin sapien nec justo iaculis fermentum. Aliquam consequat, orci ut molestie bibendum, ipsum lorem feugiat odio, eu maximus tellus enim vitae ex."
+        />
+        <Containers
+          image="https://www.unimet.edu.ve/wp-content/uploads/2020/10/Campus-galer%C3%ADa-29.jpg"
+          title="Objetivo"
+          left_image={true}
+          descripcion="Lorem ipsum dolor sit amet , consectetur adipiscing elit. Vivamus id velit efficitur, mattis quam nec, vehicula odio. Proin ut elit sit amet lectus laoreet placerat. Fusce sit amet cursus nulla, non malesuada arcu. Curabitur posuere ipsum ut gravida imperdiet. Maecenas aliquam ut purus vel sollicitudin. Aenean malesuada leo nunc, sed rutrum velit lacinia vel. Nam sollicitudin sapien nec justo iaculis fermentum. Aliquam consequat, orci ut molestie bibendum, ipsum lorem feugiat odio, eu maximus tellus enim vitae ex."
         />
       </div>
 
@@ -66,4 +87,3 @@ function HomePage() {
 
 export default HomePage;
 import React from "react";
-
