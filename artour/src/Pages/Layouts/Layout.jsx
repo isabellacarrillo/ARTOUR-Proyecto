@@ -7,10 +7,13 @@ export default function Layout() {
     <div>
       <main>
         <NavBar/>
-      <section className='w-screen h-screen '>
+      <section className='w-screen h-fit '>
         <Outlet/>
       </section>
       </main>
+      <footer>
+        <h1>hola</h1>
+      </footer>
     </div>
   )
 }
