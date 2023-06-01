@@ -42,7 +42,7 @@ export default function ItemsContainer() {
         </p>
         </div>
         <div>
-             <Items title = "PUNTOS DE INTERES"/>
+             <Items title = "PUNTOS DE INTERÉS"/>
              <br></br>
             <p className="ps-8 ">Biblioteca</p>
             <br></br>
