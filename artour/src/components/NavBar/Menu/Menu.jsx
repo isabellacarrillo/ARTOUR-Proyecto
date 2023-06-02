@@ -3,7 +3,7 @@ import MenuItem from "./MenuItem";
 
 function Menu() {
   return (
-    <div className="flex flex-wrap flex-col sm:flex-row sm:justify-center">
+    <div className="flex flex-wrap flex-col md:flex-row sm:justify-center">
       <MenuItem display="Inicio" path="/" />
       <MenuItem display="Buscador" path="/buscar" />
       <MenuItem display="Calendario" path="/calendario" />
