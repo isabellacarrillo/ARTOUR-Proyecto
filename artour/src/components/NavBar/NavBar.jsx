@@ -8,7 +8,7 @@ export default function NavBar() {
     <div className="w-screen h-fit  overflow-clip">
       <div className="bg-orange h-10 flex content-center justify-end px-12 py-2">
         <Link
-          className="text-sm underline underline-offset-1 font-semibold text-white hover:text-blue"
+          className="text-sm underline underline-offset-2 font-semibold text-white hover:text-blue"
           to="/login"
         >
           Iniciar Sesion

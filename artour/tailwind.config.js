@@ -8,7 +8,11 @@ export default {
         black: "#1E1E1E",
         blue: "#4F759B",
         fbblue: "#4267B2",
-        twblue: "#1DA1F2"
+        twblue: "#1DA1F2",
+        red: "#AA4A44",
+      },
+      dropShadow: {
+        "4xl": "5px 7px 10px 4px rgba(0, 0, 0, 0.25)",
       },
     },
     colors: {
