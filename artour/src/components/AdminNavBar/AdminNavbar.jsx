@@ -9,7 +9,9 @@ export default function AdminNavbar() {
       <div className="w-screen h-fit  overflow-clip">
         <div className="bg-orange h-10 flex content-center justify-end px-12 py-2">
           <Link
-            className="text-sm underline underline-offset-2 font-semibold text-white hover:text-blue"
+            className="text-sm text-white relative after:bg-blue after:left-0 after:-bottom-0 after:rounded-xl after:h-0.5 after:w-0 after:absolute after:duration-300 hover:after:w-full
+            hover:text-bluegray
+            hover:font-bold"
             to="/login"
           >
             Iniciar Sesion
