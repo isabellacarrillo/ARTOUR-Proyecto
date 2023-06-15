@@ -17,7 +17,6 @@ export default function SocialIcons
        </span>
     ))}
     {Icons.map((link)=>(
-        
         <a href={link.link} key={link.name}></a>
     ))}
 
