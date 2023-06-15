@@ -1,6 +1,6 @@
 import React from "react";
 import Boton from "../../components/Boton/Boton";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   PRINCIPAL,
   AUXILIAR,
@@ -9,8 +9,37 @@ import {
   TWITTER,
 } from "../../components/Boton/styles";
 import Input from "../../components/Input/Input";
+import {
+  loginWithEmailAndPassword,
+  signInWithGoogle,
+} from "../../firebase/auth-service";
+import { HOME_URL } from "../../constants/URLS";
+
 
 export default function LoginPage() {
+  const navigate = useNavigate();
+  const handleSignInWithGoogle = async () => {
+    await signInWithGoogle();
+  };
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleOnChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const { email, password } = formData;
+    await loginWithEmailAndPassword(email, password);
+    navigate(HOME_URL); 
+  };
   return (
     <>
       <div className="flex flex-overlay justify-center bg-[url(https://www.unimet.edu.ve/wp-content/uploads/2019/09/IMG_0437.jpg)] bg-cover m-0 ">
@@ -19,24 +48,26 @@ export default function LoginPage() {
             Ingresa a tu cuenta
           </h4>
           <div className=" w-full grid grid-rows-2 justify-around sm:grid-cols-2 sm:grid-rows-none gap-0 ">
-            <form className="flex flex-col place-content-center gap-4 border-b-blue border-b  sm:border-r-blue sm:border-r sm:border-b-0">
+            <form className="flex flex-col place-content-center gap-4 border-b-blue border-b  sm:border-r-blue sm:border-r sm:border-b-0" onSubmit={handleSubmit}>
               <Input
                 label="Correo Electrónico"
                 type="email"
                 name="email"
                 id="email"
+                onChange= {handleOnChange}
               />
               <Input
                 label="Contraseña"
                 type="password"
                 name="password"
                 id="password"
+                onChange= {handleOnChange}
               />
               <Boton style={PRINCIPAL} action="Ingresar" />
             </form>
             <div className="flex flex-col flex-wrap justify-center gap-0 border-t-blue border-t sm:border-l-blue sm:border-l sm:border-t-0">
               <Boton style={FACEBOOK} action="Continuar con Facebook" />
-              <Boton style={GOOGLE} action="Continuar con Google" />
+              <Boton style={GOOGLE} action= {handleSignInWithGoogle} />
               <Boton style={TWITTER} action="Continuar con Twitter" />
             </div>
           </div>
