@@ -45,7 +45,7 @@ export default function LoginPage() {
           <div className="flex flex-col justify-center">
             <h6 className="text-center">¿Ya tienes cuenta?</h6>
             <Link to="/login">
-              <Boton style={AUXILIAR} action="Iniciar Sesión" />
+              <Button style={AUXILIAR} action="Iniciar Sesión" />
             </Link>
           </div>
         </div>
