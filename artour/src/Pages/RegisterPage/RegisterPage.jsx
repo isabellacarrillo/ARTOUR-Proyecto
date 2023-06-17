@@ -1,40 +1,57 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Boton from "../../components/Boton/Boton";
-import { Link } from "react-router-dom";
+import { FormProvider, useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
 import { AUXILIAR, GOOGLE, TODO } from "../../components/Boton/styles";
 import Input from "../../components/Input/Input";
-import { registerWithEmailAndPassword, signInWithGoogle } from "../../firebase/auth-service";
+import {
+  registerWithEmailAndPassword,
+  signInWithGoogle,
+} from "../../firebase/auth-service";
 import { HOME_URL } from "../../constants/URLS";
 
-export default function LoginPage() {
-  const navigate = useNavigate()
-  const handleSignInWithGoogle = async () => {
-    await signInWithGoogle()
-    
-  }
+export default function RegisterPage() {
+  const navigate = useNavigate();
+  const methods = useForm();
+  const [error, setError] = useState(null);
 
-  const [formData, setFormData]= useState({
-    name: "",
-    email: "",
-    password:""
-  })
-
-  const handleOnChange = (e) => {
-    const {name, value} = e.target;
-    setFormData({
-        ...formData,
-        [name]: value,
-
-    })
-  }
-
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const {email,password, ...extraData} = formData;
-    await registerWithEmailAndPassword(email, password, extraData);
-    navigate(HOME_URL);   // esto es para que despues de que se registre lo lleve al home page
+  const onSubmit = async (data, e) => {
+    const { email, password, ...extraData } = data;
+    const result = await registerWithEmailAndPassword(
+      {
+        onSuccess: () => {
+          navigate(HOME_URL);
+        },
+      },
+      email,
+      password,
+      extraData
+    );
+    setError(result);
   };
+
+  const handleError = () => {
+    if (error) {
+      if (error === "auth/email-already-in-use") {
+        return (
+          <p className="text-xs bg-orange/25 text-orange font-semibold text-center rounded-2xl py-1">
+            Ya existe una cuenta con esta informacion
+          </p>
+        );
+      } else {
+        return (
+          <p className="text-xs bg-orange/25 text-orange font-semibold text-center rounded-2xl py-1">
+            Hubo un error intentelo, de nuevo
+          </p>
+        );
+      }
+    } else {
+      return <></>;
+    }
+  };
+
+  useEffect(() => {}, [error]);
+
   return (
     <>
       <div className="flex flex-overlay justify-center bg-[url(https://www.unimet.edu.ve/wp-content/uploads/2019/09/IMG_0437.jpg)] bg-cover m-0 ">
@@ -44,42 +61,87 @@ export default function LoginPage() {
           </h4>
 
           <div className=" w-full flex flex-col justify-around sm:grid-cols-2 sm:grid-rows-none gap-0 ">
-            <form className="flex flex-col place-content-center gap-4 " onSubmit={handleSubmit}>
-              <div className="w-full h-fit grid grid-rows-2 sm:grid-cols-2 sm:grid-rows-none ">
-                <Input label="Nombre" type="text" name="name" id="name" onChange = {handleOnChange} />
-                <Input label="Teléfono" type="text" name="phone" id="phone" onChange = {handleOnChange} />
-              </div>
-              <div className="w-3/4 flex flex-col gap-3">
-                <Input
-                  label="Correo Electrónico"
-                  type="email"
-                  name="email"
-                  id="email"
-                  onChange = {handleOnChange}
+            <FormProvider {...methods}>
+              <form
+                className="flex flex-col place-content-center gap-0"
+                onSubmit={(e) => {
+                  e.preventDefault;
+                }}
+                noValidate
+                autoComplete="off"
+              >
+                <div className="w-full h-fit grid grid-rows-2 sm:grid-cols-2 sm:grid-rows-none ">
+                  <Input
+                    label="Nombre"
+                    type="text"
+                    name="name"
+                    id="name"
+                    validation={{
+                      required: { value: true, message: "Obligatorio" },
+                      pattern: {
+                        value: /[A-Za-z]/,
+                        message: "Por favor, introduzca un nombre valido",
+                      },
+                    }}
+                  />
+                  <Input
+                    label="Teléfono"
+                    type="text"
+                    name="phone"
+                    id="phone"
+                    validation={{
+                      required: { value: true, message: "Obligatorio" },
+                      pattern: {
+                        value:
+                          /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/,
+                        message: "Por favor, introduzca un numero valido",
+                      },
+                    }}
+                  />
+                </div>
+                <div className="w-3/4 flex flex-col gap-3">
+                  <Input
+                    label="Correo Electrónico"
+                    type="email"
+                    name="email"
+                    id="email"
+                    validation={{
+                      required: { value: true, message: "Obligatorio" },
+                      pattern: {
+                        value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
+                        message: "Por favor, introduzca un correo valido",
+                      },
+                    }}
+                  />
+                  <Input
+                    label="Contraseña"
+                    type="text"
+                    name="password"
+                    id="password"
+                    validation={{
+                      required: { value: true, message: "Obligatorio" },
+                      minLength: {
+                        value: 5,
+                        message: "Su clave debe tener al menos 5 caracteres",
+                      },
+                    }}
+                  />
+                </div>
+                <Boton
+                  style={TODO}
+                  display="Crear Cuenta"
+                  action={methods.handleSubmit(onSubmit)}
                 />
-                <Input
-                  label="Contraseña"
-                  type="text"
-                  name="password"
-                  id="password"
-                  onChange = {handleOnChange}
-                />
-                <Input
-                  label="Confirme su contraseña"
-                  type="text"
-                  name="pass_confirm"
-                  id="pass_confirm"
-                  onChange = {handleOnChange}
-                />
-              </div>
-              <Boton style={TODO} action="Crear Cuenta" />
-            </form>
-            <Boton style = {GOOGLE} onClick = {handleSignInWithGoogle}/>
+              </form>
+            </FormProvider>
           </div>
+
+          {handleError()}
+
           <div className="flex flex-col justify-center">
             <h6 className="text-center">¿Ya tienes cuenta?</h6>
             <Link to="/login">
-              <Button style={AUXILIAR} action="Iniciar Sesión" />
+              <Boton style={AUXILIAR} display="Iniciar Sesión" />
             </Link>
           </div>
         </div>

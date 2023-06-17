@@ -32,6 +32,8 @@ const Containers = ({ image, title, descripcion, left_image }) => {
 };
 
 function HomePage() {
+  const { isLoading } = useUserContext();
+
   return (
     <div className="w-full bg-white">
       <div className="bg-white flex flex-wrap flex-col justify-center">
@@ -67,3 +69,5 @@ function HomePage() {
 
 export default HomePage;
 import React from "react";
+import { useUserContext } from "../../contexts/UserContext";
+import LoadingPage from "../LoadingPage/LoadingPage";

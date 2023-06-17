@@ -10,9 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@hookform/error-message": "^2.0.1",
     "firebase": "^9.22.2",
+    "framer-motion": "^10.12.16",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.44.3",
+    "react-loader-spinner": "^5.3.4",
     "react-router-dom": "^6.11.2"
   },
   "devDependencies": {
