@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "./Pages/LoginPage/LoginPage";
 import RegisterPage from "./Pages/RegisterPage/RegisterPage";
 import SearchPage from "./Pages/SearchPage/SearchPage";
+import Edit_tour from "./Pages/EditTourPage/EditTourPage";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -17,6 +18,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="/login" element={<LoginPage />} />
           <Route path="/registro" element={<RegisterPage />} />
           <Route path="/buscar" element={<SearchPage />} />
+          <Route path="/edit" element={<Edit_tour />} />
         </Route>
       </Routes>
     </BrowserRouter>
