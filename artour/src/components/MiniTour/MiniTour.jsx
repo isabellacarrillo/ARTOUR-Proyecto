@@ -29,7 +29,7 @@ export default function MiniTour({ tour }) {
             </div>
           </div>
         </div>
-        <Boton action="Detallar" style={MINI} />
+        <Boton display="Detallar" style={MINI} />
       </div>
     </div>
   );
