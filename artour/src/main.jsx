@@ -7,16 +7,29 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "./Pages/LoginPage/LoginPage";
 import RegisterPage from "./Pages/RegisterPage/RegisterPage";
 import SearchPage from "./Pages/SearchPage/SearchPage";
+import UnauthorizedPage from "./Pages/UnauthorizedPage/UnauthorizedPage";
+import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
+import ProtectedUserRoute from "./components/ProtectedRoute/ProtectedUserRoute";
+import { HOME_URL, LOGIN_URL, REGISTER_URL, SEARCH_URL, UNAUTHORIZED_URL } from "./constants/URLS";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
         <Route element={<Layout />}>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/registro" element={<RegisterPage />} />
-          <Route path="/buscar" element={<SearchPage />} />
+          <Route path={HOME_URL} element={<HomePage />} />
+          <Route path={LOGIN_URL} element={<LoginPage />} />
+          <Route path={REGISTER_URL} element={<RegisterPage />} />
+          <Route
+            path={SEARCH_URL}
+            element={
+              <ProtectedUserRoute>
+                <SearchPage />
+              </ProtectedUserRoute>
+            }
+          />
+          <Route path={UNAUTHORIZED_URL} element={<UnauthorizedPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

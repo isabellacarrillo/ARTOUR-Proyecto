@@ -54,7 +54,7 @@ export default function NavBar() {
   };
 
   return (
-    <div className="w-screen h-fit  overflow-clip">
+    <div className=" h-fit  overflow-clip">
       <div className="bg-orange h-10 flex content-center justify-end px-12 py-2">
         {handleUser()}
       </div>
