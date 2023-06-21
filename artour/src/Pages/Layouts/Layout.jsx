@@ -15,7 +15,7 @@ export default function Layout() {
         <LoadingPage>
           <main>
             <NavBar />
-            <section className="w-screen h-fit ">
+            <section className=" h-fit ">
               <Outlet />
             </section>
             <Footer />

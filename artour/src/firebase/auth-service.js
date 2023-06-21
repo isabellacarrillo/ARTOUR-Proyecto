@@ -24,6 +24,8 @@ export const signInWithGoogle = async ({ onSuccess }) => {
         email: result.user.email,
         name: result.user.displayName,
         id: result.user.uid,
+        telefono: "",
+        numero_carnet: "",
         role: "user",
       });
     }
@@ -46,6 +48,8 @@ export const signInWithFacebook = async ({ onSuccess }) => {
         email: result.user.email,
         name: result.user.displayName,
         id: result.user.uid,
+        telefono: "",
+        numero_carnet: "",
         role: "user",
       });
     }
@@ -68,6 +72,8 @@ export const signInWithTwitter = async ({ onSuccess }) => {
         email: result.user.email,
         name: result.user.displayName,
         id: result.user.uid,
+        telefono: "",
+        numero_carnet: "",
         role: "user",
       });
     }
@@ -93,6 +99,7 @@ export const registerWithEmailAndPassword = async (
       email,
       id: result.user.uid,
       role: "user",
+      numero_carnet: "",
       ...extraData,
     });
     if (onSuccess) {
