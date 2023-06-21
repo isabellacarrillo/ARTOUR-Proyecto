@@ -12,8 +12,8 @@ const Edit_tour = () => {
         <div className="flex flex-col justify-around p-12 w-full sm:flex-row">
           <div className="w-80 flex flex-col  justify-around items-center">
             {/*Aqui va a ir la imagen y el boton para modificarla*/}
-            <img src="https://www.unimet.edu.ve/wp-content/uploads/2019/09/DSC96635666-2.jpg" />
-            <button className="bg-blue text-white p-2">Subir imagen</button>
+            <img src="https://cdn.bitlysdowssl-aws.com/wp-content/uploads/2020/10/Diplomados-Arte-Contempor%C3%A1neoo-Archivo.jpg" />
+            <button className="bg-blue text-white py-2 px-4 rounded">Subir imagen</button>
           </div>
           <div>
             {/*Aqui van a ir los inputs de nombre del Tour, identificador, capacidad y fecha de disponibilidad*/}
@@ -66,7 +66,7 @@ const Edit_tour = () => {
             <CheckBoxZonasDeInteres />
           </div>
         </div>
-        <button className="bg-orange p-2 text-white"> Guardar Cambios</button>
+        <button className="bg-orange py-2 px-4 rounded text-white float-right "> Guardar Cambios</button>
       </div>
     </div>
   );

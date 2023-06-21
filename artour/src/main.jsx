@@ -8,6 +8,9 @@ import LoginPage from "./Pages/LoginPage/LoginPage";
 import RegisterPage from "./Pages/RegisterPage/RegisterPage";
 import SearchPage from "./Pages/SearchPage/SearchPage";
 import Edit_tour from "./Pages/EditTourPage/EditTourPage";
+import Edit_Art from "./Pages/EditArtPage/EditArtPage";
+import Create_Tour from "./Pages/CreateTourPage/CreateTourPage";
+import Create_Art from "./Pages/CreateArtPage/CreateArtPage";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -19,6 +22,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="/registro" element={<RegisterPage />} />
           <Route path="/buscar" element={<SearchPage />} />
           <Route path="/edit" element={<Edit_tour />} />
+          <Route path = "/edita" element = {<Edit_Art/>}/>
+          <Route path = "/createt" element = {<Create_Tour/>}/>
+          <Route path = "/createa" element = {<Create_Art/>}/>
         </Route>
       </Routes>
     </BrowserRouter>
