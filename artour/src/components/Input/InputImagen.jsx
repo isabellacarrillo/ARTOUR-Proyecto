@@ -20,7 +20,7 @@ const InputImagen = () => {
 
       <label
         className="block text-gray-700 text-sm font-bold mb-2 text-center"
-        for="photo"
+        htmlFor="photo"
       >
         Profile Photo <span className="text-red-600"> </span>
       </label>
