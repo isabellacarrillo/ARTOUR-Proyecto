@@ -8,13 +8,13 @@ const imgs = [
     desc: "Un espacio para descubrir todo el valor cultural de la Universidad Metropolitana",
   },
   {
-    url: "gs://artour-25768.appspot.com/carrousel/carrousel 1.jpg",
+    url: "https://firebasestorage.googleapis.com/v0/b/artour-25768.appspot.com/o/carrousel%2Fcarrousel%201.jpg?alt=media&token=c041f6d7-3513-4a2c-824d-4da8de6e4708",
     title: "¡Conoce sobre nuestras distintas visitas y tours!",
     desc: "Un espacio para descubrir todo el valor cultural de la Universidad Metropolitana",
     boton: "Buscar Tours",
   },
   {
-    url: "https://firebasestorage.googleapis.com/v0/b/artour-25768.appspot.com/o/carrousel%2Fcarrousel%201.jpg?alt=media&token=c041f6d7-3513-4a2c-824d-4da8de6e4708",
+    url: "https://firebasestorage.googleapis.com/v0/b/artour-25768.appspot.com/o/carrousel%2Fcarrousel2.jpg?alt=media&token=25799cfe-7d70-48e5-9e28-aef46292cb80",
     title: "¡Descubre nuestros futuros eventos y exposiciones!",
     desc: "Planifica la visita perfecta y no te pierdas de nuestros grandes eventos culturales",
     boton: "Ver Calendario",
