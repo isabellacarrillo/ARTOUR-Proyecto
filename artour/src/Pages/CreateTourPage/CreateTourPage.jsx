@@ -32,10 +32,10 @@ const Create_Art = () => {
             }
             className="rounded-2xl drop-shadow-lg"
           />
-          <button className=" text-white py-2 px-4 rounded space-y-2">
+          <button className=" text-white py-2 px-4 rounded space-y-2 cursor-pointer">
             <label
               htmlFor="photo"
-              className="w-fit h-fit bg-blue px-8 py-2 rounded-2xl text-white font-semibold transition ease-in-out duration-300 delay-0 hover:bg-orange"
+              className="w-fit h-fit  bg-blue px-8 py-2 rounded-2xl text-white font-semibold transition ease-in-out duration-300 delay-0 hover:bg-orange"
             >
               Subir Foto
             </label>
@@ -61,6 +61,9 @@ const Create_Art = () => {
                       name="nombre_tour"
                       id="nombre_tour"
                       outlined
+                      validation={{
+                        required: { value: true, message: "Obligatorio" },
+                      }}
                     />
                     <Input
                       label="Capacidad"
@@ -68,13 +71,27 @@ const Create_Art = () => {
                       name="capacidad"
                       id="capacidad"
                       outlined
+                      validation={{
+                        required: { value: true, message: "Obligatorio" },
+                        pattern: {
+                          value: /[1-30]/,
+                          message: "Por favor, introduzca una capacidad valida",
+                        },
+                      }}
                     />
                     <Input
-                      label="Duracion"
+                      label="Duracion (en minutos)"
                       type="text"
                       name="diracion"
                       id="duracion"
                       outlined
+                      validation={{
+                        required: { value: true, message: "Obligatorio" },
+                        pattern: {
+                          value: /[30-180]/,
+                          message: "Por favor, introduzca una duracion valida",
+                        },
+                      }}
                     />
                     <DatePicker />
                   </div>

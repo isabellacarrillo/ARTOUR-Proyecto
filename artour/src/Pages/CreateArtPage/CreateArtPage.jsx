@@ -37,7 +37,7 @@ const Create_Art = () => {
           <button className=" text-white py-2 px-4 rounded space-y-2">
             <label
               htmlFor="photo"
-              className="w-fit h-fit bg-blue px-8 py-2 rounded-2xl text-white font-semibold transition ease-in-out duration-300 delay-0 hover:bg-orange"
+              className="w-fit h-fit cursor-pointer bg-blue px-8 py-2 rounded-2xl text-white font-semibold transition ease-in-out duration-300 delay-0 hover:bg-orange"
             >
               Subir Foto
             </label>
@@ -63,6 +63,9 @@ const Create_Art = () => {
                       name="nombre_obra"
                       id="nombre_obra"
                       outlined
+                      validation={{
+                        required: { value: true, message: "Obligatorio" },
+                      }}
                     />
                     <Input
                       label="Tipo de obra"
@@ -70,6 +73,9 @@ const Create_Art = () => {
                       name="tipo"
                       id="tipo"
                       outlined
+                      validation={{
+                        required: { value: true, message: "Obligatorio" },
+                      }}
                     />
                     <Input
                       label="Autor"
@@ -77,6 +83,13 @@ const Create_Art = () => {
                       name="autor"
                       id="autor"
                       outlined
+                      validation={{
+                        required: { value: true, message: "Obligatorio" },
+                        pattern: {
+                          value: /[A-Za-z]/,
+                          message: "Por favor, introduzca un nombre valido",
+                        },
+                      }}
                     />
                     <Input
                       label="Ubicacion"
@@ -84,6 +97,13 @@ const Create_Art = () => {
                       name="ubicacion"
                       id="ubicacion"
                       outlined
+                      validation={{
+                        required: { value: true, message: "Obligatorio" },
+                        pattern: {
+                          value: /[A-Za-z]/,
+                          message: "Por favor, introduzca un nombre valido",
+                        },
+                      }}
                     />
                   </div>
                   <DropDown />
