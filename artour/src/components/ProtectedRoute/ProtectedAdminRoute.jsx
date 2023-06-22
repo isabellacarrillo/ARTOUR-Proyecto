@@ -10,7 +10,7 @@ export default function ProtectedAdminRoute({ children }) {
     return <Navigate to={LOGIN_URL} />;
   } else if (!isLoading && user && role === "admin") {
     return children;
-  } else {
+  } else if(!isLoading){
     return <Navigate to={UNAUTHORIZED_URL} />;
   }
 }

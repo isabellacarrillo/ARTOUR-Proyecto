@@ -1,88 +1,100 @@
-import TextField from "../../components/Input/TextField";
-import InputImagen from "../../components/Input/InputImagen";
-import CheckBoxZonasDeInteres from "../../components/Input/CheckBoxZonasDeInteres";
+import React, { useState } from "react";
+import Input from "../../components/Input/Input";
+import Boton from "../../components/Boton/Boton";
+import { PRINCIPAL } from "../../components/Boton/styles";
+import { FormProvider, useForm } from "react-hook-form";
+import DropDown from "../../components/DropDown/DropDown";
+import TextArea from "../../components/Input/TextArea";
 
 const Create_Art = () => {
+  const methods = useForm();
+  const [file, setFile] = useState();
+
+  const handleChange = (e) => {
+    try {
+      setFile(URL.createObjectURL(e.target.files[0]));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
-    <div className="flex items-center justify-around p-12 bg-white">
-      <div className="flex-row p-12 w-full sm:flex-col ">
-        <h1 className="text-orange text-4xl font-extrabold">
-          Crear Obra de Arte
-        </h1>
-        <div className="flex flex-col justify-around p-12 w-full sm:flex-row">
-          <div className="w-80 flex flex-col  justify-around items-center">
-            {/*Aqui va a ir la imagen y el boton para modificarla*/}
-            <img src="https://www.unimet.edu.ve/wp-content/uploads/2020/10/Exposici%C3%B3n-4.jpg" />
-            <button className="bg-blue text-white py-2 px-4 rounded space-y-2">Subir Foto</button>
-          </div>
-          <div>
+    <div className="flex flex-col content-start justify-start p-12 bg-white ">
+      <h1 className="text-orange text-4xl font-extrabold">
+        Crear Obra de Arte
+      </h1>
+      <div className="flex flex-col gap-4 p-12 w-full  content-center lg:flex-row">
+        <div className="md:w-2/5 gap-2 flex flex-col md:flex-row flex-wrap justify-around items-center">
+          {/*Aqui va a ir la imagen y el boton para modificarla*/}
+          <img
+            src={
+              file
+                ? file
+                : "https://static.vecteezy.com/system/resources/previews/004/141/669/original/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg"
+            }
+            className="rounded-2xl drop-shadow-lg"
+          />
+          <button className=" text-white py-2 px-4 rounded space-y-2">
+            <label
+              htmlFor="photo"
+              className="w-fit h-fit bg-blue px-8 py-2 rounded-2xl text-white font-semibold transition ease-in-out duration-300 delay-0 hover:bg-orange"
+            >
+              Subir Foto
+            </label>
+            <input
+              id="photo"
+              className="hidden"
+              type="file"
+              accept="image/*"
+              onChange={handleChange}
+            />
+          </button>
+        </div>
+        <div className="flex flex-col justify-around w-full sm:flex-row">
+          <div className="w-full md:pl-10">
             {/*Aqui van a ir los inputs de nombre del Tour, identificador, capacidad y fecha de disponibilidad*/}
-            <form className="columns-2">
-              <div className="mb-6">
-                <label className="block mb-2 text-blue text-sm font-medium text-gray-900 ">
-                  Nombre de la Obra
-                </label>
-                <input
-                  className="bg-gray-50 border border-black text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="Nombre de la obra"
-                  required
-                />
-              </div>
-              <div className="mb-6">
-                <label className="block mb-2 text-sm font-medium text-gray-900 text-blue">
-                  Tipo de Obra
-                </label>
-                <input
-                  className="bg-gray-50 border border-black text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="Tipo de Obra"
-                  required
-                />
-              </div>
-              <div className="mb-6">
-                <label className="block mb-2 text-sm font-medium text-gray-900 text-blue">
-                  Autor
-                </label>
-                <input
-                  className="bg-gray-50 border border-black text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="Nombre del Autor"
-                  required
-                />
-              </div>
-              <div className="mb-6">
-                <label className="block mb-2 text-sm font-medium text-gray-900 text-blue">
-                  Nro. de Identificación
-                </label>
-                <input
-                  className="bg-gray-50 border border-black text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="Número de ID"
-                  required
-                />
-              </div>
-              <div className="mb-6">
-                <label className="block mb-2 text-sm font-medium text-gray-900 text-blue">
-                  Ubicación/Punto de Interés
-                </label>
-                <input
-                  className="bg-gray-50 border border-black text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="Ubicación"
-                  required
-                />
-              </div>
-              <div className="mb-6">
-                <label className="block mb-2 text-sm font-medium text-gray-900 text-blue">
-                  Descripción
-                </label>
-                <input
-                  className="bg-gray-50 border border-black text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-6 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="Descripción"
-                  required
-                />
-              </div>
-            </form>
+            <FormProvider {...methods}>
+              <form className="flex flex-col gap-8 md:justify-start">
+                <div className="flex flex-col gap-8  md:flex-row md:justify-start">
+                  <div className="md:w-2/5">
+                    <Input
+                      label="Nombre de la Obra"
+                      type="text"
+                      name="nombre_obra"
+                      id="nombre_obra"
+                      outlined
+                    />
+                    <Input
+                      label="Tipo de obra"
+                      type="text"
+                      name="tipo"
+                      id="tipo"
+                      outlined
+                    />
+                    <Input
+                      label="Autor"
+                      type="text"
+                      name="autor"
+                      id="autor"
+                      outlined
+                    />
+                    <Input
+                      label="Ubicacion"
+                      type="text"
+                      name="ubicacion"
+                      id="ubicacion"
+                      outlined
+                    />
+                  </div>
+                  <DropDown />
+                </div>
+                <TextArea display="Descripcion" />
+              </form>
+            </FormProvider>
           </div>
         </div>
-        <button className="bg-orange py-2 px-4 rounded text-white float-right"> Crear Obra</button>
       </div>
+      <Boton display="Crear Obra" style={PRINCIPAL} />
     </div>
   );
 };

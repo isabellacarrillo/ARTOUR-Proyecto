@@ -10,7 +10,18 @@ import SearchPage from "./Pages/SearchPage/SearchPage";
 import UnauthorizedPage from "./Pages/UnauthorizedPage/UnauthorizedPage";
 import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
 import ProtectedUserRoute from "./components/ProtectedRoute/ProtectedUserRoute";
-import { HOME_URL, LOGIN_URL, REGISTER_URL, SEARCH_URL, UNAUTHORIZED_URL } from "./constants/URLS"
+import ProtectedAdminRoute from "./components/ProtectedRoute/ProtectedAdminRoute";
+import {
+  CREATE_ART,
+  CREATE_TOUR,
+  EDIT_ART,
+  EDIT_TOUR,
+  HOME_URL,
+  LOGIN_URL,
+  REGISTER_URL,
+  SEARCH_URL,
+  UNAUTHORIZED_URL,
+} from "./constants/URLS";
 import Edit_tour from "./Pages/EditTourPage/EditTourPage";
 import Edit_Art from "./Pages/EditArtPage/EditArtPage";
 import Create_Tour from "./Pages/CreateTourPage/CreateTourPage";
@@ -34,10 +45,38 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           />
           <Route path={UNAUTHORIZED_URL} element={<UnauthorizedPage />} />
           <Route path="*" element={<NotFoundPage />} />
-          <Route path="/edit" element={<Edit_tour />} />
-          <Route path = "/edita" element = {<Edit_Art/>}/>
-          <Route path = "/createt" element = {<Create_Tour/>}/>
-          <Route path = "/createa" element = {<Create_Art/>}/>
+          <Route
+            path={EDIT_TOUR}
+            element={
+              <ProtectedAdminRoute>
+                <Edit_tour />
+              </ProtectedAdminRoute>
+            }
+          />
+          <Route
+            path={EDIT_ART}
+            element={
+              <ProtectedAdminRoute>
+                <Edit_Art />
+              </ProtectedAdminRoute>
+            }
+          />
+          <Route
+            path={CREATE_TOUR}
+            element={
+              <ProtectedAdminRoute>
+                <Create_Tour />
+              </ProtectedAdminRoute>
+            }
+          />
+          <Route
+            path={CREATE_ART}
+            element={
+              <ProtectedAdminRoute>
+                <Create_Art />
+              </ProtectedAdminRoute>
+            }
+          />
         </Route>
       </Routes>
     </BrowserRouter>
