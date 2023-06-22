@@ -14,3 +14,5 @@ export const CREATE_TOUR = "/crear_tour";
 export const EDIT_TOUR = "/modificar_tour";
 
 export const EDIT_ART = "/modificar_obra";
+
+export const EDIT_PROFILE = "/modificar_perfil";

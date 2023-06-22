@@ -21,11 +21,13 @@ import {
   REGISTER_URL,
   SEARCH_URL,
   UNAUTHORIZED_URL,
+  EDIT_PROFILE,
 } from "./constants/URLS";
 import Edit_tour from "./Pages/EditTourPage/EditTourPage";
 import Edit_Art from "./Pages/EditArtPage/EditArtPage";
 import Create_Tour from "./Pages/CreateTourPage/CreateTourPage";
 import Create_Art from "./Pages/CreateArtPage/CreateArtPage";
+import Modify_Profile from "./Pages/ModifyProfilePage/ModifyProfilePage";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -35,6 +37,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path={HOME_URL} element={<HomePage />} />
           <Route path={LOGIN_URL} element={<LoginPage />} />
           <Route path={REGISTER_URL} element={<RegisterPage />} />
+          <Route path = {EDIT_PROFILE} element = {<Modify_Profile/>}/>
           <Route
             path={SEARCH_URL}
             element={
