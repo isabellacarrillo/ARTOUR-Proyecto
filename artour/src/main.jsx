@@ -11,6 +11,7 @@ import UnauthorizedPage from "./Pages/UnauthorizedPage/UnauthorizedPage";
 import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
 import ProtectedUserRoute from "./components/ProtectedRoute/ProtectedUserRoute";
 import ProtectedAdminRoute from "./components/ProtectedRoute/ProtectedAdminRoute";
+import ModifyProfilePage from "./Pages/ModifyProfilePage/ModifyProfilePage"
 import {
   CREATE_ART,
   CREATE_TOUR,
@@ -77,6 +78,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
               </ProtectedAdminRoute>
             }
           />
+          <Route path="/profile" element={<ProtectedUserRoute><ModifyProfilePage/></ProtectedUserRoute>}/>
         </Route>
       </Routes>
     </BrowserRouter>
