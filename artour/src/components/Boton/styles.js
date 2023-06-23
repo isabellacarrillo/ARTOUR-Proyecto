@@ -17,3 +17,6 @@ export const MINI =
 
 export const FEEDBACK =
   "w-fit h-fit bg-blue px-6 py-1 rounded-2xl text-white font-semibold border-4 border-blue transition ease-in-out duration-300 delay-0 hover:bg-orange hover:text-blue";
+
+  export const BACK =
+    "w-full h-fit rounded-2xl border-2 border-orange  py-2 text-sm font-semibold self-start text-orange transition ease-in-out duration-300 delay-0 hover:bg-orange hover:border-2 hover: hover:text-white";
