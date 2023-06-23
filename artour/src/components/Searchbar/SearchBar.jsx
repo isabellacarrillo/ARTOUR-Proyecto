@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { selected, deselected } from "./styles";
+import { selected, deselected, clear } from "./styles";
 
 export default function SearchBar() {
   const [filter, setFilter] = useState("");
@@ -10,6 +10,10 @@ export default function SearchBar() {
     } else {
       setFilter(e.target.value);
     }
+  };
+
+  const handleClear = (e) => {
+    setFilter("");
   };
 
   const handleLook = () => {
@@ -36,6 +40,17 @@ export default function SearchBar() {
         >
           Punto de Interes
         </button>
+        {filter ? (
+          <button
+            className={clear}
+            value="punto_de_interes"
+            onClick={handleClear}
+          >
+            X
+          </button>
+        ) : (
+          <></>
+        )}
       </>
     );
   };

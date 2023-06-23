@@ -4,7 +4,7 @@ import { useFormContext } from "react-hook-form";
 import { AnimatePresence, motion } from "framer-motion";
 import { findInputError, isFormInvalid } from "./utils";
 
-export default function Input({ label, type, name, id, validation }) {
+export default function Input({ label, type, name, id, validation, outlined }) {
   const {
     register,
     formState: { errors },
@@ -20,11 +20,11 @@ export default function Input({ label, type, name, id, validation }) {
           type={type}
           name={name}
           id={id}
-          className={EMPTY.input}
+          className={outlined ? OUTLINE.input : EMPTY.input}
           placeholder=" "
           {...register(name, validation)}
         />
-        <label htmlFor={id} className={EMPTY.label}>
+        <label htmlFor={id} className={outlined ? OUTLINE.label : EMPTY.label}>
           {label}
         </label>
       </div>
