@@ -11,6 +11,8 @@ import UnauthorizedPage from "./Pages/UnauthorizedPage/UnauthorizedPage";
 import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
 import ProtectedUserRoute from "./components/ProtectedRoute/ProtectedUserRoute";
 import ProtectedAdminRoute from "./components/ProtectedRoute/ProtectedAdminRoute";
+import ModifyProfilePage from "./Pages/ModifyProfilePage/ModifyProfilePage";
+import TourProfile from "./Pages/TourProfile/TourProfile";
 import {
   CONTACT_URL,
   CREATE_ART,
@@ -22,12 +24,18 @@ import {
   REGISTER_URL,
   SEARCH_URL,
   UNAUTHORIZED_URL,
+  TOUR_DETAIL,
+  OBRA_DETAIL,
 } from "./constants/URLS";
 import Edit_tour from "./Pages/EditTourPage/EditTourPage";
 import Edit_Art from "./Pages/EditArtPage/EditArtPage";
 import Create_Tour from "./Pages/CreateTourPage/CreateTourPage";
 import Create_Art from "./Pages/CreateArtPage/CreateArtPage";
+<<<<<<< HEAD
 import ContactPage from "./Pages/ContactPage/ContactPage";
+=======
+import ObraProfile from "./Pages/ObraProfile/ObraProfile";
+>>>>>>> dfc3d55842892593a1a69a9f20b9ca6ce20d9253
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -80,6 +88,16 @@ ReactDOM.createRoot(document.getElementById("root")).render(
               </ProtectedAdminRoute>
             }
           />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedUserRoute>
+                <ModifyProfilePage />
+              </ProtectedUserRoute>
+            }
+          />
+          <Route path={TOUR_DETAIL()} element={<TourProfile />} />
+          <Route path={OBRA_DETAIL()} element={<ObraProfile />} />
         </Route>
       </Routes>
     </BrowserRouter>

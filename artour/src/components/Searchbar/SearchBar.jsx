@@ -56,7 +56,6 @@ export default function SearchBar() {
   };
 
   useEffect(() => {
-    console.log(filter);
     handleLook();
   }, [filter]);
 
