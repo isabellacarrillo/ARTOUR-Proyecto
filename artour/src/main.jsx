@@ -12,6 +12,7 @@ import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
 import ProtectedUserRoute from "./components/ProtectedRoute/ProtectedUserRoute";
 import ProtectedAdminRoute from "./components/ProtectedRoute/ProtectedAdminRoute";
 import {
+  CONTACT_URL,
   CREATE_ART,
   CREATE_TOUR,
   EDIT_ART,
@@ -26,6 +27,7 @@ import Edit_tour from "./Pages/EditTourPage/EditTourPage";
 import Edit_Art from "./Pages/EditArtPage/EditArtPage";
 import Create_Tour from "./Pages/CreateTourPage/CreateTourPage";
 import Create_Art from "./Pages/CreateArtPage/CreateArtPage";
+import ContactPage from "./Pages/ContactPage/ContactPage";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -35,6 +37,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path={HOME_URL} element={<HomePage />} />
           <Route path={LOGIN_URL} element={<LoginPage />} />
           <Route path={REGISTER_URL} element={<RegisterPage />} />
+          <Route path = {CONTACT_URL} element = {<ContactPage/>}/>
           <Route
             path={SEARCH_URL}
             element={

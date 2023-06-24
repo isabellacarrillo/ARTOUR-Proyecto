@@ -48,7 +48,6 @@ export default function HomePage() {
   }
 
 
-
   return (
     <div className="w-full bg-white">
       <div className="bg-white flex flex-wrap flex-col justify-center">
