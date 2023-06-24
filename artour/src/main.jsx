@@ -7,24 +7,91 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "./Pages/LoginPage/LoginPage";
 import RegisterPage from "./Pages/RegisterPage/RegisterPage";
 import SearchPage from "./Pages/SearchPage/SearchPage";
+import UnauthorizedPage from "./Pages/UnauthorizedPage/UnauthorizedPage";
+import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
+import ProtectedUserRoute from "./components/ProtectedRoute/ProtectedUserRoute";
+import ProtectedAdminRoute from "./components/ProtectedRoute/ProtectedAdminRoute";
+import ModifyProfilePage from "./Pages/ModifyProfilePage/ModifyProfilePage";
+import TourProfile from "./Pages/TourProfile/TourProfile";
+import {
+  CREATE_ART,
+  CREATE_TOUR,
+  EDIT_ART,
+  EDIT_TOUR,
+  HOME_URL,
+  LOGIN_URL,
+  REGISTER_URL,
+  SEARCH_URL,
+  UNAUTHORIZED_URL,
+  TOUR_DETAIL,
+  OBRA_DETAIL,
+} from "./constants/URLS";
 import Edit_tour from "./Pages/EditTourPage/EditTourPage";
 import Edit_Art from "./Pages/EditArtPage/EditArtPage";
 import Create_Tour from "./Pages/CreateTourPage/CreateTourPage";
 import Create_Art from "./Pages/CreateArtPage/CreateArtPage";
+import ObraProfile from "./Pages/ObraProfile/ObraProfile";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
         <Route element={<Layout />}>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/registro" element={<RegisterPage />} />
-          <Route path="/buscar" element={<SearchPage />} />
-          <Route path="/edit" element={<Edit_tour />} />
-          <Route path = "/edita" element = {<Edit_Art/>}/>
-          <Route path = "/createt" element = {<Create_Tour/>}/>
-          <Route path = "/createa" element = {<Create_Art/>}/>
+          <Route path={HOME_URL} element={<HomePage />} />
+          <Route path={LOGIN_URL} element={<LoginPage />} />
+          <Route path={REGISTER_URL} element={<RegisterPage />} />
+          <Route
+            path={SEARCH_URL}
+            element={
+              <ProtectedUserRoute>
+                <SearchPage />
+              </ProtectedUserRoute>
+            }
+          />
+          <Route path={UNAUTHORIZED_URL} element={<UnauthorizedPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+          <Route
+            path={EDIT_TOUR}
+            element={
+              <ProtectedAdminRoute>
+                <Edit_tour />
+              </ProtectedAdminRoute>
+            }
+          />
+          <Route
+            path={EDIT_ART}
+            element={
+              <ProtectedAdminRoute>
+                <Edit_Art />
+              </ProtectedAdminRoute>
+            }
+          />
+          <Route
+            path={CREATE_TOUR}
+            element={
+              <ProtectedAdminRoute>
+                <Create_Tour />
+              </ProtectedAdminRoute>
+            }
+          />
+          <Route
+            path={CREATE_ART}
+            element={
+              <ProtectedAdminRoute>
+                <Create_Art />
+              </ProtectedAdminRoute>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedUserRoute>
+                <ModifyProfilePage />
+              </ProtectedUserRoute>
+            }
+          />
+          <Route path={TOUR_DETAIL()} element={<TourProfile />} />
+          <Route path={OBRA_DETAIL()} element={<ObraProfile />} />
         </Route>
       </Routes>
     </BrowserRouter>
