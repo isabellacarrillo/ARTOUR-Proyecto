@@ -23,6 +23,8 @@ import {
   REGISTER_URL,
   SEARCH_URL,
   UNAUTHORIZED_URL,
+  TOUR_DETAIL,
+  OBRA_DETAIL,
 } from "./constants/URLS";
 import Edit_tour from "./Pages/EditTourPage/EditTourPage";
 import Edit_Art from "./Pages/EditArtPage/EditArtPage";
@@ -88,8 +90,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
               </ProtectedUserRoute>
             }
           />
-          <Route path="/tours/profile" element={<TourProfile />} />
-          <Route path="/obras/profile" element={<ObraProfile />} />
+          <Route path={TOUR_DETAIL()} element={<TourProfile />} />
+          <Route path={OBRA_DETAIL()} element={<ObraProfile />} />
         </Route>
       </Routes>
     </BrowserRouter>

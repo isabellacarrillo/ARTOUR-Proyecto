@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Comment() {
+export default function Comment({comment}) {
   return (
     <div className="flex flex-row gap-6">
       <div className="w-14 h-14 rounded-full overflow-hidden bg-blue self-center">
@@ -10,8 +10,8 @@ export default function Comment() {
         />
       </div>
       <div className="bg-white rounded-2xl w-full h-fit drop-shadow-md p-4">
-        <h6 className="text-lg font-semibold">User</h6>
-        <p>Mi opinion acerca del tour la escribo y se muestra aqui</p>
+        <h6 className="text-lg font-semibold">{comment.user}</h6>
+        <p>{comment.comentario}</p>
       </div>
     </div>
   );
