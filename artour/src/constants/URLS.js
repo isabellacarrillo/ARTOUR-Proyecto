@@ -16,3 +16,16 @@ export const EDIT_TOUR = "/modificar_tour";
 export const EDIT_ART = "/modificar_obra";
 
 export const EDIT_PROFILE = "/modificar_perfil";
+
+export const CONTACT_URL = "/contacto";
+
+export const RESERVE_URL = "/reserva";
+
+export const FEEDBACK_URL = "/feedback";
+
+export const TOUR_DETAIL = (tourID = ":tourID") => {
+  return `/tours/${tourID}`;
+};
+export const OBRA_DETAIL = (obraID = ":obraID") => {
+  return `/obras/${obraID}`;
+};

@@ -11,17 +11,17 @@ import LoadingPage from "../LoadingPage/LoadingPage";
 export default function Layout() {
   return (
     <div>
-      <UserContextProvider>
-        <LoadingPage>
-          <main>
-            <NavBar />
-            <section className=" h-fit ">
-              <Outlet />
-            </section>
-            <Footer />
-          </main>
-        </LoadingPage>
-      </UserContextProvider>
+        <UserContextProvider>
+          <LoadingPage>
+            <main>
+              <NavBar />
+              <section className=" h-fit ">
+                <Outlet />
+              </section>
+              <Footer />
+            </main>
+          </LoadingPage>
+        </UserContextProvider>
     </div>
   );
 }

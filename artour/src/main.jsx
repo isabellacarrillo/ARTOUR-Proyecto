@@ -11,6 +11,8 @@ import UnauthorizedPage from "./Pages/UnauthorizedPage/UnauthorizedPage";
 import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
 import ProtectedUserRoute from "./components/ProtectedRoute/ProtectedUserRoute";
 import ProtectedAdminRoute from "./components/ProtectedRoute/ProtectedAdminRoute";
+import ModifyProfilePage from "./Pages/ModifyProfilePage/ModifyProfilePage";
+import TourProfile from "./Pages/TourProfile/TourProfile";
 import {
   CREATE_ART,
   CREATE_TOUR,
@@ -22,12 +24,23 @@ import {
   SEARCH_URL,
   UNAUTHORIZED_URL,
   EDIT_PROFILE,
+  TOUR_DETAIL,
+  OBRA_DETAIL,
+  CONTACT_URL,
+  RESERVE_URL,
+  FEEDBACK_URL,
 } from "./constants/URLS";
 import Edit_tour from "./Pages/EditTourPage/EditTourPage";
 import Edit_Art from "./Pages/EditArtPage/EditArtPage";
 import Create_Tour from "./Pages/CreateTourPage/CreateTourPage";
 import Create_Art from "./Pages/CreateArtPage/CreateArtPage";
 import Modify_Profile from "./Pages/ModifyProfilePage/ModifyProfilePage";
+
+import ObraProfile from "./Pages/ObraProfile/ObraProfile";
+import ContactPage from "./Pages/ContactPage/ContactPage";
+import ReservePage from "./Pages/ReservePage/ReservePage";
+import { FEEDBACK } from "./components/Boton/styles";
+import Feedback from "./Pages/FeedbackPage/FeedbackPage";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -38,6 +51,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path={LOGIN_URL} element={<LoginPage />} />
           <Route path={REGISTER_URL} element={<RegisterPage />} />
           <Route path = {EDIT_PROFILE} element = {<Modify_Profile/>}/>
+          <Route path = {CONTACT_URL} element = {<ContactPage/>}/>
+          <Route path = {RESERVE_URL} element = {<ReservePage/>}/>
+          <Route path = {FEEDBACK_URL} element = {<Feedback/>}/>
           <Route
             path={SEARCH_URL}
             element={
@@ -80,6 +96,16 @@ ReactDOM.createRoot(document.getElementById("root")).render(
               </ProtectedAdminRoute>
             }
           />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedUserRoute>
+                <ModifyProfilePage />
+              </ProtectedUserRoute>
+            }
+          />
+          <Route path={TOUR_DETAIL()} element={<TourProfile />} />
+          <Route path={OBRA_DETAIL()} element={<ObraProfile />} />
         </Route>
       </Routes>
     </BrowserRouter>

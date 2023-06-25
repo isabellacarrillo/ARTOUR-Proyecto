@@ -10,8 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@hookform/error-message": "^2.0.1",
     "@material-tailwind/react": "^2.0.3",
+    "@mui/material": "^5.13.5",
+    "@mui/x-date-pickers": "^6.9.0",
+    "dayjs": "^1.11.8",
     "firebase": "^9.22.2",
     "framer-motion": "^10.12.16",
     "loader": "^2.1.1",

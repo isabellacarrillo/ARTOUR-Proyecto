@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SearchBar from "../../components/Searchbar/SearchBar";
 import MiniTour from "../../components/MiniTour/MiniTour";
+import useTours from "../../hooks/useTours";
+import { Bars } from "react-loader-spinner";
 
 export default function SearchPage() {
+  const { tours, getTours, isLoading } = useTours();
+
+
+
+  useEffect(() => {
+    getTours();
+  }, [getTours]);
+
+
   return (
     <div>
       <div className="h-fit w-full flex flex-wrap content-center bg-orange p-8">
@@ -12,134 +23,15 @@ export default function SearchPage() {
         Tours Disponibles
       </h3>
       <div className="w-full justify-center flex flex-wrap flex-row gap-8 p-8 h-screen overflow-auto m-2 drop-shadow-lg">
-        <MiniTour
-          tour={{
-            image:
-              "https://www.unimet.edu.ve/wp-content/uploads/2022/02/FOTOS-EXPOSICI%C3%93N-FOTOGRAF%C3%8DA-7-1030x687.jpg",
-            duracion: "2 horas",
-            puntos_de_interes: ["Biblioteca", "Sala Mendoza", "Jardines"],
-          }}
-        />
-        <MiniTour
-          tour={{
-            image:
-              "https://www.unimet.edu.ve/wp-content/uploads/2022/02/FOTOS-EXPOSICI%C3%93N-FOTOGRAF%C3%8DA-7-1030x687.jpg",
-            duracion: "2 horas",
-            puntos_de_interes: ["Biblioteca", "Sala Mendoza", "Jardines"],
-          }}
-        />
-        <MiniTour
-          tour={{
-            image:
-              "https://www.unimet.edu.ve/wp-content/uploads/2022/02/FOTOS-EXPOSICI%C3%93N-FOTOGRAF%C3%8DA-7-1030x687.jpg",
-            duracion: "2 horas",
-            puntos_de_interes: ["Biblioteca", "Sala Mendoza", "Jardines"],
-          }}
-        />
-        <MiniTour
-          tour={{
-            image:
-              "https://www.unimet.edu.ve/wp-content/uploads/2022/02/FOTOS-EXPOSICI%C3%93N-FOTOGRAF%C3%8DA-7-1030x687.jpg",
-            duracion: "2 horas",
-            puntos_de_interes: ["Biblioteca", "Sala Mendoza", "Jardines"],
-          }}
-        />
-        <MiniTour
-          tour={{
-            image:
-              "https://www.unimet.edu.ve/wp-content/uploads/2022/02/FOTOS-EXPOSICI%C3%93N-FOTOGRAF%C3%8DA-7-1030x687.jpg",
-            duracion: "2 horas",
-            puntos_de_interes: ["Biblioteca", "Sala Mendoza", "Jardines"],
-          }}
-        />
-        <MiniTour
-          tour={{
-            image:
-              "https://www.unimet.edu.ve/wp-content/uploads/2022/02/FOTOS-EXPOSICI%C3%93N-FOTOGRAF%C3%8DA-7-1030x687.jpg",
-            duracion: "2 horas",
-            puntos_de_interes: ["Biblioteca", "Sala Mendoza", "Jardines"],
-          }}
-        />
-        <MiniTour
-          tour={{
-            image:
-              "https://www.unimet.edu.ve/wp-content/uploads/2022/02/FOTOS-EXPOSICI%C3%93N-FOTOGRAF%C3%8DA-7-1030x687.jpg",
-            duracion: "2 horas",
-            puntos_de_interes: ["Biblioteca", "Sala Mendoza", "Jardines"],
-          }}
-        />
-        <MiniTour
-          tour={{
-            image:
-              "https://www.unimet.edu.ve/wp-content/uploads/2022/02/FOTOS-EXPOSICI%C3%93N-FOTOGRAF%C3%8DA-7-1030x687.jpg",
-            duracion: "2 horas",
-            puntos_de_interes: ["Biblioteca", "Sala Mendoza", "Jardines"],
-          }}
-        />
-        <MiniTour
-          tour={{
-            image:
-              "https://www.unimet.edu.ve/wp-content/uploads/2022/02/FOTOS-EXPOSICI%C3%93N-FOTOGRAF%C3%8DA-7-1030x687.jpg",
-            duracion: "2 horas",
-            puntos_de_interes: ["Biblioteca", "Sala Mendoza", "Jardines"],
-          }}
-        />
-        <MiniTour
-          tour={{
-            image:
-              "https://www.unimet.edu.ve/wp-content/uploads/2022/02/FOTOS-EXPOSICI%C3%93N-FOTOGRAF%C3%8DA-7-1030x687.jpg",
-            duracion: "2 horas",
-            puntos_de_interes: ["Biblioteca", "Sala Mendoza", "Jardines"],
-          }}
-        />
-        <MiniTour
-          tour={{
-            image:
-              "https://www.unimet.edu.ve/wp-content/uploads/2022/02/FOTOS-EXPOSICI%C3%93N-FOTOGRAF%C3%8DA-7-1030x687.jpg",
-            duracion: "2 horas",
-            puntos_de_interes: ["Biblioteca", "Sala Mendoza", "Jardines"],
-          }}
-        />
-        <MiniTour
-          tour={{
-            image:
-              "https://www.unimet.edu.ve/wp-content/uploads/2022/02/FOTOS-EXPOSICI%C3%93N-FOTOGRAF%C3%8DA-7-1030x687.jpg",
-            duracion: "2 horas",
-            puntos_de_interes: ["Biblioteca", "Sala Mendoza", "Jardines"],
-          }}
-        />
-        <MiniTour
-          tour={{
-            image:
-              "https://www.unimet.edu.ve/wp-content/uploads/2022/02/FOTOS-EXPOSICI%C3%93N-FOTOGRAF%C3%8DA-7-1030x687.jpg",
-            duracion: "2 horas",
-            puntos_de_interes: ["Biblioteca", "Sala Mendoza", "Jardines"],
-          }}
-        />
-        <MiniTour
-          tour={{
-            image:
-              "https://www.unimet.edu.ve/wp-content/uploads/2022/02/FOTOS-EXPOSICI%C3%93N-FOTOGRAF%C3%8DA-7-1030x687.jpg",
-            duracion: "2 horas",
-            puntos_de_interes: ["Biblioteca", "Sala Mendoza", "Jardines"],
-          }}
-        />
-        <MiniTour
-          tour={{
-            image:
-              "https://www.unimet.edu.ve/wp-content/uploads/2022/02/FOTOS-EXPOSICI%C3%93N-FOTOGRAF%C3%8DA-7-1030x687.jpg",
-            duracion: "2 horas",
-            puntos_de_interes: ["Biblioteca", "Sala Mendoza", "Jardines"],
-          }}
-        />
-        <MiniTour
-          tour={{
-            image:
-              "https://www.unimet.edu.ve/wp-content/uploads/2022/02/FOTOS-EXPOSICI%C3%93N-FOTOGRAF%C3%8DA-7-1030x687.jpg",
-            duracion: "2 horas",
-            puntos_de_interes: ["Biblioteca", "Sala Mendoza", "Jardines"],
-          }}
-        />
+        {!isLoading ? (
+          tours.map((t) => {
+            return <MiniTour tour={t} />;
+          })
+        ) : (
+          <div className="w-full h-1/4 flex flex-wrap justify-center content-center">
+            <Bars color="#4F759B" />
+          </div>
+        )}
       </div>
     </div>
   );
