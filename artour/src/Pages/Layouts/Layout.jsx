@@ -2,8 +2,6 @@ import React from "react";
 import NavBar from "../../components/NavBar/NavBar";
 import { Outlet } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
-import { LocalizationProvider } from '@mui/x-date-pickers';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import {
   UserContextProvider,
   useUserContext,
@@ -13,7 +11,6 @@ import LoadingPage from "../LoadingPage/LoadingPage";
 export default function Layout() {
   return (
     <div>
-      <LocalizationProvider dateAdapter={AdapterDayjs}>
         <UserContextProvider>
           <LoadingPage>
             <main>
@@ -25,7 +22,6 @@ export default function Layout() {
             </main>
           </LoadingPage>
         </UserContextProvider>
-      </LocalizationProvider>
     </div>
   );
 }
