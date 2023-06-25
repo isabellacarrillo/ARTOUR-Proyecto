@@ -14,3 +14,10 @@ export const CREATE_TOUR = "/crear_tour";
 export const EDIT_TOUR = "/modificar_tour";
 
 export const EDIT_ART = "/modificar_obra";
+
+export const TOUR_DETAIL = (tourID = ":tourID") => {
+  return `/tours/${tourID}`;
+};
+export const OBRA_DETAIL = (obraID = ":obraID") => {
+  return `/obras/${obraID}`;
+};

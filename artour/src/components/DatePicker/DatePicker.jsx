@@ -34,7 +34,7 @@ export default function DatePicker() {
   };
 
   useEffect(() => {
-    setDate(`${start}-${end}`);
+    setDate(`${start}/${end}`);
   }, [start, end]);
 
   useEffect(() => {
