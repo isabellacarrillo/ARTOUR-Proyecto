@@ -5,8 +5,10 @@ import logo from "./foto/1.png";
 import { useUserContext } from "../../contexts/UserContext";
 import { logout } from "../../firebase/auth-service";
 import { HOME_URL } from "../../constants/URLS";
+
+
 export default function NavBar() {
-  const { user } = useUserContext();
+   const { user } = useUserContext();
 
   useEffect(() => {}, [user]);
   const handleLogout = async () => {

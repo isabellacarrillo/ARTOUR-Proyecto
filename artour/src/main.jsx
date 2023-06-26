@@ -104,8 +104,22 @@ ReactDOM.createRoot(document.getElementById("root")).render(
               </ProtectedUserRoute>
             }
           />
-          <Route path={TOUR_DETAIL()} element={<TourProfile />} />
-          <Route path={OBRA_DETAIL()} element={<ObraProfile />} />
+          <Route
+            path={TOUR_DETAIL()}
+            element={
+              <ProtectedUserRoute>
+                <TourProfile />
+              </ProtectedUserRoute>
+            }
+          />
+          <Route
+            path={OBRA_DETAIL()}
+            element={
+              <ProtectedUserRoute>
+                <ObraProfile />
+              </ProtectedUserRoute>
+            }
+          />
         </Route>
       </Routes>
     </BrowserRouter>

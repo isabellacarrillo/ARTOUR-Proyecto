@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Boton from "../Boton/Boton";
 import { PRINCIPAL } from "../Boton/styles";
-import { getPuntos } from "../../firebase/firestore/firestore_pull";
+import { useUserContext } from "../../contexts/UserContext";
 
 export default function TourTile({ tour }) {
+  const { role } = useUserContext();
   const [split, setSplit] = useState([]);
   const handleDates = () => {
     setSplit(tour.fechas.split("/"));
@@ -100,7 +101,11 @@ export default function TourTile({ tour }) {
           </div>
         </div>
       </div>
-      <Boton display="Reservar" style={PRINCIPAL} />
+      {role === "admin" ? (
+        <Boton display="Modificar" style={PRINCIPAL} />
+      ) : (
+        <Boton display="Reservar" style={PRINCIPAL} />
+      )}
     </div>
   );
 }
