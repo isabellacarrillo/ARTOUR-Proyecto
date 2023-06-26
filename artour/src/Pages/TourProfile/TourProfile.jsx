@@ -6,7 +6,9 @@ import { useParams } from "react-router-dom";
 import useTours from "../../hooks/useTours";
 import { Bars } from "react-loader-spinner";
 
+
 export default function TourProfile() {
+
   const { tourID } = useParams();
   const { getTour, tour, isLoading, obras, getObras } = useTours();
   const [loadingObras, setLoadingObras] = useState(true);
@@ -22,12 +24,13 @@ export default function TourProfile() {
 
   useEffect(() => {
     if (tour) {
+      setLoadingObras(true);
       getObras(tour.puntos_de_interes);
     }
     if (obras) {
       setLoadingObras(false);
     }
-  });
+  }, [getObras, tour]);
 
   if (isLoading && !tour) {
     return (
@@ -60,7 +63,7 @@ export default function TourProfile() {
         ) : (
           <div className="w-full h-1/4 flex flex-wrap justify-center content-center">
             <Bars color="#4F759B" />
-          </div>  
+          </div>
         )}
       </div>
       <h3 className="text-2xl text-orange font-extrabold md:text-[32px] md:ml-2">

@@ -3,11 +3,12 @@ import {
   getPuntos,
   getTourDetail,
   pullAllTours,
-  pullObra
+  pullObra,
 } from "../firebase/firestore/firestore_pull";
 
 export default function useTours() {
   const [isLoading, setIsLoading] = useState(false);
+  const [loadingObras, setLoadingObras] = useState(true);
 
   const [tours, setTours] = useState([]);
   const [tour, setTour] = useState();
@@ -39,14 +40,12 @@ export default function useTours() {
 
   const getObras = useCallback(async (puntos) => {
     try {
-      setIsLoading(true);
       for (let index = 0; index < puntos.length; index++) {
         const data = await getPuntos(puntos[index].ref);
-        if (!obras.find((o) => o.nombre === data.nombre)) {
-          setObras([...obras, data]);
+        if (obras.length < puntos.length) {
+          setObras((current) => [...current, data]);
         }
       }
-      setIsLoading(false)
       return obras;
     } catch (error) {
       console.log(error);
@@ -74,5 +73,6 @@ export default function useTours() {
     getObras,
     obra,
     getObra,
+    loadingObras,
   };
 }
