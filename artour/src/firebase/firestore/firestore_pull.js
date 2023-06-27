@@ -53,13 +53,16 @@ export const pullQuery = async (search, filter, tours) => {
     let puntos = [];
     obras.forEach((o) => {
       const data = o.data();
+  
       puntos.push(data.punto_de_interes);
     });
+
     let tourfiltered = [];
     tours.map((t) => {
       Object.keys(t).forEach((k) => {
         if (k === "puntos_de_interes") {
           const p = t[k];
+                  console.log(p);
           if (p.some((pun) => pun.nombre === puntos[0])) {
             tourfiltered.push(t);
           }
@@ -71,12 +74,11 @@ export const pullQuery = async (search, filter, tours) => {
     let tourfiltered = [];
     tours.map((t) => {
       Object.keys(t).forEach((k) => {
-        if (k === "fecha") {
+        if (k === "fechas") {
           const p = t[k].split("/");
           const wanted = new Date(search);
           const start = new Date(p[0]);
           const end = new Date(p[1]);
-          console.log(wanted >= start && wanted <= end);
           if (wanted >= start && wanted <= end) {
             tourfiltered.push(t);
           }

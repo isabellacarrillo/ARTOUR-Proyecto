@@ -15,13 +15,15 @@ import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
 const addObraPunto = async (data, id) => {
   try {
+    console.log(data.punto_de_interes);
     const q = query(
       collection(db, "puntos de interes"),
       where("nombre", "==", data.punto_de_interes)
     );
     const res = await getDocs(q);
     let ref;
-    if (res.length > 0) {
+    if (!res.empty) {
+      console.log("if");
       res.forEach((d) => {
         ref = d.id;
       });
@@ -35,12 +37,13 @@ const addObraPunto = async (data, id) => {
         }),
       });
     } else {
+      console.log("else");
       const newRef = doc(
         collection(db, "puntos de interes"),
         data.punto_de_interes.toLowerCase().replace(/ /g, "_")
       );
       const create = await setDoc(newRef, {
-        id:newRef.id,
+        id: newRef.id,
         nombre: data.punto_de_interes,
         obras: [
           {
@@ -57,12 +60,15 @@ const addObraPunto = async (data, id) => {
   }
 };
 
-const uploadPic = async (blob, path, name) => {
+const uploadPic = async (blob, path, name, pi) => {
   try {
     if (blob != null) {
-      console.log("bol", blob.name);
-      console.log(`${path}/${name}`);
-      const storeRef = ref(storage, `${path}/${name}`);
+      let storeRef;
+      if (pi) {
+        storeRef = ref(storage, `${path}/${pi}/${name}`);
+      } else {
+        storeRef = ref(storage, `${path}/${name}`);
+      }
       await uploadBytes(storeRef, blob).then((h) => {});
       console.log(storeRef);
       const url = await getDownloadURL(storeRef);
@@ -112,8 +118,12 @@ export const createNewObra = async (data) => {
     });
     if (found.length == 0) {
       const ref = doc(collection(db, "obras"));
-      console.log(ref.id);
-      const url = await uploadPic(data.img, "obras_de_arte", data.nombre_obra);
+      const url = await uploadPic(
+        data.img,
+        "obras_de_arte",
+        data.nombre_obra,
+        data.punto_de_interes.replace(/ /g, "_")
+      );
       Object.keys(data).forEach((k) => {
         if (k === "img") {
           data[k] = url;
@@ -144,7 +154,6 @@ export const createNewTour = async (data) => {
     });
     if (found.length == 0) {
       const ref = doc(collection(db, "tours"));
-      console.log(collection(db, "tours"));
       const url = await uploadPic(data.img, "tours", data.nombre_tour);
       const pObj = await fetchPuntos(data.puntos_de_interes);
       Object.keys(data).forEach((k) => {

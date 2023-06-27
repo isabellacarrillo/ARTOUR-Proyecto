@@ -13,6 +13,7 @@ export default function TourTile({ tour }) {
   useEffect(() => {
     handleDates();
   }, [tour]);
+  
   return (
     <div className="bg-lightorange p-14 rounded-3xl drop-shadow-lg flex flex-col gap-4 h-fit max-w-[1200px] self-center">
       <h2 className="text-[44px] font-extrabold text-orange">

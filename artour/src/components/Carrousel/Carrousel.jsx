@@ -65,7 +65,7 @@ export default function Carrousel() {
         <div className="flex justify-between absolute top left w-full h-full">
           <button
             onClick={movePrev}
-            className="hover:bg-blue/75 text-white w-10 h-full text-center opacity-75 hover:opacity-100 z-10 p-0 m-0 transition-all ease-in-out duration-300"
+            className="hover:bg-blue/75 text-white w-10 h-full text-center opacity-75 hover:opacity-100 z-20 p-0 m-0 transition-all ease-in-out duration-300"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +85,7 @@ export default function Carrousel() {
           </button>
           <button
             onClick={moveNext}
-            className="hover:bg-blue/75 text-white w-10 h-full text-center opacity-75 hover:opacity-100 z-10 p-0 m-0 transition-all ease-in-out duration-300"
+            className="hover:bg-blue/75 text-white w-10 h-full text-center opacity-75 hover:opacity-100 z-20 p-0 m-0 transition-all ease-in-out duration-300"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -30,12 +30,12 @@ const Containers = ({ image, title, descripcion, left_image }) => {
 
 export default function HomePage() {
 
-  const {user, isLoading}= useUserContext();
+  const {user, isLoading, role}= useUserContext();
 
   const handleUser= ()=>{
     if(!isLoading && !user){
       return <></>
-    }else if(user){
+    }else if(user && role ==="user"){
       return <div className="bg-orange p-10 flex flex-row justify-between text-white">
         <div className="">
 
