@@ -46,6 +46,7 @@ export default function useTours() {
           setObras((current) => [...current, data]);
         }
       }
+      setLoadingObras(false)
       return obras;
     } catch (error) {
       console.log(error);

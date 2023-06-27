@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
 import Boton from "../../components/Boton/Boton";
-import { BACK } from "../../components/Boton/styles";
+import { AUXILIAR, BACK } from "../../components/Boton/styles";
 import { useNavigate, useParams } from "react-router-dom";
 import useTours from "../../hooks/useTours";
 import { Bars } from "react-loader-spinner";
+import { useUserContext } from "../../contexts/UserContext";
 
 export default function ObraProfile() {
+  const { role } = useUserContext();
   const { obraID } = useParams();
   const navigate = useNavigate();
   const { obra, isLoading, getObra } = useTours();
@@ -22,7 +24,7 @@ export default function ObraProfile() {
     );
   }
   if (!isLoading && !obra) {
-    return <h1>No se hallo la info</h1>;
+    return navigate("*");
   }
 
   return (
@@ -75,6 +77,11 @@ export default function ObraProfile() {
             <p className="md:text-lg">{obra.descripcion}</p>
           </div>
         </div>
+        {role === "admin" ? (
+          <Boton display="Modificar" style={AUXILIAR} />
+        ) : (
+          <></>
+        )}
       </div>
       <Boton
         display="Regresar al tour"

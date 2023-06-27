@@ -2,16 +2,19 @@ import React, { useEffect, useState } from "react";
 import TourTile from "../../components/TourTitle/TourTile";
 import MiniObra from "../../components/MiniObra/MiniObra";
 import Comment from "../../components/Comment/Comment";
-import { useParams } from "react-router-dom";
+import PopUp from "../../components/PopUp/PopUp";
+import Boton from "../../components/Boton/Boton";
+import { AUXILIAR, BACK } from "../../components/Boton/styles";
+import { useNavigate, useParams } from "react-router-dom";
 import useTours from "../../hooks/useTours";
 import { Bars } from "react-loader-spinner";
-
+import { HOME_URL } from "../../constants/URLS";
 
 export default function TourProfile() {
-
+  const navigate = useNavigate();
   const { tourID } = useParams();
-  const { getTour, tour, isLoading, obras, getObras } = useTours();
-  const [loadingObras, setLoadingObras] = useState(true);
+  const { getTour, tour, isLoading, obras, getObras, loadingObras } =
+    useTours();
 
   useEffect(() => {
     if (!isLoading && tourID) {
@@ -24,11 +27,7 @@ export default function TourProfile() {
 
   useEffect(() => {
     if (tour) {
-      setLoadingObras(true);
       getObras(tour.puntos_de_interes);
-    }
-    if (obras) {
-      setLoadingObras(false);
     }
   }, [getObras, tour]);
 
@@ -40,11 +39,18 @@ export default function TourProfile() {
     );
   }
   if (!isLoading && !tour) {
-    return <h1>No se hallo la info</h1>;
+    return navigate("*");
   }
 
   return (
     <div className="flex flex-col flex-wrap p-6 content-center justify-center gap-8">
+      <Boton
+        display="Regresar al buscador"
+        style={BACK}
+        action={() => {
+          navigate(-1);
+        }}
+      />
       <TourTile tour={tour} />
       <h3 className="text-2xl text-orange font-extrabold md:text-[32px] md:ml-2">
         Obras a Visitar
@@ -70,7 +76,7 @@ export default function TourProfile() {
         Comentarios de los Visitantes
       </h3>
       <div className="bg-bluegray p-8 gap-4 flex flex-col rounded-2xl max-h- drop-shadow-md  overflow-auto md:w-[700px] xl:w-[1200px]  self-center">
-        {tour.comentarios ? (
+        {tour.comentarios.length > 0 ? (
           tour.comentarios.map((c) => {
             return <Comment comment={c} />;
           })

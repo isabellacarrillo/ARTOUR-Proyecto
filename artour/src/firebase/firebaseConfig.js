@@ -1,7 +1,12 @@
 //Configuración para la conexión con Firebase y Firestore
 
 import { initializeApp } from "firebase/app";
-import { FacebookAuthProvider, getAuth, GoogleAuthProvider, TwitterAuthProvider } from "firebase/auth";
+import {
+  FacebookAuthProvider,
+  getAuth,
+  GoogleAuthProvider,
+  TwitterAuthProvider,
+} from "firebase/auth";
 import { getStorage } from "firebase/storage";
 import { getFirestore } from "@firebase/firestore";
 
