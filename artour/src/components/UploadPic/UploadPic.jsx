@@ -3,12 +3,14 @@ import { useFormContext } from "react-hook-form";
 
 export default function UploadPic() {
   const [file, setFile] = useState();
+  const [upl, setUpl] = useState();
 
   const { setValue } = useFormContext();
 
   const handleChange = (e) => {
     try {
       setFile(URL.createObjectURL(e.target.files[0]));
+      setUpl(e.target.files[0]);
     } catch (error) {
       console.error(error);
     }
@@ -16,7 +18,8 @@ export default function UploadPic() {
 
   useEffect(() => {
     if (file) {
-      setValue("img", file);
+      console.log(upl);
+      setValue("img", upl);
     } else {
       setValue("img", null);
     }

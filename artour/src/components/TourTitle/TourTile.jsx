@@ -7,7 +7,7 @@ export default function TourTile({ tour }) {
   const { role } = useUserContext();
   const [split, setSplit] = useState([]);
   const handleDates = () => {
-    setSplit(tour.fechas.split("/"));
+    setSplit(tour.fecha.split("/"));
   };
 
   useEffect(() => {
@@ -103,8 +103,10 @@ export default function TourTile({ tour }) {
       </div>
       {role === "admin" ? (
         <Boton display="Modificar" style={PRINCIPAL} />
-      ) : (
+      ) : tour.disponibilidad === "full" ? (
         <Boton display="Reservar" style={PRINCIPAL} />
+      ) : (
+        <></>
       )}
     </div>
   );
