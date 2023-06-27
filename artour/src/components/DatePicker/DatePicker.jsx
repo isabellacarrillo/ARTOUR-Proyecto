@@ -29,7 +29,16 @@ export default function DatePicker() {
         message: "Obligatorio",
       });
     } else {
-      clearErrors("fecha");
+      const s = new Date(start);
+      const e = new Date(end);
+      if (e < s) {
+        setError("fecha", {
+          type: "fecha_invalida",
+          message: "Por favor introduzca un rango valido",
+        });
+      } else {
+        clearErrors("fecha");
+      }
     }
   };
 

@@ -3,10 +3,12 @@ import Input from "../../components/Input/Input";
 import Boton from "../../components/Boton/Boton";
 import { PRINCIPAL } from "../../components/Boton/styles";
 import { FormProvider, useForm } from "react-hook-form";
+import { useUserContext } from "../../contexts/UserContext";
 import UploadPic from "../../components/UploadPic/UploadPic";
 
 const Modify_Profile = () => {
   const methods = useForm();
+  const { role } = useUserContext();
 
   const handleOnSubmit = (data, e) => {
     e.preventDefault();
@@ -76,6 +78,15 @@ const Modify_Profile = () => {
                         message: "Su clave debe tener al menos 5 caracteres",
                       },
                     }}
+                  />
+                  <Input
+                    label={
+                      role === "user" ? "Numero de Carnet" : "Departamento"
+                    }
+                    type="text"
+                    name={role === "user" ? "numero_carnet" : "departamento"}
+                    id={role === "user" ? "numero_de_carnet" : "departamento"}
+                    outlined
                   />
                 </div>
               </div>

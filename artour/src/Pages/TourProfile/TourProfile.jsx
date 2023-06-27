@@ -61,7 +61,7 @@ export default function TourProfile() {
             return (
               <>
                 {obra.obras.map((o) => {
-                  return <MiniObra obra={o} p={obra.nombre} />;
+                  return <MiniObra obra={o} p={obra.nombre} key={o.id} />;
                 })}
               </>
             );
