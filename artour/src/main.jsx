@@ -50,10 +50,10 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path={HOME_URL} element={<HomePage />} />
           <Route path={LOGIN_URL} element={<LoginPage />} />
           <Route path={REGISTER_URL} element={<RegisterPage />} />
-          <Route path = {EDIT_PROFILE} element = {<Modify_Profile/>}/>
-          <Route path = {CONTACT_URL} element = {<ContactPage/>}/>
-          <Route path = {RESERVE_URL} element = {<ReservePage/>}/>
-          <Route path = {FEEDBACK_URL} element = {<Feedback/>}/>
+          <Route path={EDIT_PROFILE} element={<Modify_Profile />} />
+          <Route path={CONTACT_URL} element={<ContactPage />} />
+          <Route path={RESERVE_URL()} element={<ReservePage />} />
+          <Route path={FEEDBACK_URL} element={<Feedback />} />
           <Route
             path={SEARCH_URL}
             element={
@@ -65,7 +65,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path={UNAUTHORIZED_URL} element={<UnauthorizedPage />} />
           <Route path="*" element={<NotFoundPage />} />
           <Route
-            path={EDIT_TOUR}
+            path={EDIT_TOUR()}
             element={
               <ProtectedAdminRoute>
                 <Edit_tour />
@@ -73,7 +73,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             }
           />
           <Route
-            path={EDIT_ART}
+            path={EDIT_ART()}
             element={
               <ProtectedAdminRoute>
                 <Edit_Art />

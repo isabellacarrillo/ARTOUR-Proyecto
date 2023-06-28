@@ -2,6 +2,8 @@ export const PRINCIPAL =
   "w-fit h-fit bg-orange px-8 py-2 rounded-2xl text-white transition ease-in-out font-semibold duration-300 delay-0 hover:bg-blue";
 export const AUXILIAR =
   "w-fit h-fit bg-blue px-8 py-2 rounded-2xl text-white font-semibold transition ease-in-out duration-300 delay-0 hover:bg-orange";
+export const SECOND =
+  "w-fit h-fit bg-lightorange px-8 py-2 rounded-2xl text-orange font-semibold transition ease-in-out duration-300 delay-0 hover:bg-orange hover:text-lightorange";
 export const TODO =
   "w-full h-fit bg-orange px-8 py-2 rounded-2xl text-white font-semibold transition ease-in-out duration-300 delay-0 hover:bg-blue";
 

@@ -3,7 +3,7 @@ import Input from "../../components/Input/Input";
 import Boton from "../../components/Boton/Boton";
 import { PRINCIPAL } from "../../components/Boton/styles";
 import { FormProvider, useForm } from "react-hook-form";
-import CheckBoxZonasDeInteres from "../../components/Input/CheckBoxZonasDeInteres";
+import CheckBoxZonasDeInteres from "../../components/CheckBox/CheckBoxZonasDeInteres";
 import DatePicker from "../../components/DatePicker/DatePicker";
 import UploadPic from "../../components/UploadPic/UploadPic";
 import PopUp from "../../components/PopUp/PopUp";

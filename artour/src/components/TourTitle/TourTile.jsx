@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Boton from "../Boton/Boton";
 import { PRINCIPAL } from "../Boton/styles";
 import { useUserContext } from "../../contexts/UserContext";
+import { Link } from "react-router-dom";
+import { EDIT_TOUR } from "../../constants/URLS";
 
 export default function TourTile({ tour }) {
   const { role } = useUserContext();
@@ -13,7 +15,7 @@ export default function TourTile({ tour }) {
   useEffect(() => {
     handleDates();
   }, [tour]);
-  
+
   return (
     <div className="bg-lightorange p-14 rounded-3xl drop-shadow-lg flex flex-col gap-4 h-fit max-w-[1200px] self-center">
       <h2 className="text-[44px] font-extrabold text-orange">
@@ -103,7 +105,9 @@ export default function TourTile({ tour }) {
         </div>
       </div>
       {role === "admin" ? (
-        <Boton display="Modificar" style={PRINCIPAL} />
+        <Link to={EDIT_TOUR(tour.id)}>
+          <Boton display="Modificar" style={PRINCIPAL} />
+        </Link>
       ) : tour.disponibilidad === "full" ? (
         <Boton display="Reservar" style={PRINCIPAL} />
       ) : (

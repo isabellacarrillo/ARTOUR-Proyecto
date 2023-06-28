@@ -62,7 +62,7 @@ export default function useTours() {
     } catch (error) {
       console.log(error);
     }
-  });
+  },[]);
 
   return {
     isLoading,

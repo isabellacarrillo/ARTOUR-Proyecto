@@ -7,7 +7,7 @@ import { logout } from "../../firebase/auth-service";
 import { HOME_URL } from "../../constants/URLS";
 
 export default function NavBar() {
-  const { user } = useUserContext();
+  const { user, role } = useUserContext();
 
   useEffect(() => {}, [user]);
   const handleLogout = async () => {
@@ -30,7 +30,11 @@ export default function NavBar() {
           >
             Cerrar Sesion
           </button>
-          <p className="font-bold text-white text-[13px]">ADMINISTRADOR</p>
+          {role === "admin" ? (
+            <p className="font-bold text-white text-[13px]">ADMINISTRADOR</p>
+          ) : (
+            <></>
+          )}
           <Link
             className="text-sm text-white relative after:bg-blue after:left-0 after:-bottom-0 after:rounded-xl after:h-0.5 after:w-0 after:absolute after:duration-300 hover:after:w-full
           hover:text-bluegray

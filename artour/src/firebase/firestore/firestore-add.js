@@ -37,7 +37,6 @@ const addObraPunto = async (data, id) => {
         }),
       });
     } else {
-      console.log("else");
       const newRef = doc(
         collection(db, "puntos de interes"),
         data.punto_de_interes.toLowerCase().replace(/ /g, "_")
@@ -60,11 +59,12 @@ const addObraPunto = async (data, id) => {
   }
 };
 
-const uploadPic = async (blob, path, name, pi) => {
+export const uploadPic = async (blob, path, name, pi) => {
   try {
     if (blob != null) {
       let storeRef;
       if (pi) {
+        console.log(`${path}/${pi}/${name}`);
         storeRef = ref(storage, `${path}/${pi}/${name}`);
       } else {
         storeRef = ref(storage, `${path}/${name}`);
@@ -81,26 +81,28 @@ const uploadPic = async (blob, path, name, pi) => {
   }
 };
 
-const fetchPuntos = async (puntos) => {
-  let pObjs = [];
-  for (let index = 0; index < puntos.length; index++) {
-    const element = query(
-      collection(db, "puntos de interes"),
-      where("nombre", "==", puntos[index])
-    );
+export const fetchPuntos = async (puntos) => {
+  try {
+    let pObjs = [];
+    for (let index = 0; index < puntos.length; index++) {
+      const element = query(
+        collection(db, "puntos de interes"),
+        where("nombre", "==", puntos[index])
+      );
 
-    const result = await getDocs(element);
-    let p;
-    result.forEach((r) => {
-      p = r.data();
-    });
-    console.log(p);
-    pObjs.push({
-      nombre: p.nombre,
-      ref: doc(collection(db, "puntos de interes"), p.id),
-    });
-  }
-  return pObjs;
+      const result = await getDocs(element);
+      let p;
+      result.forEach((r) => {
+        p = r.data();
+      });
+      console.log(p);
+      pObjs.push({
+        nombre: p.nombre,
+        ref: doc(collection(db, "puntos de interes"), p.id),
+      });
+    }
+    return pObjs;
+  } catch (error) {}
 };
 export const createNewObra = async (data) => {
   try {
@@ -121,8 +123,8 @@ export const createNewObra = async (data) => {
       const url = await uploadPic(
         data.img,
         "obras_de_arte",
-        data.nombre_obra,
-        data.punto_de_interes.replace(/ /g, "_")
+        data.nombre_obra.toLowerCase().replace(/ /g, "_"),
+        data.punto_de_interes.toLowerCase().replace(/ /g, "_")
       );
       Object.keys(data).forEach((k) => {
         if (k === "img") {

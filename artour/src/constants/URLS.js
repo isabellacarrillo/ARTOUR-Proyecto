@@ -11,15 +11,21 @@ export const CREATE_ART = "/crear_obra";
 
 export const CREATE_TOUR = "/crear_tour";
 
-export const EDIT_TOUR = "/modificar_tour";
+export const EDIT_TOUR = (tourID = ":tourID") => {
+  return `/tours/${tourID}/modificar`;
+};
 
-export const EDIT_ART = "/modificar_obra";
+export const EDIT_ART = (obraID = ":obraID") => {
+  return `/obras/${obraID}/modificar`;
+};
 
 export const EDIT_PROFILE = "/modificar_perfil";
 
 export const CONTACT_URL = "/contacto";
 
-export const RESERVE_URL = "/reserva";
+export const RESERVE_URL = (tour = ":tour") => {
+  return `/tours/${tour.id}/reservar`;
+};
 
 export const FEEDBACK_URL = "/feedback";
 
