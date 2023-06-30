@@ -145,6 +145,7 @@ export const createNewObra = async (data) => {
 
 export const createNewTour = async (data) => {
   try {
+    data["fecha"] = getDates(data.fecha, data.capacidad);
     const q = query(
       collection(db, "tours"),
       where("nombre_tour", "==", `${data.nombre_tour}`)
@@ -182,3 +183,29 @@ export const createNewTour = async (data) => {
     return "error";
   }
 };
+
+export const getDates = (data, capacidad) => {
+  const range = data.split("-");
+  let dates = [];
+  const start = new Date(range[0]);
+  const end = new Date(range[1]);
+
+  const datesArray = getDatesFromDateRange(start, end);
+
+  datesArray.forEach((d) => {
+    const newD = new Date(d.toLocaleDateString());
+    dates.push({
+      fecha: d.toLocaleDateString(),
+      capacidad: parseInt(capacidad),
+    });
+  });
+  return dates;
+};
+function getDatesFromDateRange(from, to) {
+  const dates = [];
+  for (let date = from; date <= to; date.setDate(date.getDate() + 1)) {
+    const cloned = new Date(date.valueOf());
+    dates.push(cloned);
+  }
+  return dates;
+}

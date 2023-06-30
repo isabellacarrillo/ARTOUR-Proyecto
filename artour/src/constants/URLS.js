@@ -23,8 +23,8 @@ export const EDIT_PROFILE = "/modificar_perfil";
 
 export const CONTACT_URL = "/contacto";
 
-export const RESERVE_URL = (tour = ":tour") => {
-  return `/tours/${tour.id}/reservar`;
+export const RESERVE_URL = (tourID = ":tourID") => {
+  return `/tours/${tourID}/reservar`;
 };
 
 export const FEEDBACK_URL = "/feedback";

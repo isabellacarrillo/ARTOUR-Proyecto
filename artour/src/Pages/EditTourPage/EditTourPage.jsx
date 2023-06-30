@@ -167,7 +167,7 @@ const Create_Art = () => {
                   </div>
                   <CheckBoxModify tour_puntos={tour.puntos_de_interes} />
                 </div>
-                <DatePickerModify fecha={tour.fecha.split("/")} />
+                <DatePickerModify fecha={tour.fecha} />
               </form>
             </div>
           </div>

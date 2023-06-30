@@ -2,7 +2,7 @@ import React from "react";
 import { Bars } from "react-loader-spinner";
 import { Link } from "react-router-dom";
 
-export default function PopUp({ message, action, display, type }) {
+export default function PopUp({ message, action, display, type, next }) {
   const handleIcon = () => {
     switch (type) {
       case "info":
@@ -54,12 +54,21 @@ export default function PopUp({ message, action, display, type }) {
         <div className="relative bg-white shadow-lg w-fit h-fit px-20 py-16 rounded-2xl flex flex-col flex-wrap items-center justify-center gap-6">
           {handleIcon()}
           <h1 className="text-lg font-extrabold">{message}</h1>
-          <Link
-            className="bg-bluegray px-6 py-2 rounded-2xl font font-semibold text-blue transition ease-in-out duration-300 delay-0 hover:bg-blue hover:text-bluegray"
-            to={action}
-          >
-            {display}
-          </Link>
+          {next ? (
+            <button
+              className="bg-bluegray px-6 py-2 rounded-2xl font font-semibold text-blue transition ease-in-out duration-300 delay-0 hover:bg-blue hover:text-bluegray"
+              onClick={action}
+            >
+              {display}
+            </button>
+          ) : (
+            <Link
+              className="bg-bluegray px-6 py-2 rounded-2xl font font-semibold text-blue transition ease-in-out duration-300 delay-0 hover:bg-blue hover:text-bluegray"
+              to={action}
+            >
+              {display}
+            </Link>
+          )}
         </div>
       </div>
       <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>

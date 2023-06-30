@@ -3,18 +3,11 @@ import Boton from "../Boton/Boton";
 import { PRINCIPAL } from "../Boton/styles";
 import { useUserContext } from "../../contexts/UserContext";
 import { Link } from "react-router-dom";
-import { EDIT_TOUR } from "../../constants/URLS";
+import { EDIT_TOUR, RESERVE_URL } from "../../constants/URLS";
 
 export default function TourTile({ tour }) {
   const { role } = useUserContext();
   const [split, setSplit] = useState([]);
-  const handleDates = () => {
-    setSplit(tour.fecha.split("/"));
-  };
-
-  useEffect(() => {
-    handleDates();
-  }, [tour]);
 
   return (
     <div className="bg-lightorange p-14 rounded-3xl drop-shadow-lg flex flex-col gap-4 h-fit max-w-[1200px] self-center">
@@ -83,7 +76,7 @@ export default function TourTile({ tour }) {
               Fechas disponibles
             </h4>
             <p className="md:text-lg">
-              {split[0]} hasta {split[1]}
+              {tour.fecha[0].fecha} hasta {tour.fecha.slice(-1)[0].fecha}
             </p>
           </div>
           <div>
@@ -109,7 +102,9 @@ export default function TourTile({ tour }) {
           <Boton display="Modificar" style={PRINCIPAL} />
         </Link>
       ) : tour.disponibilidad === "full" ? (
-        <Boton display="Reservar" style={PRINCIPAL} />
+        <Link to={RESERVE_URL(tour.id)}>
+          <Boton display="Reservar" style={PRINCIPAL} />
+        </Link>
       ) : (
         <></>
       )}

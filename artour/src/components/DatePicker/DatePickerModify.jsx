@@ -35,7 +35,7 @@ export default function DatePickerModify({ fecha }) {
     }
   };
   useEffect(() => {
-    setDate(`${start}/${end}`);
+    setDate(`${start}-${end}`);
   }, [start, end]);
 
   useEffect(() => {
@@ -60,9 +60,10 @@ export default function DatePickerModify({ fecha }) {
             onBlur={(e) => (e.target.type = "text")}
             id="inicio"
             min={today()}
-            placeholder={fecha[0]}
+            placeholder={fecha[0].fecha}
             onChange={(e) => {
-              setStart(e.target.value.replace(/-/g, "/"));
+              const date = new Date(e.target.value.replace(/-/g, "/"));
+              setStart(date.toLocaleDateString());
             }}
           />
         </div>
@@ -77,9 +78,10 @@ export default function DatePickerModify({ fecha }) {
             onBlur={(e) => (e.target.type = "text")}
             id="fin"
             min={today()}
-            placeholder={fecha[1]}
+            placeholder={fecha.slice(-1)[0].fecha}
             onChange={(e) => {
-              setEnd(e.target.value.replace(/-/g, "/"));
+              const date = new Date(e.target.value.replace(/-/g, "/"));
+              setEnd(date.toLocaleDateString());
             }}
           />
         </div>

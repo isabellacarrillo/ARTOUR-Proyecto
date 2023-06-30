@@ -27,6 +27,7 @@ export const signInWithGoogle = async ({ onSuccess }) => {
         telefono: "",
         numero_carnet: "",
         role: "user",
+        reservas: [],
       });
     }
     if (onSuccess) {
@@ -51,6 +52,7 @@ export const signInWithFacebook = async ({ onSuccess }) => {
         telefono: "",
         numero_carnet: "",
         role: "user",
+        reservas: [],
       });
     }
     if (onSuccess) {
@@ -76,6 +78,7 @@ export const signInWithTwitter = async ({ onSuccess }) => {
         telefono: "",
         numero_carnet: "",
         role: "user",
+         reservas : [],
       });
     }
     if (onSuccess) {
@@ -102,6 +105,7 @@ export const registerWithEmailAndPassword = async (
       password,
       role: "user",
       numero_carnet: "",
+      reservas : [],
       ...extraData,
     });
     if (onSuccess) {

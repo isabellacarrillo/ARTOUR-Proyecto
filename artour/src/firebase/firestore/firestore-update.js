@@ -19,8 +19,7 @@ import {
   ref,
   uploadBytes,
 } from "firebase/storage";
-import { fetchPuntos, uploadPic } from "./firestore-add";
-
+import { fetchPuntos, getDates, uploadPic } from "./firestore-add";
 
 function areEqual(array1, array2) {
   let equal = true;
@@ -34,6 +33,35 @@ function areEqual(array1, array2) {
     equal = false;
   }
   return equal;
+}
+
+function sameRange(newRange, objRange) {
+  const start = new Date(objRange[0].fecha);
+  const end = new Date(objRange.slice(-1)[0].fecha);
+  const dateRange = `${start.toLocaleDateString()}-${end.toLocaleDateString()}`;
+  console.log(newRange, dateRange);
+  return newRange === dateRange;
+}
+
+function getUpRange(newRange, objRange, capacidad) {
+  let upRange = [];
+  let newObjRange = getDates(newRange, capacidad);
+  console.log(objRange);
+  for (let i = 0; i < newObjRange.length; i++) {
+    console.log(newObjRange[i].fecha, objRange[i].fecha);
+    if (newObjRange[i].fecha === objRange[i].fecha) {
+      upRange.push({
+        fecha: newObjRange[i].fecha,
+        capacidad: objRange[i].capacidad,
+      });
+    } else {
+      upRange.push({
+        fecha: newObjRange[i].fecha,
+        capacidad: capacidad,
+      });
+    }
+  }
+  return upRange;
 }
 
 const deletePic = async (nombre, path, pi) => {
@@ -157,7 +185,8 @@ export const updateTour = async (
       if (
         newData[k] != "" &&
         newData[k] != tour[k] &&
-        k != "puntos_de_interes"
+        k != "puntos_de_interes" &&
+        k != "fecha"
       ) {
         updated = { ...updated, [k]: newData[k] };
       }
@@ -165,6 +194,24 @@ export const updateTour = async (
     if (!areEqual(newData["puntos_de_interes"], tour["puntos_de_interes"])) {
       const puntos = await fetchPuntos(newData["puntos_de_interes"]);
       updated = { ...updated, puntos_de_interes: puntos };
+    }
+    if (!sameRange(newData["fecha"], tour["fecha"])) {
+      let dateObject;
+      if (Object.keys(updated).includes("capacidad")) {
+        dateObject = getUpRange(
+          newData["fecha"],
+          tour["fecha"],
+          updated.capacidad
+        );
+      } else {
+        dateObject = getUpRange(
+          newData["fecha"],
+          tour["fecha"],
+          tour.capacidad
+        );
+      }
+
+      updated = { ...updated, fecha: dateObject };
     }
 
     if (Object.keys(newData).includes("img")) {
@@ -402,7 +449,7 @@ export const deleteUser = async (user, onSuccessDelete, onError) => {
     if (user.img != null) {
       await deletePic(user.name.toLowerCase().replace(/ /g, "_"), "users");
     }
-    await auth.currentUser.delete()
+    await auth.currentUser.delete();
     if (onSuccessDelete) {
       onSuccessDelete();
     }
