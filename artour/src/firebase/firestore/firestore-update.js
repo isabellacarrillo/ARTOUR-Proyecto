@@ -1,4 +1,4 @@
-import { db, storage } from "../firebaseConfig";
+import { auth, db, storage } from "../firebaseConfig";
 import {
   setDoc,
   collection,
@@ -20,6 +20,7 @@ import {
   uploadBytes,
 } from "firebase/storage";
 import { fetchPuntos, uploadPic } from "./firestore-add";
+
 
 function areEqual(array1, array2) {
   let equal = true;
@@ -114,7 +115,7 @@ export const updateObra = async (
       }
       updated = { ...updated, img: url };
     }
-    console.log(updated);
+
     if (Object.keys(updated).length === 0) {
       if (onNothing) {
         onNothing();
@@ -335,6 +336,78 @@ export const deleteObra = async (
       onSuccessDelete();
     }
   } catch (error) {
+    if (onError) {
+      onError();
+    }
+  }
+};
+
+export const updateUser = async (
+  user,
+  newData,
+  onSuccess,
+  onNothing,
+  onError
+) => {
+  try {
+    let updated = {};
+    Object.keys(newData).forEach((k) => {
+      if (newData[k] != "" && newData[k] != user[k]) {
+        updated = { ...updated, [k]: newData[k] };
+      }
+    });
+
+    if (Object.keys(updated).length > 0) {
+      if (Object.keys(updated).includes("img")) {
+        if (user.img != null) {
+          await deletePic(user.name.toLowerCase().replace(/ /g, "_"), "users");
+        }
+        if (Object.keys(updated).includes("name")) {
+          await uploadPic(
+            updated.img,
+            "users",
+            updated.name.toLowerCase().replace(/ /g, "_")
+          );
+        } else {
+          await uploadPic(
+            updated.img,
+            "users",
+            user.name.toLowerCase().replace(/ /g, "_")
+          );
+        }
+      }
+
+      const userRef = doc(collection(db, "users"), user.id);
+      const update = await updateDoc(userRef, updated);
+      if (onSuccess) {
+        onSuccess();
+      }
+    } else {
+      if (onNothing) {
+        onNothing();
+      }
+    }
+  } catch (error) {
+    console.log(error);
+    if (onError) {
+      onError();
+    }
+  }
+};
+
+export const deleteUser = async (user, onSuccessDelete, onError) => {
+  try {
+    const ref = doc(collection(db, "users"), user.id);
+    await deleteDoc(ref);
+    if (user.img != null) {
+      await deletePic(user.name.toLowerCase().replace(/ /g, "_"), "users");
+    }
+    await auth.currentUser.delete()
+    if (onSuccessDelete) {
+      onSuccessDelete();
+    }
+  } catch (error) {
+    console.log(error);
     if (onError) {
       onError();
     }

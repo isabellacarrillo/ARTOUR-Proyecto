@@ -35,7 +35,7 @@ export default function SearchBar({
         return "Ingrese el nombre de la obra...";
 
       case "fecha":
-        return "Ingrese la fecha deseada (AAAA-MM-DD)...";
+        return "Ingrese la fecha deseada (AAAA/MM/DD)...";
       case "punto_de_interes":
         return "Ingrese el nombre del punto de interes...";
 

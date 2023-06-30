@@ -172,22 +172,24 @@ const Create_Art = () => {
             </div>
           </div>
         </div>
-        <Boton
-          display="Guardar Cambios"
-          style={PRINCIPAL}
-          action={(e) => {
-            e.preventDefault();
-            setSave(true);
-          }}
-        />
-        <Boton
-          display="Eliminar Tour"
-          style={SECOND}
-          action={(e) => {
-            e.preventDefault();
-            setDel(true);
-          }}
-        />
+        <div className="flex flex-row justify-center">
+          <Boton
+            display="Guardar Cambios"
+            style={PRINCIPAL}
+            action={(e) => {
+              e.preventDefault();
+              setSave(true);
+            }}
+          />
+          <Boton
+            display="Eliminar Tour"
+            style={SECOND}
+            action={(e) => {
+              e.preventDefault();
+              setDel(true);
+            }}
+          />
+        </div>
       </FormProvider>
       {handlePop()}
       {loadingChange ? <PopUpLoading /> : <></>}
@@ -195,6 +197,7 @@ const Create_Art = () => {
         <PopUpConfirm
           message="¿Seguro que quiere guardar los nuevos datos?"
           display="Confirmar"
+          helper="Los cambios guardados son permanentes y no pueden ser deshechos"
           action={methods.handleSubmit(handleSubmit)}
         />
       ) : (
@@ -204,6 +207,9 @@ const Create_Art = () => {
         <PopUpConfirm
           message="¿Seguro que quiere eliminar el tour?"
           display="Confirmar"
+          del={true}
+          setter={setDel}
+          helper="Eliminar el perfil va a remover toda su informacion del sistema"
           action={methods.handleSubmit(handleDelete)}
         />
       ) : (

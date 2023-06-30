@@ -10,7 +10,7 @@ export default function InputModify({
   name,
   id,
   validation,
-  outlined,
+  disabled,
   placeholder,
 }) {
   const {
@@ -28,6 +28,7 @@ export default function InputModify({
           type={type}
           name={name}
           id={id}
+          disabled={disabled}
           className="peer block min-h-[auto] w-full  border border-black bg-white px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear rounded-2xl focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none focus:border-blue focus:ring-1 focus:ring-blue"
           placeholder={placeholder ? placeholder : ""}
           {...register(name, validation)}

@@ -8,7 +8,7 @@ export default function PopUp({ message, action, display, type }) {
       case "info":
         return (
           <svg
-            class="w-[56px] h-[56 px] fill-blue text-gray-800 dark:text-white"
+            className="w-[56px] h-[56 px] fill-blue text-gray-800 dark:text-white"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
@@ -21,7 +21,7 @@ export default function PopUp({ message, action, display, type }) {
       case "error":
         return (
           <svg
-            class="w-[56px] h-[56px] fill-blue text-gray-800 dark:text-white"
+            className="w-[56px] h-[56px] fill-blue text-gray-800 dark:text-white"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
@@ -33,7 +33,7 @@ export default function PopUp({ message, action, display, type }) {
       case "done":
         return (
           <svg
-            class="w-[56px] h-[56px] text-gray-800 fill-blue dark:text-white"
+            className="w-[56px] h-[56px] text-gray-800 fill-blue dark:text-white"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"

@@ -30,7 +30,7 @@ export default function DatePicker() {
       });
     } else {
       const s = new Date(start);
-      const e = new Date(end);
+      const e = new Date(end.replace("-", "/"));
       if (e < s) {
         setError("fecha", {
           type: "fecha_invalida",
@@ -43,7 +43,7 @@ export default function DatePicker() {
   };
 
   useEffect(() => {
-    setDate(`${start}/${end}`);
+    setDate(`${start}-${end}`);
   }, [start, end]);
 
   useEffect(() => {
@@ -65,7 +65,7 @@ export default function DatePicker() {
             id="inicio"
             min={today()}
             onChange={(e) => {
-              setStart(e.target.value);
+              setStart(e.target.value.replace(/-/g, "/"));
             }}
           />
         </div>
@@ -79,7 +79,7 @@ export default function DatePicker() {
             id="fin"
             min={today()}
             onChange={(e) => {
-              setEnd(e.target.value);
+              setEnd(e.target.value.replace(/-/g, "/"));
             }}
           />
         </div>

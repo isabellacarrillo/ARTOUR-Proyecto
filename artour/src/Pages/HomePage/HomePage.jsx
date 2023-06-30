@@ -29,25 +29,26 @@ const Containers = ({ image, title, descripcion, left_image }) => {
 };
 
 export default function HomePage() {
+  const { user, isLoading, role } = useUserContext();
 
-  const {user, isLoading, role}= useUserContext();
-
-  const handleUser= ()=>{
-    if(!isLoading && !user){
-      return <></>
-    }else if(user && role ==="user"){
-      return <div className="bg-orange p-10 flex flex-row justify-between text-white">
-        <div className="">
-
-        <h1 className="text-xl font-extrabold">¡Ayúdanos a mejorar!</h1>
-        <h6>Comparte tus comentarios acerca de los tours que has realizado</h6>
+  const handleUser = () => {
+    console.log(user);
+    if (!isLoading && !user) {
+      return <></>;
+    } else if (user && role === "user") {
+      return (
+        <div className="bg-orange p-10 flex flex-row justify-between text-white">
+          <div className="">
+            <h1 className="text-xl font-extrabold">¡Ayúdanos a mejorar!</h1>
+            <h6>
+              Comparte tus comentarios acerca de los tours que has realizado
+            </h6>
+          </div>
+          <Boton display="Dar Feedback" style={FEEDBACK} />
         </div>
-        <Boton display="Dar Feedback" style={FEEDBACK}/>
-      </div>
+      );
     }
-  }
-
-
+  };
 
   return (
     <div className="w-full bg-white">

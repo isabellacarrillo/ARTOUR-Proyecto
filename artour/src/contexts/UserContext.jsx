@@ -9,14 +9,16 @@ export function UserContextProvider({ children }) {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [role, setRole] = useState(null);
-  
+
   useEffect(() => {
     onAuthStateChanged(auth, async (firebaseUser) => {
       setIsLoading(true);
       if (firebaseUser && !user) {
         const profile = await getUserProfile(firebaseUser.email);
-        setUser(profile);
-        setRole(profile.role);
+        if (profile) {
+          setUser(profile);
+          setRole(profile.role);
+        }
       } else {
         setUser(null);
         setRole(null);

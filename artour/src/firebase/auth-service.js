@@ -72,6 +72,7 @@ export const signInWithTwitter = async ({ onSuccess }) => {
         email: result.user.email,
         name: result.user.displayName,
         id: result.user.uid,
+        img: result.user.photoURL,
         telefono: "",
         numero_carnet: "",
         role: "user",
@@ -98,6 +99,7 @@ export const registerWithEmailAndPassword = async (
     await createUserProfile(result.user.uid, {
       email,
       id: result.user.uid,
+      password,
       role: "user",
       numero_carnet: "",
       ...extraData,

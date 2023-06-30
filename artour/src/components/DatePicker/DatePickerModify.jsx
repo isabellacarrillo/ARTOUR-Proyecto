@@ -62,7 +62,7 @@ export default function DatePickerModify({ fecha }) {
             min={today()}
             placeholder={fecha[0]}
             onChange={(e) => {
-              setStart(e.target.value);
+              setStart(e.target.value.replace(/-/g, "/"));
             }}
           />
         </div>
@@ -79,7 +79,7 @@ export default function DatePickerModify({ fecha }) {
             min={today()}
             placeholder={fecha[1]}
             onChange={(e) => {
-              setEnd(e.target.value);
+              setEnd(e.target.value.replace(/-/g, "/"));
             }}
           />
         </div>
