@@ -29,6 +29,8 @@ import {
   CONTACT_URL,
   RESERVE_URL,
   FEEDBACK_URL,
+  CALENDAR_URL,
+  PROFILE_URL
 } from "./constants/URLS";
 import Edit_tour from "./Pages/EditTourPage/EditTourPage";
 import Edit_Art from "./Pages/EditArtPage/EditArtPage";
@@ -50,18 +52,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route element={<Layout />}>
           <Route path={HOME_URL} element={<HomePage />} />
           <Route path={LOGIN_URL} element={<LoginPage />} />
-          <Route
-            path={REGISTER_URL}
-            element={
-              <ProtectedUserRoute>
-                <RegisterPage />
-              </ProtectedUserRoute>
-            }
-          />
+          <Route path={REGISTER_URL} element={<RegisterPage />}/>
           <Route path={EDIT_PROFILE} element={<Modify_Profile />} />
           <Route path={CONTACT_URL} element={<ContactPage />} />
           <Route
-            path={"/calendario"}
+            path={CALENDAR_URL}
             element={
               <ProtectedUserRoute>
                 <CalendarPage />
@@ -113,7 +108,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             }
           />
           <Route
-            path="/profile"
+            path={PROFILE_URL}
             element={
               <ProtectedUserRoute>
                 <ModifyProfilePage />

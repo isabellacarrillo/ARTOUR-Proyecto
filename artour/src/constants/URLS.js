@@ -23,6 +23,10 @@ export const EDIT_PROFILE = "/modificar_perfil";
 
 export const CONTACT_URL = "/contacto";
 
+export const PROFILE_URL = "/profile";
+
+export const CALENDAR_URL = "/calendario"
+
 export const RESERVE_URL = (tourID = ":tourID") => {
   return `/tours/${tourID}/reservar`;
 };
