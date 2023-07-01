@@ -5,14 +5,12 @@ import {
   updateDoc,
   doc,
   getDoc,
-  getDocs,
-  query,
-  where,
-  and,
   arrayUnion,
 } from "firebase/firestore";
 
-export const saveReserve = async (data, user, tourID, onSuccess, onError) => {
+/* Funcion para guardar una reserva en la base de datos */
+
+export const saveReserve = async (data, user, tourID, onError) => {
   try {
     const refUser = doc(collection(db, "users"), user.id);
     const update = await updateDoc(refUser, {
@@ -50,8 +48,13 @@ export const saveReserve = async (data, user, tourID, onSuccess, onError) => {
     return refRes;
   } catch (error) {
     console.log(error);
+    if (onError) {
+      onError();
+    }
   }
 };
+
+/* Funcion para agregar una contribucion a la base de datos */
 
 export const addContribution = async (number, paymentID, reservaID) => {
   try {

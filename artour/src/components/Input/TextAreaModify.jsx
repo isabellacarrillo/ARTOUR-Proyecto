@@ -1,3 +1,8 @@
+{
+  /*Componente para una entrada multilinea del usuario a MODIFICAR, recibe el label, el nombre, y el valor preexistente de la entrada
+  La validacion y registro del valor se basa en el uso de React Hook Form por lo que para que funcione debe estar dentro de un FormProvider */
+}
+
 import React from "react";
 import { useFormContext } from "react-hook-form";
 import { AnimatePresence, motion } from "framer-motion";

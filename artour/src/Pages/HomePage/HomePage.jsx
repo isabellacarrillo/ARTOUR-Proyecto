@@ -39,12 +39,10 @@ export default function HomePage() {
       return (
         <div className="bg-orange p-10 flex flex-row justify-between text-white">
           <div className="">
-            <h1 className="text-xl font-extrabold">¡Ayúdanos a mejorar!</h1>
-            <h6>
-              Comparte tus comentarios acerca de los tours que has realizado
-            </h6>
+            <h1 className="text-xl font-extrabold">Ver reservas</h1>
+            <h6>Ingresa a tu perfil y ve todas tus reservas</h6>
           </div>
-          <Boton display="Dar Feedback" style={FEEDBACK} />
+          <Boton display="Mis reservas" style={FEEDBACK} />
         </div>
       );
     }

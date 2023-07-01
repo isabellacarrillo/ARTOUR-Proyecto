@@ -1,3 +1,7 @@
+{
+  /*Componente para MODIFICAR el rango de fechas en el que esta disponible un tour, recibe la lista de todas las fechas de disponibilidad del tour */
+}
+
 import React, { useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
 import { findInputError, isFormInvalid } from "../Input/utils";

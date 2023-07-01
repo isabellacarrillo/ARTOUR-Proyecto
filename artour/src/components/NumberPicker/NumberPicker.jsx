@@ -1,3 +1,8 @@
+{
+  /*Componente para que el usuario seleccione la cantidad de entradas que desea reservar, reciba la capacidad total del tour, la fecha seleccionada, y todas las fechas disponibles del tour con su capacidad,
+  tal que se pueda controlar el maximo de entradas que puede seleccionar un usuario */
+}
+
 import React, { useState, useEffect } from "react";
 import { useFormContext } from "react-hook-form";
 import { findInputError, isFormInvalid } from "../Input/utils";

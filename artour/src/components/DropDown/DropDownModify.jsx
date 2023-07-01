@@ -1,6 +1,10 @@
+{
+  /*Componente para seleccionar el punto de interes o crear uno nuevo correspondiente a la MODIFICACION de la obra, recibe el punto de interes de la obra a editar */
+}
+
 import React, { useEffect, useState } from "react";
 import { created, creating, deselected, selected } from "./styles";
-import { set, useFormContext } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 import { AnimatePresence, motion } from "framer-motion";
 import { findInputError, isFormInvalid } from "../Input/utils";
 import { pullAllPuntos } from "../../firebase/firestore/firestore_pull";

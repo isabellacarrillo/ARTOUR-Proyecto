@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Boton from "../../components/Boton/Boton";
 import { PRINCIPAL } from "../../components/Boton/styles";
 import TextArea from "../../components/Input/TextArea";
-import { FormProvider, useForm } from "react-hook-form";
+import { FormProvider, set, useForm } from "react-hook-form";
 import DropDates from "../../components/DropDown/DropDates";
 import NumberPicker from "../../components/NumberPicker/NumberPicker";
 import { useNavigate, useParams } from "react-router-dom";
@@ -26,6 +26,7 @@ export default function ReservePage() {
   const [reserveID, setReservedID] = useState();
   const [payment, setPayment] = useState(false);
   const [completed, setCompleted] = useState(false);
+  const [error, setError] = useState(false);
   const navigate = useNavigate();
   const methods = useForm();
 
@@ -38,10 +39,15 @@ export default function ReservePage() {
     navigate("*");
   };
 
+  const onError = () => {
+    setLoadingReserve(false);
+    setError(true);
+  };
+
   const handleSubmit = async (data, e) => {
     setLoadingReserve(true);
     e.preventDefault();
-    const result = await saveReserve(data, user, tourID);
+    const result = await saveReserve(data, user, tourID, onError);
     setReservedID(result);
     setReserved(true);
     setLoadingReserve(false);
@@ -146,6 +152,16 @@ export default function ReservePage() {
           resID={reserveID}
           loading={setLoadingReserve}
           completed={setCompleted}
+        />
+      ) : (
+        <></>
+      )}
+      {error ? (
+        <PopUp
+          type="error"
+          message="Ocurrio un error con la reserva"
+          display="Cerrar"
+          action={HOME_URL}
         />
       ) : (
         <></>

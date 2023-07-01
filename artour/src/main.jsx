@@ -50,14 +50,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route element={<Layout />}>
           <Route path={HOME_URL} element={<HomePage />} />
           <Route path={LOGIN_URL} element={<LoginPage />} />
-          <Route
-            path={REGISTER_URL}
-            element={
-              <ProtectedUserRoute>
-                <RegisterPage />
-              </ProtectedUserRoute>
-            }
-          />
+          <Route path={REGISTER_URL} element={<RegisterPage />} />
           <Route path={EDIT_PROFILE} element={<Modify_Profile />} />
           <Route path={CONTACT_URL} element={<ContactPage />} />
           <Route

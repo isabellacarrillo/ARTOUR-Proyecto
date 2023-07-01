@@ -1,3 +1,7 @@
+{
+  /*Componente de Checkbox de los puntos de interes disponibles para la MODIFICACION de un tour, recibe los puntos de interes que tiene el tour cargados */
+}
+
 import React, { useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
 import { AnimatePresence, motion } from "framer-motion";
@@ -23,7 +27,7 @@ const CheckBoxModify = ({ tour_puntos }) => {
   };
 
   const handleOnChange = (e) => {
-    if (!e.target.checked) {;
+    if (!e.target.checked) {
       setPuntos(puntos.filter((v) => v !== e.target.value));
     } else {
       setPuntos([...puntos, e.target.value]);

@@ -1,3 +1,7 @@
+{
+  /*Componente para mostrar informacion resumida de la obra en el perfil del tour, recibe el objeto de la obra y el nombre del punto de interes al que pertenece */
+}
+
 import React from "react";
 import { Link } from "react-router-dom";
 import Boton from "../Boton/Boton";

@@ -1,5 +1,8 @@
+{
+  /*Componente de POPUP para mostrar informacion de la finalizacion de un proceso, recibe el mensaje a mostrar, la accion al presionar el boton, el texto del boton, el tipo de informacion a mostrar (done, error, info), y si debe mostrar un segundo POPUP */
+}
+
 import React from "react";
-import { Bars } from "react-loader-spinner";
 import { Link } from "react-router-dom";
 
 export default function PopUp({ message, action, display, type, next }) {

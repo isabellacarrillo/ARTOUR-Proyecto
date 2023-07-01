@@ -6,6 +6,8 @@ import {
   pullObra,
 } from "../firebase/firestore/firestore_pull";
 
+/* Hook creado para el manejo y obtencion de los tours, detalles del tour, obras, y detalles de las obras */
+
 export default function useTours() {
   const [isLoading, setIsLoading] = useState(false);
   const [loadingObras, setLoadingObras] = useState(true);
@@ -46,7 +48,7 @@ export default function useTours() {
           setObras((current) => [...current, data]);
         }
       }
-      setLoadingObras(false)
+      setLoadingObras(false);
       return obras;
     } catch (error) {
       console.log(error);
@@ -62,7 +64,7 @@ export default function useTours() {
     } catch (error) {
       console.log(error);
     }
-  },[]);
+  }, []);
 
   return {
     isLoading,

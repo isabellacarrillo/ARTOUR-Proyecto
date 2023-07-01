@@ -1,3 +1,7 @@
+{
+  /*Componente de POPUP para mostrar que un proceso se esta cargando */
+}
+
 import React from "react";
 import { Bars } from "react-loader-spinner";
 

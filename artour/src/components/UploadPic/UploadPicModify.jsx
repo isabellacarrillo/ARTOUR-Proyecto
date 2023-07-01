@@ -1,3 +1,7 @@
+{
+  /* Componente para modificar la foto asociada al perfil en modificacion, recibe la foto registrada en el perfil */
+}
+
 import React, { useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
 

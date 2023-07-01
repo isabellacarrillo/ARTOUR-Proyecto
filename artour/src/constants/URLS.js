@@ -1,7 +1,10 @@
 export const HOME_URL = "/";
 
 export const LOGIN_URL = "/login";
+
 export const REGISTER_URL = "/registro";
+
+export const CALENDAR_URL = "/calendario";
 
 export const SEARCH_URL = "/buscar";
 

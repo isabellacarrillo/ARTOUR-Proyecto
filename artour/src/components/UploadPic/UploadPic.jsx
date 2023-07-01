@@ -1,3 +1,5 @@
+{/* Componente para subir una foto en la CREACION de un perfil */}
+
 import React, { useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
 
