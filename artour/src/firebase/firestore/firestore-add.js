@@ -13,9 +13,12 @@ import {
 } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
+{
+  /* Funcion para añadir una obra de arte a la lista de obras disponibles en un punto de interes*/
+}
+
 const addObraPunto = async (data, id) => {
   try {
-    console.log(data.punto_de_interes);
     const q = query(
       collection(db, "puntos de interes"),
       where("nombre", "==", data.punto_de_interes)
@@ -59,6 +62,8 @@ const addObraPunto = async (data, id) => {
   }
 };
 
+/* Funcion para  almacenar un archivo foto en el deposito de informacion de la aplicacion*/
+
 export const uploadPic = async (blob, path, name, pi) => {
   try {
     if (blob != null) {
@@ -81,6 +86,8 @@ export const uploadPic = async (blob, path, name, pi) => {
   }
 };
 
+/* Funcion para conseguir el objeto referencia y nombre que es almacenado en el objeto Tour en sus puntos de interes  */
+
 export const fetchPuntos = async (puntos) => {
   try {
     let pObjs = [];
@@ -95,7 +102,6 @@ export const fetchPuntos = async (puntos) => {
       result.forEach((r) => {
         p = r.data();
       });
-      console.log(p);
       pObjs.push({
         nombre: p.nombre,
         ref: doc(collection(db, "puntos de interes"), p.id),
@@ -104,6 +110,8 @@ export const fetchPuntos = async (puntos) => {
     return pObjs;
   } catch (error) {}
 };
+
+/* Funcion para crear un nuevo perfil de una obra */
 export const createNewObra = async (data) => {
   try {
     const q = query(
@@ -142,7 +150,7 @@ export const createNewObra = async (data) => {
     return "error";
   }
 };
-
+/* Funcion para crear un nuevo tour */
 export const createNewTour = async (data) => {
   try {
     data["fecha"] = getDates(data.fecha, data.capacidad);
@@ -170,7 +178,7 @@ export const createNewTour = async (data) => {
       const create = await setDoc(ref, {
         id: ref.id,
         comentarios: [],
-        rating: [],
+        rating: ["0", "0"],
         disponibilidad: "full",
         ...data,
       });
@@ -183,6 +191,8 @@ export const createNewTour = async (data) => {
     return "error";
   }
 };
+
+/* Funcion para crear el objeto fecha para el nuevo tour con su capacidad correspondiente */
 
 export const getDates = (data, capacidad) => {
   const range = data.split("-");

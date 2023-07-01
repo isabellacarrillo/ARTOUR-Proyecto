@@ -1,6 +1,10 @@
+{
+  /*Componente de Comentario para mostrar el feedback del tour, recibe el objeto de comentario a mostrar*/
+}
+
 import React from "react";
 
-export default function Comment({comment}) {
+export default function Comment({ comment }) {
   return (
     <div className="flex flex-row gap-6">
       <div className="w-14 h-14 rounded-full overflow-hidden bg-blue self-center">

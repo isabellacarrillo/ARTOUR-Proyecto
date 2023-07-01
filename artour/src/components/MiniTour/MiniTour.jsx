@@ -1,3 +1,7 @@
+{
+  /*Componente para mostrar informacion resumida del tour para seleccionar su perfil, recibe el objeto del tour y si se debe mostrar en fila o columna */
+}
+
 import React from "react";
 import Boton from "../Boton/Boton";
 import { MINI } from "../Boton/styles";
@@ -39,7 +43,7 @@ export default function MiniTour({ tour, row }) {
   } else {
     return (
       <div>
-        <div className="w-full h-[424px] sm:w-72 bg-bluegray p-5 rounded-2xl flex flex-col gap-2 drop-shadow-sm hover:-translate-y-4 hover:-translate-x-1 hover:drop-shadow-xl transition ease-in-out duration-300 delay-0">
+        <div className="w-full h-[530px] justify-between sm:w-72 bg-bluegray p-5 rounded-2xl flex flex-col gap-2 drop-shadow-sm hover:-translate-y-4 hover:-translate-x-1 hover:drop-shadow-xl transition ease-in-out duration-300 delay-0">
           <img
             src={
               tour.img

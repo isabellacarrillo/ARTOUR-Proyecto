@@ -1,3 +1,7 @@
+{
+  /*Componente de Calendario que muestra los dias con tours disponibles, recibe todas las fechas en las que hay un tour y la funcion setter para el estado de seleccionado */
+}
+
 import React, { useRef, useState, useEffect } from "react";
 import dayjs, { Dayjs } from "dayjs";
 import Badge from "@mui/material/Badge";
@@ -31,17 +35,20 @@ function ServerDay(props) {
   );
 }
 const initialValue = dayjs();
+
 export default function Calendar({ allDates, setter }) {
   const requestAbortController = useRef(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [highlightedDays, setHighlightedDays] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+  const [highlightedDays, setHighlightedDays] = useState([initialValue.date()]);
 
   useEffect(() => {
-    
-    const result = getMonthlyTours(allDates, initialValue.month());
-    setHighlightedDays(result);
-    return () => requestAbortController.current?.abort();
-  }, []);
+    const result = getMonthlyTours(
+      allDates,
+      initialValue.month(),
+      setHighlightedDays
+    );
+    setIsLoading(false);
+  }, [getMonthlyTours]);
 
   const handleSelect = (value) => {
     setter(`${parseInt(value.month()) + 1}/${value.date()}/${value.year()}`);
@@ -53,10 +60,11 @@ export default function Calendar({ allDates, setter }) {
     }
 
     setIsLoading(true);
-    const result = getMonthlyTours(allDates, date.month());
-    setHighlightedDays(result);
+    const result = getMonthlyTours(allDates, date.month(), setHighlightedDays);
+
     setIsLoading(false);
   };
+
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DateCalendar

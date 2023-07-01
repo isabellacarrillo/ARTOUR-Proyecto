@@ -1,6 +1,8 @@
+{
+  /*Componente de POPUP para requerir confirmacion de parte del usuario para realzar un proceso, recibe el mensaje a mostrar, la accion al presionar el boton, el texto del boton, si es confirmacion para borrar, el setter de su propio estado, y el texto de ayuda a mostrar */
+}
+
 import React from "react";
-import { Bars } from "react-loader-spinner";
-import { Link } from "react-router-dom";
 
 export default function PopUpConfirm({
   message,

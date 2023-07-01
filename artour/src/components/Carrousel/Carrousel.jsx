@@ -1,5 +1,14 @@
+{
+  /*Componente de Carrousel */
+}
+
 import React, { useState, useEffect, useRef } from "react";
 import CarItem from "./CarItem/CarItem";
+import { CALENDAR_URL, SEARCH_URL } from "../../constants/URLS";
+
+{
+  /*Lista de objetos de la informacion que se va a mostrar en el Carrousel */
+}
 
 const imgs = [
   {
@@ -12,12 +21,14 @@ const imgs = [
     title: "¡Conoce sobre nuestras distintas visitas y tours!",
     desc: "Un espacio para descubrir todo el valor cultural de la Universidad Metropolitana",
     boton: "Buscar Tours",
+    path: SEARCH_URL,
   },
   {
     url: "https://firebasestorage.googleapis.com/v0/b/artour-25768.appspot.com/o/carrousel%2Fcarrousel2.jpg?alt=media&token=25799cfe-7d70-48e5-9e28-aef46292cb80",
     title: "¡Descubre nuestros futuros eventos y exposiciones!",
     desc: "Planifica la visita perfecta y no te pierdas de nuestros grandes eventos culturales",
     boton: "Ver Calendario",
+    path : CALENDAR_URL
   },
   {
     url: "https://firebasestorage.googleapis.com/v0/b/artour-25768.appspot.com/o/carrousel%2Fcarrousel3.jpg?alt=media&token=b308bcf5-6d26-4874-9778-161825357b06",

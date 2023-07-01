@@ -1,5 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { EMPTY, OUTLINE } from "./styles";
+{
+  /*Componente para las entradas DE MODIFICACION del usuario, recibe el label, el tipo de entrada, el nombre y id, si debe cumplir alguna validacion, el estilo que cumple (si es con borde o no), y el valor preexistente de la entrada
+  La validacion y registro del valor se basa en el uso de React Hook Form por lo que para que funcione debe estar dentro de un FormProvider */
+}
+
+import React from "react";
 import { useFormContext } from "react-hook-form";
 import { AnimatePresence, motion } from "framer-motion";
 import { findInputError, isFormInvalid } from "./utils";

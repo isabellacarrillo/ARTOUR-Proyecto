@@ -1,9 +1,6 @@
 import {
   doc,
-  addDoc,
   collection,
-  updateDoc,
-  getDoc,
   setDoc,
   getDocs,
   query,
@@ -11,10 +8,14 @@ import {
 } from "firebase/firestore";
 import { db } from "./firebaseConfig";
 
+/* Funcion para crear un perfil en la base de datos */
+
 export async function createUserProfile(userId, data) {
   console.log(data);
   return setDoc(doc(db, "users", userId), data);
 }
+
+/* Obtener la informacion del usuario en la base de datos */
 
 export async function getUserProfile(email) {
   const useQuery = query(collection(db, "users"), where("email", "==", email));

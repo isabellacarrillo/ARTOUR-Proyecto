@@ -18,7 +18,6 @@ export default function SearchPage() {
     setSearched(true);
     setSearching(true);
     e.preventDefault();
-
     const result = await pullQuery(search, filter, tours);
     setFound(result);
     setSearching(false);

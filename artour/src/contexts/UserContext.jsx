@@ -1,3 +1,7 @@
+{
+  /* Creacion del contexto correspondiente al manejo de las credenciales del usuario */
+}
+
 import { onAuthStateChanged } from "@firebase/auth";
 import React, { useContext, createContext, useState, useEffect } from "react";
 import { auth } from "../firebase/firebaseConfig";

@@ -1,3 +1,7 @@
+{
+  /*Componente de para seleccionar el rango de fechas en la que estara disponible un tour en su CREACION */
+}
+
 import React, { useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
 import { findInputError, isFormInvalid } from "../Input/utils";

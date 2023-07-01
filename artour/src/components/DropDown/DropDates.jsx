@@ -1,9 +1,12 @@
+{
+  /*Componente para mostrar la lista de todas las fechas con disponiblidad de un tour en su reserva, recibe la lista de objetos de fecha del tour seleccionado */
+}
+
 import React, { useEffect, useState } from "react";
-import { created, creating, deselected, selected } from "./styles";
-import { set, useFormContext } from "react-hook-form";
+import { deselected, selected } from "./styles";
+import { useFormContext } from "react-hook-form";
 import { AnimatePresence, motion } from "framer-motion";
 import { findInputError, isFormInvalid } from "../Input/utils";
-import { pullAllPuntos } from "../../firebase/firestore/firestore_pull";
 import { Bars } from "react-loader-spinner";
 import { getDateArray } from "./utils";
 

@@ -1,3 +1,7 @@
+{
+  /*Componente de Checkbox para seleccionar los puntos de interes en la CREACION de un tour */
+}
+
 import React, { useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
 import { AnimatePresence, motion } from "framer-motion";

@@ -1,11 +1,14 @@
+{
+  /*Componente para seleccionar el punto de interes o crear uno nuevo correspondiente a la CREACION de la obra  */
+}
+
 import React, { useEffect, useState } from "react";
 import { created, creating, deselected, selected } from "./styles";
-import { set, useFormContext } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 import { AnimatePresence, motion } from "framer-motion";
 import { findInputError, isFormInvalid } from "../Input/utils";
 import { pullAllPuntos } from "../../firebase/firestore/firestore_pull";
 import { Bars } from "react-loader-spinner";
-
 
 export default function DropDown() {
   const {

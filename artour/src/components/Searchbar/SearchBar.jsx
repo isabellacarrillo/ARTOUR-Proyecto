@@ -1,5 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { selected, deselected, clear, esc } from "./styles";
+{
+  /*Componente de la barra de busqueda, para ingresar una busqueda y seleccionar el fitro de busqueda. Recibe el estado de filtro y su setter, el estado de busqueda y su setter, la funcion de manejo de busqueda, y el setter del estado de buscado  */
+}
+
+import React, { useEffect } from "react";
+import { selected, deselected, clear } from "./styles";
 
 export default function SearchBar({
   filter,

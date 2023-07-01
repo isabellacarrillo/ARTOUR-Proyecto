@@ -1,13 +1,12 @@
+{
+  /*Componente de POPUP para mostrar informacion del proceso de pago con paypal. Recibe el mensaje a mostrar, el setter del estado para mostrarse, el setter para el estado de completado, el setter del estado de cargando, el texto de ayuda a mostrar, y el ID de firestore de la reserva hecha */
+}
+
 import React, { useState, useEffect } from "react";
-import { Bars } from "react-loader-spinner";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { HOME_URL } from "../../constants/URLS";
-import {
-  PayPalScriptProvider,
-  PayPalButtons,
-  FUNDING,
-} from "@paypal/react-paypal-js";
-import { set } from "react-hook-form";
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+
 import { addContribution } from "../../firebase/firestore/firestore-user";
 
 export default function PopUpCheckout({
@@ -48,7 +47,6 @@ export default function PopUpCheckout({
   // check Approval
   const onApprove = async (data, actions) => {
     return actions.order.capture().then(async function (details) {
-      console.log(resID);
       loading(true);
       await addContribution(payment, details.id, resID);
       setSuccess(true);
@@ -59,7 +57,7 @@ export default function PopUpCheckout({
 
   //capture likely error
   const onError = (data, actions) => {
-    alert("An Error occured with your payment ");
+    alert("Ocurrio un error en la transaccion");
   };
 
   useEffect(() => {

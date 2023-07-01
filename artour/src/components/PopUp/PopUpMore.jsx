@@ -1,15 +1,12 @@
+{
+  /*Componente de POPUP para mostrar un siguiente paso al usuario. Recibe el mensaje a mostrar, la accion a realzar, lo que muestra el boton, y el texto de ayuda. */
+}
+
 import React from "react";
-import { Bars } from "react-loader-spinner";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { HOME_URL } from "../../constants/URLS";
 
-export default function PopUpMore({
-  message,
-  action,
-  display,
-  setter,
-  helper,
-}) {
+export default function PopUpMore({ message, action, display, helper }) {
   const navigate = useNavigate();
   return (
     <>

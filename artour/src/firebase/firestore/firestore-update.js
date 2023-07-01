@@ -8,18 +8,17 @@ import {
   getDocs,
   query,
   where,
-  and,
   arrayUnion,
-  addDoc,
   deleteDoc,
 } from "firebase/firestore";
 import {
   deleteObject,
-  getDownloadURL,
   ref,
-  uploadBytes,
 } from "firebase/storage";
 import { fetchPuntos, getDates, uploadPic } from "./firestore-add";
+
+
+/* Funcion para verficar que dos arreglos contienen los mismos elementos */
 
 function areEqual(array1, array2) {
   let equal = true;
@@ -35,18 +34,20 @@ function areEqual(array1, array2) {
   return equal;
 }
 
+/* Funcion para verificar que dos arreglos de objetos de fecha contienen las mismas fechas */
+
 function sameRange(newRange, objRange) {
   const start = new Date(objRange[0].fecha);
   const end = new Date(objRange.slice(-1)[0].fecha);
   const dateRange = `${start.toLocaleDateString()}-${end.toLocaleDateString()}`;
-  console.log(newRange, dateRange);
   return newRange === dateRange;
 }
+
+/*Funcion para generar el arreglo de objeto fecha de Tour actualizado segun el nuevo rango. De tal manera que se conserve la disponibilidad preexistente */
 
 function getUpRange(newRange, objRange, capacidad) {
   let upRange = [];
   let newObjRange = getDates(newRange, capacidad);
-  console.log(objRange);
   for (let i = 0; i < newObjRange.length; i++) {
     console.log(newObjRange[i].fecha, objRange[i].fecha);
     if (newObjRange[i].fecha === objRange[i].fecha) {
@@ -63,6 +64,7 @@ function getUpRange(newRange, objRange, capacidad) {
   }
   return upRange;
 }
+/* Funcion para eliminar una foto almacenada cuando se elimine un tour u obra */
 
 const deletePic = async (nombre, path, pi) => {
   try {
@@ -78,6 +80,8 @@ const deletePic = async (nombre, path, pi) => {
     console.log(error);
   }
 };
+
+/* Funcion para actualizar el perfil de una obra */
 
 export const updateObra = async (
   obra,
@@ -170,6 +174,8 @@ export const updateObra = async (
     }
   }
 };
+
+/* Funcion para actualizar el perfil de un tour */
 export const updateTour = async (
   tour,
   newData,
@@ -244,6 +250,8 @@ export const updateTour = async (
   }
 };
 
+/* Funcion para actualizar el perfil de una obra en el objeto Punto de Interes */
+
 const updatePunto = async (obra, updated) => {
   try {
     const q = query(
@@ -299,6 +307,8 @@ const updatePunto = async (obra, updated) => {
   }
 };
 
+/* Funcion para obtener el objeto actualizado a incluir en el objeto Punto de Interes */
+
 const getObj = (obra, updated) => {
   let Obj = { id: obra.id };
   if (Object.keys(updated).includes("nombre_obra")) {
@@ -327,6 +337,8 @@ const getObj = (obra, updated) => {
   return Obj;
 };
 
+/* Funcion para eliminar el perfil de un tour */
+
 export const deleteTour = async (tourID, nombre, onSuccessDelete, onError) => {
   try {
     const ref = doc(collection(db, "tours"), tourID);
@@ -343,6 +355,8 @@ export const deleteTour = async (tourID, nombre, onSuccessDelete, onError) => {
     }
   }
 };
+
+/* Funcion para eliminar el perfil de una obra */
 
 export const deleteObra = async (
   obraID,
@@ -388,6 +402,8 @@ export const deleteObra = async (
     }
   }
 };
+
+/* Funcion para actualizar un perfil de usuario */
 
 export const updateUser = async (
   user,
@@ -441,6 +457,8 @@ export const updateUser = async (
     }
   }
 };
+
+/* Funcion para eliminar un usuario */
 
 export const deleteUser = async (user, onSuccessDelete, onError) => {
   try {

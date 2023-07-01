@@ -1,3 +1,7 @@
+{
+  /*Componente de Item del Carrousel, el cual recibe el objeto de la informacion a mostrar y el indice dentro del carrousel */
+}
+
 import React from "react";
 import Boton from "../../Boton/Boton";
 import { AUXILIAR, PRINCIPAL } from "../../Boton/styles";
@@ -85,7 +89,8 @@ export default function CarItem({ item, index }) {
                 {item.title}
               </h1>
               <h4 className="text-right md:text-[24px] ">{item.desc}</h4>
-              <Boton display={item.boton} style={AUXILIAR} />
+
+              <Boton display={item.boton} style={AUXILIAR} to={item.path} />
             </div>
             <img
               src={item.url}
@@ -109,7 +114,9 @@ export default function CarItem({ item, index }) {
               {item.title}
             </h1>
             <h4 className="text-right md:text-[24px] ">{item.desc}</h4>
-            <Boton display={item.boton} style={PRINCIPAL} />
+          
+              <Boton display={item.boton} style={PRINCIPAL} to={item.path}/>
+           
           </div>
           <img
             src={item.url}
