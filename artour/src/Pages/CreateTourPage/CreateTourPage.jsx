@@ -29,6 +29,7 @@ const Create_Art = () => {
       {creating ? <PopUpLoading /> : <></>}
       {state === "success" ? (
         <PopUp
+          type="done"
           message="Se ha creado el tour con éxito"
           action={HOME_URL}
           display="Cerrar"

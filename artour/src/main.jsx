@@ -41,6 +41,7 @@ import ContactPage from "./Pages/ContactPage/ContactPage";
 import ReservePage from "./Pages/ReservePage/ReservePage";
 import { FEEDBACK } from "./components/Boton/styles";
 import Feedback from "./Pages/FeedbackPage/FeedbackPage";
+import CalendarPage from "./Pages/Calendar/CalendarPage";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -49,9 +50,24 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route element={<Layout />}>
           <Route path={HOME_URL} element={<HomePage />} />
           <Route path={LOGIN_URL} element={<LoginPage />} />
-          <Route path={REGISTER_URL} element={<RegisterPage />} />
+          <Route
+            path={REGISTER_URL}
+            element={
+              <ProtectedUserRoute>
+                <RegisterPage />
+              </ProtectedUserRoute>
+            }
+          />
           <Route path={EDIT_PROFILE} element={<Modify_Profile />} />
           <Route path={CONTACT_URL} element={<ContactPage />} />
+          <Route
+            path={"/calendario"}
+            element={
+              <ProtectedUserRoute>
+                <CalendarPage />
+              </ProtectedUserRoute>
+            }
+          />
           <Route path={RESERVE_URL()} element={<ReservePage />} />
           <Route path={FEEDBACK_URL} element={<Feedback />} />
           <Route

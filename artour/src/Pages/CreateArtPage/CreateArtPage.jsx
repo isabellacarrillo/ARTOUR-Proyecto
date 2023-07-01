@@ -28,6 +28,7 @@ const Create_Art = () => {
       {creating ? <PopUpLoading /> : <></>}
       {state === "success" ? (
         <PopUp
+        type="done"
           message="Se ha creado la obra de arte con éxito"
           action={HOME_URL}
           display="Cerrar"

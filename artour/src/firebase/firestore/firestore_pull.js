@@ -116,3 +116,37 @@ export const pullQuery = async (search, filter, tours) => {
     return tours;
   }
 };
+
+export const pullAllDates = async () => {
+  let dates = [];
+  const pullResult = await getDocs(collection(db, "tours"));
+
+  pullResult.forEach((p) => {
+    const tour = p.data();
+    if (tour.disponibilidad != "out") {
+      tour.fecha.forEach((f) => {
+        if (!dates.includes(f.fecha) && parseInt(f.capacidad) > 0) {
+          dates.push(f.fecha);
+        }
+      });
+    }
+  });
+
+  return dates;
+};
+
+export const getDateTours = async (date) => {
+  let tours = [];
+  const pullResult = await getDocs(collection(db, "tours"));
+  pullResult.forEach((p) => {
+    const tour = p.data();
+
+    tour.fecha.forEach((f) => {
+      console.log(f.fecha, date);
+      if (f.fecha === date && f.capacidad > 0) {
+        tours.push(tour);
+      }
+    });
+  });
+  return tours;
+};

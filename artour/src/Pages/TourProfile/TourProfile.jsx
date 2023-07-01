@@ -45,7 +45,7 @@ export default function TourProfile() {
   return (
     <div className="flex flex-col flex-wrap p-6 content-center justify-center gap-8">
       <Boton
-        display="Regresar al buscador"
+        display="Regresar"
         style={BACK}
         action={() => {
           navigate(-1);
