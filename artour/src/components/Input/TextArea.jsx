@@ -1,3 +1,8 @@
+{
+  /*Componente para una entrada multilinea del usuario, recibe el label, el nombre, y si debe cumplir alguna validacion
+  La validacion y registro del valor se basa en el uso de React Hook Form por lo que para que funcione debe estar dentro de un FormProvider */
+}
+
 import React from "react";
 import { useFormContext } from "react-hook-form";
 import { AnimatePresence, motion } from "framer-motion";
@@ -15,7 +20,7 @@ export default function TextArea({ display, name, validation }) {
     <div>
       <div className="relative w-full min-w-[200px]">
         <textarea
-          className="peer h-full w-full rounded-[7px] border border-black border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-black outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-black placeholder-shown:border-t-black focus:border-2 focus:border-blue focus:border-t-transparent focus:outline-0 invalid:border-red invalid:border-2"
+          className="peer min-h-[120px] h-full w-full rounded-2xl border border-black border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-black outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-black placeholder-shown:border-t-black focus:border-2 focus:border-blue focus:border-t-transparent focus:outline-0 invalid:border-red invalid:border-2"
           name={name}
           placeholder=" "
           {...register("descripcion", validation)}

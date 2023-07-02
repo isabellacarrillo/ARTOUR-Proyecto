@@ -1,19 +1,51 @@
-import React, { useEffect, useState } from "react";
+{
+  /*Componente de la barra de busqueda, para ingresar una busqueda y seleccionar el fitro de busqueda. Recibe el estado de filtro y su setter, el estado de busqueda y su setter, la funcion de manejo de busqueda, y el setter del estado de buscado  */
+}
+
+import React, { useEffect } from "react";
 import { selected, deselected, clear } from "./styles";
 
-export default function SearchBar() {
-  const [filter, setFilter] = useState("");
-
+export default function SearchBar({
+  filter,
+  setFilter,
+  search,
+  setSearch,
+  handleSearch,
+  setSearched,
+}) {
   const handleFilter = (e) => {
     if (filter === e.target.value) {
       setFilter("");
+      setSearched(false);
     } else {
       setFilter(e.target.value);
+      setSearched(false);
     }
+  };
+
+  const handleChange = (e) => {
+    setSearch(e.target.value);
+    setSearched(false);
   };
 
   const handleClear = (e) => {
     setFilter("");
+    setSearched(false);
+  };
+
+  const handlePlaceholder = () => {
+    switch (filter) {
+      case "obra":
+        return "Ingrese el nombre de la obra...";
+
+      case "fecha":
+        return "Ingrese la fecha deseada (AAAA/MM/DD)...";
+      case "punto_de_interes":
+        return "Ingrese el nombre del punto de interes...";
+
+      default:
+        return "Ingrese el nombre del tour...";
+    }
   };
 
   const handleLook = () => {
@@ -82,12 +114,16 @@ export default function SearchBar() {
           </div>
           <input
             className="w-full h-10 rounded-2xl bg-white indent-10 text-black focus:outline-none  focus:ring placeholder-shown:text-bluegray focus:ring-offset-2 focus:ring-blue/80"
-            placeholder="Ingrese su búsqueda..."
+            placeholder={handlePlaceholder()}
+            value={search}
+            onChange={handleChange}
           />
         </div>
         <button
           className="font-semibold w-fit h-fit px-8 py-2 text-white rounded-2xl border-2 border-white hover:border-transparent hover:bg-white hover:text-orange transition ease-in-out duration-300 delay-0"
           id="name"
+          onClick={handleSearch}
+          disabled={search === ""}
         >
           Buscar
         </button>

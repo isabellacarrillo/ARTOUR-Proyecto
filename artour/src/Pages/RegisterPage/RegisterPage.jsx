@@ -14,6 +14,7 @@ export default function RegisterPage() {
   const navigate = useNavigate();
   const methods = useForm();
   const [error, setError] = useState(null);
+  
 
   const onSubmit = async (data, e) => {
     const { email, password, ...extraData } = data;
@@ -87,8 +88,8 @@ export default function RegisterPage() {
                   <Input
                     label="Teléfono"
                     type="text"
-                    name="phone"
-                    id="phone"
+                    name="telefono"
+                    id="telefono"
                     validation={{
                       required: { value: true, message: "Obligatorio" },
                       pattern: {

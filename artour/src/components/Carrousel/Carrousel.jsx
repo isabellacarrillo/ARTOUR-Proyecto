@@ -1,5 +1,14 @@
+{
+  /*Componente de Carrousel */
+}
+
 import React, { useState, useEffect, useRef } from "react";
 import CarItem from "./CarItem/CarItem";
+import { CALENDAR_URL, MYRESERVES_URL, SEARCH_URL } from "../../constants/URLS";
+
+{
+  /*Lista de objetos de la informacion que se va a mostrar en el Carrousel */
+}
 
 const imgs = [
   {
@@ -12,18 +21,21 @@ const imgs = [
     title: "¡Conoce sobre nuestras distintas visitas y tours!",
     desc: "Un espacio para descubrir todo el valor cultural de la Universidad Metropolitana",
     boton: "Buscar Tours",
+    path: SEARCH_URL,
   },
   {
     url: "https://firebasestorage.googleapis.com/v0/b/artour-25768.appspot.com/o/carrousel%2Fcarrousel2.jpg?alt=media&token=25799cfe-7d70-48e5-9e28-aef46292cb80",
     title: "¡Descubre nuestros futuros eventos y exposiciones!",
     desc: "Planifica la visita perfecta y no te pierdas de nuestros grandes eventos culturales",
     boton: "Ver Calendario",
+    path: CALENDAR_URL,
   },
   {
     url: "https://firebasestorage.googleapis.com/v0/b/artour-25768.appspot.com/o/carrousel%2Fcarrousel3.jpg?alt=media&token=b308bcf5-6d26-4874-9778-161825357b06",
     title: "¡Comparte tus experiencias con la comunidad!",
     desc: "Comenta y comparte sobre las visitas que hayas hecho, las obras que más te gustaron y te sorprendieron",
     boton: "Dar Feedback",
+    path: MYRESERVES_URL,
   },
 ];
 export default function Carrousel() {
@@ -56,7 +68,6 @@ export default function Carrousel() {
     maxScrollWidth.current = carousel.current
       ? carousel.current.scrollWidth - carousel.current.offsetWidth
       : 0;
-    console.log(carousel.current.offsetWidth);
   }, []);
 
   return (
@@ -65,7 +76,7 @@ export default function Carrousel() {
         <div className="flex justify-between absolute top left w-full h-full">
           <button
             onClick={movePrev}
-            className="hover:bg-blue/75 text-white w-10 h-full text-center opacity-75 hover:opacity-100 z-10 p-0 m-0 transition-all ease-in-out duration-300"
+            className="hover:bg-blue/75 text-white w-10 h-full text-center opacity-75 hover:opacity-100 z-20 p-0 m-0 transition-all ease-in-out duration-300"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +96,7 @@ export default function Carrousel() {
           </button>
           <button
             onClick={moveNext}
-            className="hover:bg-blue/75 text-white w-10 h-full text-center opacity-75 hover:opacity-100 z-10 p-0 m-0 transition-all ease-in-out duration-300"
+            className="hover:bg-blue/75 text-white w-10 h-full text-center opacity-75 hover:opacity-100 z-20 p-0 m-0 transition-all ease-in-out duration-300"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

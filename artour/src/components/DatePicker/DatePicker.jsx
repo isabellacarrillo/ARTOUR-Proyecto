@@ -1,3 +1,7 @@
+{
+  /*Componente de para seleccionar el rango de fechas en la que estara disponible un tour en su CREACION */
+}
+
 import React, { useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
 import { findInputError, isFormInvalid } from "../Input/utils";
@@ -29,12 +33,21 @@ export default function DatePicker() {
         message: "Obligatorio",
       });
     } else {
-      clearErrors("fecha");
+      const s = new Date(start);
+      const e = new Date(end.replace("-", "/"));
+      if (e < s) {
+        setError("fecha", {
+          type: "fecha_invalida",
+          message: "Por favor introduzca un rango valido",
+        });
+      } else {
+        clearErrors("fecha");
+      }
     }
   };
 
   useEffect(() => {
-    setDate(`${start}/${end}`);
+    setDate(`${start}-${end}`);
   }, [start, end]);
 
   useEffect(() => {
@@ -56,7 +69,7 @@ export default function DatePicker() {
             id="inicio"
             min={today()}
             onChange={(e) => {
-              setStart(e.target.value);
+              setStart(e.target.value.replace(/-/g, "/"));
             }}
           />
         </div>
@@ -70,7 +83,7 @@ export default function DatePicker() {
             id="fin"
             min={today()}
             onChange={(e) => {
-              setEnd(e.target.value);
+              setEnd(e.target.value.replace(/-/g, "/"));
             }}
           />
         </div>

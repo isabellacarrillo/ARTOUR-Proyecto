@@ -14,6 +14,8 @@ import {
 } from "./firebaseConfig";
 import { createUserProfile } from "./users-service";
 
+/* Funcion para el inicio de sesion con Google */
+
 export const signInWithGoogle = async ({ onSuccess }) => {
   try {
     const result = await signInWithPopup(auth, googleProvider);
@@ -27,6 +29,7 @@ export const signInWithGoogle = async ({ onSuccess }) => {
         telefono: "",
         numero_carnet: "",
         role: "user",
+        reservas: [],
       });
     }
     if (onSuccess) {
@@ -37,6 +40,8 @@ export const signInWithGoogle = async ({ onSuccess }) => {
     return authcode;
   }
 };
+
+/* Funcion para el inicio de sesion con Facebook */
 
 export const signInWithFacebook = async ({ onSuccess }) => {
   try {
@@ -51,6 +56,7 @@ export const signInWithFacebook = async ({ onSuccess }) => {
         telefono: "",
         numero_carnet: "",
         role: "user",
+        reservas: [],
       });
     }
     if (onSuccess) {
@@ -61,6 +67,8 @@ export const signInWithFacebook = async ({ onSuccess }) => {
     return authcode;
   }
 };
+
+/* Funcion para el inicio de sesion con Twitter */
 
 export const signInWithTwitter = async ({ onSuccess }) => {
   try {
@@ -72,9 +80,11 @@ export const signInWithTwitter = async ({ onSuccess }) => {
         email: result.user.email,
         name: result.user.displayName,
         id: result.user.uid,
+        img: result.user.photoURL,
         telefono: "",
         numero_carnet: "",
         role: "user",
+        reservas: [],
       });
     }
     if (onSuccess) {
@@ -86,6 +96,8 @@ export const signInWithTwitter = async ({ onSuccess }) => {
   }
 };
 
+/* Funcion para el registro con Correo y Contraseña */
+
 export const registerWithEmailAndPassword = async (
   { onSuccess },
   email,
@@ -93,13 +105,14 @@ export const registerWithEmailAndPassword = async (
   extraData
 ) => {
   try {
-    console.log(email, password);
     const result = await createUserWithEmailAndPassword(auth, email, password);
     await createUserProfile(result.user.uid, {
       email,
       id: result.user.uid,
+      password,
       role: "user",
       numero_carnet: "",
+      reservas: [],
       ...extraData,
     });
     if (onSuccess) {
@@ -110,6 +123,8 @@ export const registerWithEmailAndPassword = async (
     return authcode;
   }
 };
+
+/* Funcion para el inicio de sesion con Correo y Contraseña */
 
 export const loginWithEmailAndPassword = async (
   { onSuccess },
@@ -126,6 +141,9 @@ export const loginWithEmailAndPassword = async (
     return authcode;
   }
 };
+
+/* Funcion para manejar el logout de un usuario */
+
 export const logout = async ({ onSuccess }) => {
   try {
     await signOut(auth);

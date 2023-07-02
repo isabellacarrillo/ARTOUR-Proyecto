@@ -1,3 +1,7 @@
+{
+  /*Componente de para proteger las rutas que requieren que haya un usuario iniciado sesion */
+}
+
 import React from "react";
 import { useUserContext } from "../../contexts/UserContext";
 import { Navigate } from "react-router-dom";

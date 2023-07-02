@@ -1,3 +1,5 @@
+{/* Funciones utilizadas para la validacion de las entradas encontrando los errores especificos por entrada para mostrar los mensajes correspondientes*/}
+
 export function findInputError(errors, name) {
   const filtered = Object.keys(errors)
     .filter((key) => key.includes(name))

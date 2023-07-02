@@ -63,7 +63,6 @@ export default function LoginPage() {
   };
 
   const handleError = () => {
-    console.log(error);
     if (error) {
       switch (error) {
         case "auth/wrong-password":
@@ -102,7 +101,7 @@ export default function LoginPage() {
     if (error != null) {
       setTimeout(() => {
         setError(null);
-      }, 5000);
+      }, 10000);
     }
   }, [error]);
 

@@ -1,7 +1,10 @@
 export const HOME_URL = "/";
 
 export const LOGIN_URL = "/login";
+
 export const REGISTER_URL = "/registro";
+
+export const CALENDAR_URL = "/calendario";
 
 export const SEARCH_URL = "/buscar";
 
@@ -11,9 +14,29 @@ export const CREATE_ART = "/crear_obra";
 
 export const CREATE_TOUR = "/crear_tour";
 
-export const EDIT_TOUR = "/modificar_tour";
+export const EDIT_TOUR = (tourID = ":tourID") => {
+  return `/tours/${tourID}/modificar`;
+};
 
-export const EDIT_ART = "/modificar_obra";
+export const EDIT_ART = (obraID = ":obraID") => {
+  return `/obras/${obraID}/modificar`;
+};
+
+export const EDIT_PROFILE = "/modificar_perfil";
+
+export const CONTACT_URL = "/contacto";
+
+export const PROFILE_URL = "/profile";
+
+export const MYRESERVES_URL = "/misreservas";
+
+export const RESERVE_URL = (tourID = ":tourID") => {
+  return `/tours/${tourID}/reservar`;
+};
+
+export const FEEDBACK_URL = (tourID = ":tourID", reservaID = ":reservaID") => {
+  return `/misreservas/${reservaID}/${tourID}/feedback`;
+};
 
 export const TOUR_DETAIL = (tourID = ":tourID") => {
   return `/tours/${tourID}`;

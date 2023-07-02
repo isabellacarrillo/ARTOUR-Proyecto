@@ -23,14 +23,29 @@ import {
   REGISTER_URL,
   SEARCH_URL,
   UNAUTHORIZED_URL,
+  EDIT_PROFILE,
   TOUR_DETAIL,
   OBRA_DETAIL,
+  CONTACT_URL,
+  RESERVE_URL,
+  FEEDBACK_URL,
+  CALENDAR_URL,
+  PROFILE_URL,
+  MYRESERVES_URL,
 } from "./constants/URLS";
 import Edit_tour from "./Pages/EditTourPage/EditTourPage";
 import Edit_Art from "./Pages/EditArtPage/EditArtPage";
 import Create_Tour from "./Pages/CreateTourPage/CreateTourPage";
 import Create_Art from "./Pages/CreateArtPage/CreateArtPage";
+import Modify_Profile from "./Pages/ModifyProfilePage/ModifyProfilePage";
+
 import ObraProfile from "./Pages/ObraProfile/ObraProfile";
+import ContactPage from "./Pages/ContactPage/ContactPage";
+import ReservePage from "./Pages/ReservePage/ReservePage";
+import { FEEDBACK } from "./components/Boton/styles";
+import Feedback from "./Pages/FeedbackPage/FeedbackPage";
+import CalendarPage from "./Pages/Calendar/CalendarPage";
+import MyReservesPage from "./Pages/MyReservesPage/MyReservesPage";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -40,6 +55,19 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path={HOME_URL} element={<HomePage />} />
           <Route path={LOGIN_URL} element={<LoginPage />} />
           <Route path={REGISTER_URL} element={<RegisterPage />} />
+          <Route path={EDIT_PROFILE} element={<Modify_Profile />} />
+          <Route path={CONTACT_URL} element={<ContactPage />} />
+          <Route
+            path={CALENDAR_URL}
+            element={
+              <ProtectedUserRoute>
+                <CalendarPage />
+              </ProtectedUserRoute>
+            }
+          />
+          <Route path={MYRESERVES_URL} element={<MyReservesPage />} />
+          <Route path={RESERVE_URL()} element={<ReservePage />} />
+          <Route path={FEEDBACK_URL()} element={<Feedback />} />
           <Route
             path={SEARCH_URL}
             element={
@@ -51,7 +79,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path={UNAUTHORIZED_URL} element={<UnauthorizedPage />} />
           <Route path="*" element={<NotFoundPage />} />
           <Route
-            path={EDIT_TOUR}
+            path={EDIT_TOUR()}
             element={
               <ProtectedAdminRoute>
                 <Edit_tour />
@@ -59,7 +87,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             }
           />
           <Route
-            path={EDIT_ART}
+            path={EDIT_ART()}
             element={
               <ProtectedAdminRoute>
                 <Edit_Art />
@@ -83,15 +111,29 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             }
           />
           <Route
-            path="/profile"
+            path={PROFILE_URL}
             element={
               <ProtectedUserRoute>
                 <ModifyProfilePage />
               </ProtectedUserRoute>
             }
           />
-          <Route path={TOUR_DETAIL()} element={<TourProfile />} />
-          <Route path={OBRA_DETAIL()} element={<ObraProfile />} />
+          <Route
+            path={TOUR_DETAIL()}
+            element={
+              <ProtectedUserRoute>
+                <TourProfile />
+              </ProtectedUserRoute>
+            }
+          />
+          <Route
+            path={OBRA_DETAIL()}
+            element={
+              <ProtectedUserRoute>
+                <ObraProfile />
+              </ProtectedUserRoute>
+            }
+          />
         </Route>
       </Routes>
     </BrowserRouter>
