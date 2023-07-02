@@ -195,6 +195,7 @@ const Create_Art = () => {
       {loadingChange ? <PopUpLoading /> : <></>}
       {save ? (
         <PopUpConfirm
+          setter={setSave}
           message="¿Seguro que quiere guardar los nuevos datos?"
           display="Confirmar"
           helper="Los cambios guardados son permanentes y no pueden ser deshechos"

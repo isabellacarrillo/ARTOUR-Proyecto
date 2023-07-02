@@ -5,7 +5,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function PopUp({ message, action, display, type, next }) {
+export default function PopUp({ message, action, display, type, next, helper }) {
   const handleIcon = () => {
     switch (type) {
       case "info":
@@ -57,6 +57,7 @@ export default function PopUp({ message, action, display, type, next }) {
         <div className="relative bg-white shadow-lg w-fit h-fit px-20 py-16 rounded-2xl flex flex-col flex-wrap items-center justify-center gap-6">
           {handleIcon()}
           <h1 className="text-lg font-extrabold">{message}</h1>
+          <p>{helper}</p>
           {next ? (
             <button
               className="bg-bluegray px-6 py-2 rounded-2xl font font-semibold text-blue transition ease-in-out duration-300 delay-0 hover:bg-blue hover:text-bluegray"
