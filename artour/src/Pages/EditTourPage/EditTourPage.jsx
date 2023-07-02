@@ -99,6 +99,7 @@ const Create_Art = () => {
     setSave(false);
     setloadingChange(true);
     e.preventDefault();
+    console.log(data)
     const result = await updateTour(tour, data, onSuccess, onNothing, onError);
     setloadingChange(false);
   };
