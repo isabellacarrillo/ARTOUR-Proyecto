@@ -82,7 +82,7 @@ export default function PopUpCheckout({
         <div className="justify-center items-start  flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none py-56 px-24">
           <div className="relative bg-white shadow-lg w-fit h-fit px-20 py-16 rounded-2xl flex flex-col overflow-auto flex-wrap items-center justify-center gap-4">
             <svg
-              className="w-[56px] h-[56px] fill-blue text-gray-800 dark:text-white"
+              className="w-[56px] h-[56px] fill-blue "
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
@@ -125,7 +125,7 @@ export default function PopUpCheckout({
             ) : (
               <div className="flex flex-col gap-2 items-center justify-center content-center">
                 <svg
-                  className="w-[24px] h-[24 px] fill-bluegray text-gray-800 dark:text-white"
+                  className="w-[24px] h-[24 px] fill-bluegray text-gray-800"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"

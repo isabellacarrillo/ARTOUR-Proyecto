@@ -4,9 +4,9 @@
 
 export const EMPTY = {
   label:
-    "absolute bg-transparent text-sm text-black  duration-300 transform -translate-y-6 scale-75 top-3 z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue peer-focus:dark:text-blue peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-invalid:text-red peer-invalid:font-semibold",
+    "absolute bg-transparent text-sm text-black  duration-300 transform -translate-y-6 scale-75 top-3 z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-invalid:text-red peer-invalid:font-semibold",
   input:
-    "block py-2.5 px-0 w-full  text-sm text-black bg-white/10 border-0 border-b-2 border-black appearance-none peer dark:border-blue dark:focus:border-blue focus:outline-none focus:ring-0 focus:border-blue invalid:border-red",
+    "block py-2.5 px-0 w-full  text-sm text-black bg-white/10 border-0 border-b-2 border-black appearance-none peer  focus:outline-none focus:ring-0 focus:border-blue invalid:border-red",
 };
 export const OUTLINE = {
   label:

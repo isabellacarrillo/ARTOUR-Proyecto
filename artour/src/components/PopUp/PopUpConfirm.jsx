@@ -18,7 +18,7 @@ export default function PopUpConfirm({
         <div className="relative bg-white shadow-lg w-fit h-fit px-20 py-16 rounded-2xl flex flex-col flex-wrap items-center justify-center gap-6">
           {del ? (
             <svg
-              className="w-[48px] h-[48px] fill-blue text-gray-800 dark:text-white"
+              className="w-[48px] h-[48px] fill-blue text-gray-800"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
@@ -28,7 +28,7 @@ export default function PopUpConfirm({
             </svg>
           ) : (
             <svg
-              className="w-[56px] h-[56px] fill-blue text-gray-800 dark:text-white"
+              className="w-[56px] h-[56px] fill-blue text-gray-800"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"

@@ -66,7 +66,7 @@ const CheckBoxModify = ({ tour_puntos }) => {
                     (tp) => tp.nombre === p.nombre
                   )}
                   value={p.nombre}
-                  className="w-4 h-4 text-blue bg-bluegray border-bluegrayrounded focus:ring-blue dark:focus:ring-blue dark:ring-offset-bluegray dark:focus:ring-offset-bluegray focus:ring-2 dark:bg-blue dark:border-blue"
+                  className="w-4 h-4 text-blue bg-bluegray border-bluegrayrounded focus:ring-blue focus:ring-2 "
                   onChange={handleOnChange}
                 />
                 <label

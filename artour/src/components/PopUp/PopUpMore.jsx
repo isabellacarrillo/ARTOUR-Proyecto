@@ -13,7 +13,7 @@ export default function PopUpMore({ message, action, display, helper }) {
       <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none px-24 lg:px-80">
         <div className="relative bg-white shadow-lg w-fit h-fit px-20 py-16 rounded-2xl flex flex-col flex-wrap items-center justify-center gap-6">
           <svg
-            className="w-[56px] h-[56px] fill-blue text-gray-800 dark:text-white"
+            className="w-[56px] h-[56px] fill-blue text-gray-800"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"

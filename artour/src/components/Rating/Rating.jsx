@@ -42,8 +42,8 @@ export default function Rating({ rating, dis }) {
           <svg
             className={
               liked && liked != null
-                ? "w-[20px] h-[20px] text-orange/60 dark:text-white"
-                : "w-[20px] h-[20px] text-black/60 dark:text-white"
+                ? "w-[20px] h-[20px] text-orange/60"
+                : "w-[20px] h-[20px] text-black/60 "
             }
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
@@ -77,8 +77,8 @@ export default function Rating({ rating, dis }) {
           <svg
             className={
               !liked && liked != null
-                ? "w-[20px] h-[20px] text-orange/60 dark:text-white"
-                : "w-[20px] h-[20px] text-black/60 dark:text-white"
+                ? "w-[20px] h-[20px] text-orange/60"
+                : "w-[20px] h-[20px] text-black/60"
             }
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"

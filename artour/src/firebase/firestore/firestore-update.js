@@ -412,22 +412,24 @@ export const updateUser = async (
 
     if (Object.keys(updated).length > 0) {
       if (Object.keys(updated).includes("img")) {
+        let url;
         if (user.img != null) {
           await deletePic(user.name.toLowerCase().replace(/ /g, "_"), "users");
         }
         if (Object.keys(updated).includes("name")) {
-          await uploadPic(
+          url = await uploadPic(
             updated.img,
             "users",
             updated.name.toLowerCase().replace(/ /g, "_")
           );
         } else {
-          await uploadPic(
+          url = await uploadPic(
             updated.img,
             "users",
             user.name.toLowerCase().replace(/ /g, "_")
           );
         }
+        updated["img"] = url;
       }
 
       const userRef = doc(collection(db, "users"), user.id);
