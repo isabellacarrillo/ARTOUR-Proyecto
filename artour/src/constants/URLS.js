@@ -34,7 +34,9 @@ export const RESERVE_URL = (tourID = ":tourID") => {
   return `/tours/${tourID}/reservar`;
 };
 
-export const FEEDBACK_URL = "/feedback";
+export const FEEDBACK_URL = (tourID = ":tourID", reservaID = ":reservaID") => {
+  return `/misreservas/${reservaID}/${tourID}/feedback`;
+};
 
 export const TOUR_DETAIL = (tourID = ":tourID") => {
   return `/tours/${tourID}`;

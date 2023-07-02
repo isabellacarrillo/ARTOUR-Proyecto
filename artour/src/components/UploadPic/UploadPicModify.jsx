@@ -22,7 +22,6 @@ export default function UploadPicModify({ img }) {
 
   useEffect(() => {
     if (file) {
-      console.log(upl);
       setValue("img", upl);
     }
   }, [file]);

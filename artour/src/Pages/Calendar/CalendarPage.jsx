@@ -54,7 +54,7 @@ export default function CalendarPage() {
               </h2>
               <div className="flex justify-start flex-row flex-wrap gap-2 p-2">
                 {dateTours.map((t) => {
-                  return <MiniTour tour={t} row />;
+                  return <MiniTour key={t.id} tour={t} row />;
                 })}
               </div>
             </div>

@@ -8,7 +8,7 @@ import { AUXILIAR, PRINCIPAL } from "../../Boton/styles";
 import { useUserContext } from "../../../contexts/UserContext";
 
 export default function CarItem({ item, index }) {
-  const { user, isLoading } = useUserContext();
+  const { user, isLoading, role } = useUserContext();
 
   if (index == 0) {
     return (
@@ -90,7 +90,11 @@ export default function CarItem({ item, index }) {
               </h1>
               <h4 className="text-right md:text-[24px] ">{item.desc}</h4>
 
-              <Boton display={item.boton} style={AUXILIAR} to={item.path} />
+              {role === "user" ? (
+                <Boton display={item.boton} style={AUXILIAR} to={item.path} />
+              ) : (
+                <></>
+              )}
             </div>
             <img
               src={item.url}
@@ -114,9 +118,12 @@ export default function CarItem({ item, index }) {
               {item.title}
             </h1>
             <h4 className="text-right md:text-[24px] ">{item.desc}</h4>
-          
-              <Boton display={item.boton} style={PRINCIPAL} to={item.path}/>
-           
+
+            {role === "user" ? (
+              <Boton display={item.boton} style={PRINCIPAL} to={item.path} />
+            ) : (
+              <></>
+            )}
           </div>
           <img
             src={item.url}

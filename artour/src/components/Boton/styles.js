@@ -20,6 +20,8 @@ export const TWITTER =
 
 export const MINI =
   "w-full h-fit rounded-2xl border-2 border-blue bg-blue py-2 text-sm font-semibold text-center text-bluegray transition ease-in-out duration-300 delay-0 hover:bg-bluegray hover:border-2 hover:border-blue hover:text-blue";
+export const DONE =
+  "w-full h-fit rounded-2xl border-2 border-blue bg-blue py-2 text-sm font-semibold text-center text-bluegray cursor-default ";
 
 export const FEEDBACK =
   "w-fit h-fit bg-blue px-6 py-1 rounded-2xl text-white font-semibold border-4 border-blue transition ease-in-out duration-300 delay-0 hover:bg-orange hover:text-blue";

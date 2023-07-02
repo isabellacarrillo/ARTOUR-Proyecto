@@ -90,7 +90,6 @@ const Modify_Profile = () => {
     setSave(false);
     setloadingChange(true);
     e.preventDefault();
-    console.log(data);
     const result = await updateUser(user, data, onSuccess, onNothing, onError);
     setloadingChange(false);
   };

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Navigate } from "react-router-dom";
 import useTours from "../../hooks/useTours";
 import Boton from "../../components/Boton/Boton";
 import { PRINCIPAL, SECOND } from "../../components/Boton/styles";
@@ -36,7 +36,7 @@ const Create_Art = () => {
   }, [getObra]);
 
   const onFail = () => {
-    navigate("*");
+    return <Navigate to={UNAUTHORIZED_URL} />;
   };
   const onSuccess = () => {
     setloadingChange(false);
@@ -61,7 +61,7 @@ const Create_Art = () => {
         return (
           <PopUp
             type="done"
-            message="Se han guardado los cambios con exito"
+            message="Se han guardado los cambios con éxito"
             display="Cerrar"
             action={HOME_URL}
           />
@@ -80,7 +80,7 @@ const Create_Art = () => {
         return (
           <PopUp
             type="error"
-            message="Hubo un error, intentelo de nuevo mas tarde"
+            message="Hubo un error, inténtelo de nuevo més tarde"
             display="Cerrar"
             action={HOME_URL}
           />
@@ -89,7 +89,7 @@ const Create_Art = () => {
         return (
           <PopUp
             type="done"
-            message="Se ha eliminado con exito"
+            message="Se ha eliminado con éxito"
             display="Cerrar"
             action={HOME_URL}
           />
@@ -168,7 +168,7 @@ const Create_Art = () => {
                       placeholder={obra.nombre_autor}
                     />
                     <InputModify
-                      label="Ubicacion"
+                      label="Ubicación"
                       type="text"
                       name="ubicacion"
                       id="ubicacion"
@@ -179,7 +179,7 @@ const Create_Art = () => {
                   <DropDownModify punto={obra.punto_de_interes} />
                 </div>
                 <TextAreaModify
-                  display="Descripcion"
+                  display="Descripción"
                   placeholder={obra.descripcion}
                 />
               </form>
@@ -224,7 +224,7 @@ const Create_Art = () => {
           display="Confirmar"
           del={true}
           setter={setDel}
-          helper="Eliminar el perfil va a remover toda su informacion del sistema"
+          helper="Eliminar el perfil va a remover toda su información del sistema"
           action={methods.handleSubmit(handleDelete)}
         />
       ) : (

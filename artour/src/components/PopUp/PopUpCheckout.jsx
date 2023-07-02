@@ -76,7 +76,7 @@ export default function PopUpCheckout({
       <PayPalScriptProvider
         options={{
           clientId:
-            "AYy28XIJVUkRSRxHt0yZ2rBxFwbzBhK0Ji_XzErYqPYfO1wTBbKdRTpSlu0GwtHv-hR6kmso9aOv3fDZ",
+            import.meta.env.VITE_PAYPAL_CLIENTID,
         }}
       >
         <div className="justify-center items-start  flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none py-56 px-24">

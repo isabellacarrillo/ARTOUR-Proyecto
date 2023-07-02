@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Boton from "../Boton/Boton";
-import { MINI } from "../Boton/styles";
+import { DONE, MINI } from "../Boton/styles";
+import dayjs, { Dayjs } from "dayjs";
+import { FEEDBACK_URL } from "../../constants/URLS";
 
 export default function MiniReserva({ reserva }) {
+  const [past, setPast] = useState(false);
+
+  useEffect(() => {
+    const today = new Date();
+    const date = new Date(reserva.fecha_reserva);
+    if (date < today) {
+      setPast(true);
+    }
+  }, []);
+
   return (
-    <div className="w-full h-[480px] justify-between sm:w-72 bg-bluegray p-5 rounded-2xl flex flex-col gap-2 drop-shadow-sm hover:-translate-y-4 hover:-translate-x-1 hover:drop-shadow-xl transition ease-in-out duration-300 delay-0">
+    <div className="w-full h-[480px]  sm:w-72 bg-bluegray p-5 rounded-2xl flex flex-col gap-2 drop-shadow-sm hover:-translate-y-4 hover:-translate-x-1 hover:drop-shadow-xl transition ease-in-out duration-300 delay-0">
       <img
         src={
           reserva.img
@@ -14,7 +26,9 @@ export default function MiniReserva({ reserva }) {
         className="object-cover rounded-xl"
       />
       <div className="w-full flex flex-col gap-1 p-4">
-        <h3 className="font-extrabold text-2xl text-blue">Hola</h3>
+        <h3 className="font-extrabold text-2xl text-blue">
+          {reserva.nombre_tour}
+        </h3>
 
         <div className="flex flex-row gap-2 leading-none break-words">
           <h6 className="font-semibold text-left w-fit whitespace-nowrap">
@@ -33,10 +47,22 @@ export default function MiniReserva({ reserva }) {
             Descripcion
           </h6>
           <p className="truncate">{reserva.descripcion}</p>
-          
         </div>
       </div>
-      <Boton display="Dar feedback" style={MINI} />
+
+      {past ? (
+        reserva.feedback ? (
+          <div className={DONE}>Feedback dado</div>
+        ) : (
+          <Boton
+            display="Dar feedback"
+            style={MINI}
+            to={FEEDBACK_URL(reserva.tour_id, reserva.reserva_id)}
+          />
+        )
+      ) : (
+        <div className={DONE}>Próximo</div>
+      )}
     </div>
   );
 }

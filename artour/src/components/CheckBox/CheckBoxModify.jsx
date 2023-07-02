@@ -55,9 +55,12 @@ const CheckBoxModify = ({ tour_puntos }) => {
         {puntos_dis ? (
           puntos_dis.map((p) => {
             return (
-              <div className="flex items-center mb-2  bg-orange rounded-2xl p-2 px-4">
+              <div
+                className="flex items-center mb-2  bg-orange rounded-2xl p-2 px-4"
+                key={p.nombre}
+              >
                 <input
-                  id="checkbox-1"
+                  id={p.name}
                   type="checkbox"
                   defaultChecked={tour_puntos.some(
                     (tp) => tp.nombre === p.nombre
@@ -67,7 +70,7 @@ const CheckBoxModify = ({ tour_puntos }) => {
                   onChange={handleOnChange}
                 />
                 <label
-                  htmlFor="checkbox-1"
+                  htmlFor={p.name}
                   className="ml-2 text-sm font-medium text-white"
                 >
                   {p.nombre}

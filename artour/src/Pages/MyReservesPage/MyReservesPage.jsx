@@ -8,9 +8,6 @@ import { Bars } from "react-loader-spinner";
 export default function () {
   const { user, isLoading } = useUserContext();
 
-  useEffect(() => {
-    console.log(user);
-  }, []);
 
   if (isLoading && !user) {
     return (
@@ -28,9 +25,12 @@ export default function () {
       <h1 className="mx-8 mt-4 font-extrabold text-4xl text-orange md:text-4xl">
         Mis reservas
       </h1>
+      <h4 className="mx-8 mt-4 font-extrabold text-blue/60">
+        Refrezque la pagina para ver sus reservas más recientes
+      </h4>
       <div className="w-full justify-center flex flex-wrap flex-row gap-8 p-8 h-screen overflow-auto m-2 drop-shadow-lg">
         {user.reservas.map((reservas) => {
-          return <MiniReserva key={reservas.tour_id} reserva={reservas} />;
+          return <MiniReserva key={reservas.reserva_id} reserva={reservas} />;
         })}
       </div>
     </div>

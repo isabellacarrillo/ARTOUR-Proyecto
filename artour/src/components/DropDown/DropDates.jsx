@@ -65,7 +65,7 @@ export default function DropDown({ dates }) {
           fechas_dis.map((d) => {
             return (
               <button
-                id={d.fecha}
+                key={d}
                 className={select === `${d}` ? selected : deselected}
                 value={d}
                 onClick={onClick}

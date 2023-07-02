@@ -105,7 +105,6 @@ export const registerWithEmailAndPassword = async (
   extraData
 ) => {
   try {
-    console.log(email, password);
     const result = await createUserWithEmailAndPassword(auth, email, password);
     await createUserProfile(result.user.uid, {
       email,

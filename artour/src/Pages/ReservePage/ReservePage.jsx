@@ -5,7 +5,7 @@ import TextArea from "../../components/Input/TextArea";
 import { FormProvider, set, useForm } from "react-hook-form";
 import DropDates from "../../components/DropDown/DropDates";
 import NumberPicker from "../../components/NumberPicker/NumberPicker";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Navigate } from "react-router-dom";
 import useTours from "../../hooks/useTours";
 import { useUserContext } from "../../contexts/UserContext";
 import { Bars } from "react-loader-spinner";
@@ -35,9 +35,6 @@ export default function ReservePage() {
       getTour(tourID);
     }
   }, [getTour]);
-  const onFail = () => {
-    navigate("*");
-  };
 
   const onError = () => {
     setLoadingReserve(false);
@@ -61,7 +58,7 @@ export default function ReservePage() {
     );
   }
   if (!isLoading && !tour) {
-    return onFail();
+    return navigate("*");
   }
   return (
     <div className="flex flex-col gap-3 justify-start px-12 py-6 bg-white ">

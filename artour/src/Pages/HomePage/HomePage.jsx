@@ -2,7 +2,8 @@ import React from "react";
 import { useUserContext } from "../../contexts/UserContext";
 import Carrousel from "../../components/Carrousel/Carrousel";
 import Boton from "../../components/Boton/Boton";
-import { AUXILIAR, FEEDBACK } from "../../components/Boton/styles";
+import { FEEDBACK } from "../../components/Boton/styles";
+import { MYRESERVES_URL } from "../../constants/URLS";
 
 const Containers = ({ image, title, descripcion, left_image }) => {
   if (left_image) {
@@ -32,17 +33,16 @@ export default function HomePage() {
   const { user, isLoading, role } = useUserContext();
 
   const handleUser = () => {
-    console.log(user);
     if (!isLoading && !user) {
       return <></>;
     } else if (user && role === "user") {
       return (
         <div className="bg-orange p-10 flex flex-row justify-between text-white">
           <div className="">
-            <h1 className="text-xl font-extrabold">Ver reservas</h1>
+            <h1 className="text-xl font-extrabold">Ver tu perfil</h1>
             <h6>Ingresa a tu perfil y ve todas tus reservas</h6>
           </div>
-          <Boton display="Mis reservas" style={FEEDBACK} />
+          <Boton display="Mis reservas" style={FEEDBACK} to={MYRESERVES_URL} />
         </div>
       );
     }

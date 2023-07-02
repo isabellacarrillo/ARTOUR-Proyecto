@@ -63,7 +63,6 @@ export default function LoginPage() {
   };
 
   const handleError = () => {
-    console.log(error);
     if (error) {
       switch (error) {
         case "auth/wrong-password":

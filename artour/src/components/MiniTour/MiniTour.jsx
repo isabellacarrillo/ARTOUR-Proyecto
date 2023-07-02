@@ -20,8 +20,8 @@ export default function MiniTour({ tour, row }) {
           }
           className="w-2/5 object-cover rounded-xl"
         />
-        <div className="w-full flex flex-col gap-1">
-          <h3 className="font-extrabold text-2xl text-blue leading-none">
+        <div className="w-full flex flex-col justify-between gap-1">
+          <h3 className="font-extrabold text-xl text-blue leading-none">
             {tour.nombre_tour}
           </h3>
           <div className="flex flex-col gap-1 leading-none break-words">

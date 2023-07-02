@@ -4,7 +4,7 @@ import { PRINCIPAL, SECOND } from "../../components/Boton/styles";
 import { FormProvider, useForm } from "react-hook-form";
 import CheckBoxModify from "../../components/CheckBox/CheckBoxModify";
 import DatePickerModify from "../../components/DatePicker/DatePickerModify";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Navigate } from "react-router-dom";
 import useTours from "../../hooks/useTours";
 import { Bars } from "react-loader-spinner";
 import InputModify from "../../components/Input/InputModify";
@@ -33,10 +33,6 @@ const Create_Art = () => {
       getTour(tourID);
     }
   }, [getTour]);
-
-  const onFail = () => {
-    navigate("*");
-  };
 
   const onSuccess = () => {
     setloadingChange(false);
@@ -126,7 +122,7 @@ const Create_Art = () => {
     );
   }
   if (!isLoading && !tour) {
-    return onFail();
+    return navigate("*");
   }
   return (
     <div className="flex flex-col content-start justify-start p-12 bg-white">

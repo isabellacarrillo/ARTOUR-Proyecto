@@ -20,7 +20,6 @@ export default function UploadPic() {
 
   useEffect(() => {
     if (file) {
-      console.log(upl);
       setValue("img", upl);
     } else {
       setValue("img", null);

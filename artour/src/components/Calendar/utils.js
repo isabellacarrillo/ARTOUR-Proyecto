@@ -5,7 +5,6 @@ import dayjs from "dayjs";
 
 export const getMonthlyTours = (allDates, month, setter) => {
   let monthly = [];
-  console.log(allDates);
   if (allDates) {
     allDates.forEach((d) => {
       const aux = dayjs(d);
