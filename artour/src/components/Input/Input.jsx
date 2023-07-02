@@ -20,7 +20,7 @@ export default function Input({ label, type, name, id, validation, outlined }) {
 
   return (
     <div className="m-4">
-      <div className="relative z-0">
+      <div className="relative text-black z-0">
         <input
           type={type}
           name={name}
