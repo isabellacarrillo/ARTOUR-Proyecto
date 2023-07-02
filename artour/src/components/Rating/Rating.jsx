@@ -1,15 +1,53 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useFormContext } from "react-hook-form";
 
 export default function Rating({ rating, dis }) {
+  const {
+    setValue,
+    setError,
+    clearErrors,
+    formState: { errors },
+  } = useFormContext();
+  const [liked, setLiked] = useState(null);
+  const [pos, setPos] = useState(parseInt(rating[0]));
+  const [neg, setNeg] = useState(parseInt(rating[1]));
+
+  const handleError = (e) => {
+    if (liked == null) {
+      setError("like", {
+        type: "like_required",
+        message: "Para enviar su feedback, por favor seleccione una opcion",
+      });
+    } else {
+      clearErrors("like");
+    }
+  };
+
+  useEffect(() => {
+    setValue("like", liked);
+    handleError();
+  }, [liked]);
+
   return (
     <div className="flex flex-row gap-12 shadow-inner bg-white/60 rounded-3xl w-fit h-fit px-6 py-2">
       <div className="flex flex-row gap-2">
         <button
           className="p-1 rounded-full active:bg-black/25 transition duration-150 ease-in-out disabled:bg-black/5 hover:bg-black/10"
-          disabled={dis}
+          disabled={liked != null && liked ? true : dis}
+          onClick={(e) => {
+            if (liked != null && !liked) {
+              setNeg(neg - 1);
+            }
+            setLiked(true);
+            setPos(pos + 1);
+          }}
         >
           <svg
-            class="w-[20px] h-[20px] text-black/60 dark:text-white"
+            className={
+              liked && liked != null
+                ? "w-[20px] h-[20px] text-orange/60 dark:text-white"
+                : "w-[20px] h-[20px] text-black/60 dark:text-white"
+            }
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -24,15 +62,27 @@ export default function Rating({ rating, dis }) {
             />
           </svg>
         </button>
-        <p>{rating[0]}</p>
+        <p>{pos}</p>
       </div>
+
       <div className="flex flex-row gap-2">
         <button
           className="p-1 rounded-full active:bg-black/25 transition duration-150 disabled:bg-black/5 ease-in-out hover:bg-black/10"
-          disabled={dis}
+          disabled={liked != null && !liked ? true : dis}
+          onClick={(e) => {
+            if (liked != null && liked) {
+              setPos(pos - 1);
+            }
+            setLiked(false);
+            setNeg(neg + 1);
+          }}
         >
           <svg
-            class="w-[20px] h-[20px] text-black/60 dark:text-white"
+            className={
+              !liked && liked != null
+                ? "w-[20px] h-[20px] text-orange/60 dark:text-white"
+                : "w-[20px] h-[20px] text-black/60 dark:text-white"
+            }
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -47,7 +97,7 @@ export default function Rating({ rating, dis }) {
             />
           </svg>
         </button>
-        <p>{rating[1]}</p>
+        <p>{neg}</p>
       </div>
     </div>
   );

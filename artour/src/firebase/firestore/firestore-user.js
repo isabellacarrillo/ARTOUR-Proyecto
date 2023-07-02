@@ -12,10 +12,6 @@ import {
 
 export const saveReserve = async (data, user, tourID, onError) => {
   try {
-    const refUser = doc(collection(db, "users"), user.id);
-    const update = await updateDoc(refUser, {
-      reservas: arrayUnion({ tour_id: tourID, ...data }),
-    });
     const refTour = doc(collection(db, "tours"), tourID);
     const docTour = await getDoc(refTour);
     const result = docTour.data();
@@ -35,6 +31,15 @@ export const saveReserve = async (data, user, tourID, onError) => {
       result["disponibilidad"] = "out";
     }
 
+    const refUser = doc(collection(db, "users"), user.id);
+    const update = await updateDoc(refUser, {
+      reservas: arrayUnion({
+        tour_id: tourID,
+        nombre_tour: result.nombre_tour,
+        img_tour: result.img,
+        ...data,
+      }),
+    });
     const updatedTour = await updateDoc(refTour, result);
     const refRes = doc(collection(db, "reservas"));
     const create = await setDoc(refRes, {

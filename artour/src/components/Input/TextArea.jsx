@@ -20,7 +20,7 @@ export default function TextArea({ display, name, validation }) {
     <div>
       <div className="relative w-full min-w-[200px]">
         <textarea
-          className="peer h-full w-full rounded-2xl border border-black border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-black outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-black placeholder-shown:border-t-black focus:border-2 focus:border-blue focus:border-t-transparent focus:outline-0 invalid:border-red invalid:border-2"
+          className="peer min-h-[120px] h-full w-full rounded-2xl border border-black border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-black outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-black placeholder-shown:border-t-black focus:border-2 focus:border-blue focus:border-t-transparent focus:outline-0 invalid:border-red invalid:border-2"
           name={name}
           placeholder=" "
           {...register("descripcion", validation)}

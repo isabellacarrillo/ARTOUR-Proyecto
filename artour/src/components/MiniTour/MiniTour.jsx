@@ -11,7 +11,7 @@ import { TOUR_DETAIL } from "../../constants/URLS";
 export default function MiniTour({ tour, row }) {
   if (row) {
     return (
-      <div className="flex flex-row h-[200px] bg-bluegray rounded-2xl p-5 gap-3 w-[360px] hover:-translate-y-4 drop-shadow-sm hover:-translate-x-1 hover:drop-shadow-xl transition ease-in-out duration-300 delay-0">
+      <div className="flex flex-row h-[200px] bg-bluegray rounded-2xl p-5 gap-3 w-[280px] hover:-translate-y-4 drop-shadow-sm hover:-translate-x-1 hover:drop-shadow-xl transition ease-in-out duration-300 delay-0">
         <img
           src={
             tour.img
@@ -24,19 +24,17 @@ export default function MiniTour({ tour, row }) {
           <h3 className="font-extrabold text-2xl text-blue">
             {tour.nombre_tour}
           </h3>
-          <div className="flex flex-row gap-2 leading-none break-words">
-            <h6 className="font-semibold text-left w-fit whitespace-nowrap">
+          <div className="flex flex-col gap-1 leading-none break-words">
+            <h6 className="font-semibold text-left w-fit whitespace-nowrap text-sm">
               A visitar:
             </h6>
-            <div className="flex flex-col">
+            <div className="flex flex-col text-xs">
               {tour.puntos_de_interes.map(function (a) {
                 return <p key={a.nombre}>{a.nombre}</p>;
               })}
             </div>
           </div>
-          <Link to={TOUR_DETAIL(tour.id)}>
-            <Boton display="Detallar" style={MINI} />
-          </Link>
+          <Boton display="Detallar" style={MINI} to={TOUR_DETAIL(tour.id)} />
         </div>
       </div>
     );

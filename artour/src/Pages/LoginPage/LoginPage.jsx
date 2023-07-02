@@ -102,7 +102,7 @@ export default function LoginPage() {
     if (error != null) {
       setTimeout(() => {
         setError(null);
-      }, 5000);
+      }, 10000);
     }
   }, [error]);
 
