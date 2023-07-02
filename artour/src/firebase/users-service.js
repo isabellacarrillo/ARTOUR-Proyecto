@@ -11,7 +11,6 @@ import { db } from "./firebaseConfig";
 /* Funcion para crear un perfil en la base de datos */
 
 export async function createUserProfile(userId, data) {
-  console.log(data);
   return setDoc(doc(db, "users", userId), data);
 }
 

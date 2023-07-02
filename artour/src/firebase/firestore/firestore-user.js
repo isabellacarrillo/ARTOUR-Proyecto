@@ -12,10 +12,6 @@ import {
 
 export const saveReserve = async (data, user, tourID, onError) => {
   try {
-    const refUser = doc(collection(db, "users"), user.id);
-    const update = await updateDoc(refUser, {
-      reservas: arrayUnion({ tour_id: tourID, ...data }),
-    });
     const refTour = doc(collection(db, "tours"), tourID);
     const docTour = await getDoc(refTour);
     const result = docTour.data();
@@ -45,6 +41,16 @@ export const saveReserve = async (data, user, tourID, onError) => {
       ...data,
     });
 
+    const refUser = doc(collection(db, "users"), user.id);
+    const update = await updateDoc(refUser, {
+      reservas: arrayUnion({
+        reserva_id: refRes.id,
+        tour_id: tourID,
+        nombre_tour: result.nombre_tour,
+        img_tour: result.img,
+        ...data,
+      }),
+    });
     return refRes;
   } catch (error) {
     console.log(error);
@@ -64,5 +70,48 @@ export const addContribution = async (number, paymentID, reservaID) => {
     });
   } catch (error) {
     console.log(error);
+  }
+};
+
+export const addFeedback = async (
+  tourID,
+  user,
+  data,
+  reservaID,
+  onSuccess,
+  onError
+) => {
+  try {
+    const refTour = doc(collection(db, "tours"), tourID);
+    if (data.descripcion != "") {
+      const docTour = await updateDoc(refTour, {
+        rating: data.rating,
+        comentarios: arrayUnion({
+          user: user.name,
+          comentario: data.descripcion,
+        }),
+      });
+    } else {
+      const docTour = await updateDoc(refTour, {
+        rating: data.rating,
+      });
+    }
+
+    const refUser = doc(collection(db, "users"), user.id);
+    const docUser = await getDoc(refUser);
+    const userData = docUser.data();
+    userData.reservas.forEach((r, index) => {
+      if (r.reserva_id === reservaID) {
+        userData["reservas"][index] = { ...r, feedback: true };
+      }
+    });
+    const updated = await updateDoc(refUser, userData);
+    if (onSuccess) {
+      onSuccess();
+    }
+  } catch (error) {
+    if (onError) {
+      onError();
+    }
   }
 };

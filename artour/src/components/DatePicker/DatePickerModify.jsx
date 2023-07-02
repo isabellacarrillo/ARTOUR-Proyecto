@@ -21,8 +21,8 @@ export default function DatePickerModify({ fecha }) {
     formState: { errors },
   } = useFormContext();
   const [date, setDate] = useState("");
-  const [start, setStart] = useState("");
-  const [end, setEnd] = useState("");
+  const [start, setStart] = useState(fecha[0].fecha);
+  const [end, setEnd] = useState(fecha.slice(-1)[0].fecha);
   const inputError = findInputError(errors, "fecha");
   const isInvalid = isFormInvalid(inputError);
 

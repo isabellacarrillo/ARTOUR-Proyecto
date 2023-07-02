@@ -53,10 +53,10 @@ export default function SearchPage() {
     } else {
       return (
         <>
-          <h3 className="mx-8 mt-4 font-bold text-2xl text-orange/75 md:text-4xl">
+          <h3 className="mx-8 my-4 font-bold text-2xl text-orange/75 md:text-4xl">
             Tours encontrados para {search}
           </h3>
-          <div className="w-full justify-center flex flex-wrap flex-row gap-8 p-8 h-screen overflow-auto m-2 drop-shadow-lg">
+          <div className="w-full justify-center flex flex-wrap flex-row gap-8 p-8 h-screen overflow-auto drop-shadow-lg">
             {!isLoading ? (
               found.map((t) => {
                 return <MiniTour tour={t} key={t.id} />;
@@ -98,10 +98,10 @@ export default function SearchPage() {
         )
       ) : (
         <>
-          <h3 className="mx-8 mt-4 font-bold text-2xl text-orange/75 md:text-4xl">
+          <h3 className="mx-8 my-4 font-bold text-2xl text-orange/75 md:text-4xl">
             Tours Disponibles
           </h3>
-          <div className="w-full justify-center flex flex-wrap flex-row gap-8 p-8 h-screen overflow-auto m-2 drop-shadow-lg">
+          <div className="w-full justify-center flex flex-wrap flex-row gap-8 p-8 h-screen overflow-auto drop-shadow-lg">
             {!isLoading ? (
               tours.map((t) => {
                 return <MiniTour tour={t} key={t.id} />;

@@ -11,7 +11,7 @@ import { OBRA_DETAIL } from "../../constants/URLS";
 export default function MiniObra({ obra, p }) {
   return (
     <div>
-      <div className="w-48 md:w-72 h-[500px] bg-bluegray p-5 rounded-2xl flex flex-col gap-2 drop-shadow-sm hover:-translate-y-4 hover:-translate-x-1 hover:drop-shadow-xl transition ease-in-out duration-300 delay-0">
+      <div className="w-48 md:w-72 h-[500px] bg-bluegray p-5 rounded-2xl flex flex-col justify-between gap-2 drop-shadow-sm hover:-translate-y-4 hover:-translate-x-1 hover:drop-shadow-xl transition ease-in-out duration-300 delay-0">
         <img
           src={
             obra.img

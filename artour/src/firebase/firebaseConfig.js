@@ -11,12 +11,12 @@ import { getStorage } from "firebase/storage";
 import { getFirestore } from "@firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC_rAJQFmo9HrMfdb-myUJ29BdC2n7O1lg",
-  authDomain: "artour-25768.firebaseapp.com",
-  projectId: "artour-25768",
-  storageBucket: "artour-25768.appspot.com",
-  messagingSenderId: "364747753502",
-  appId: "1:364747753502:web:0ac113ab44fb59760ac60f",
+  apiKey: import.meta.env.VITE_REACT_APP_APIKEY,
+  authDomain: import.meta.env.VITE_REACT_APP_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_REACT_APP_PROJECTID,
+  storageBucket: import.meta.env.VITE_REACT_APP_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_REACT_APP_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_REACT_APP_APPID,
 };
 
 // Initialize Firebase

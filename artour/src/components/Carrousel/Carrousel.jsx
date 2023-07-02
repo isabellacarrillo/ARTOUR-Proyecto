@@ -4,7 +4,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import CarItem from "./CarItem/CarItem";
-import { CALENDAR_URL, SEARCH_URL } from "../../constants/URLS";
+import { CALENDAR_URL, MYRESERVES_URL, SEARCH_URL } from "../../constants/URLS";
 
 {
   /*Lista de objetos de la informacion que se va a mostrar en el Carrousel */
@@ -28,13 +28,14 @@ const imgs = [
     title: "¡Descubre nuestros futuros eventos y exposiciones!",
     desc: "Planifica la visita perfecta y no te pierdas de nuestros grandes eventos culturales",
     boton: "Ver Calendario",
-    path : CALENDAR_URL
+    path: CALENDAR_URL,
   },
   {
     url: "https://firebasestorage.googleapis.com/v0/b/artour-25768.appspot.com/o/carrousel%2Fcarrousel3.jpg?alt=media&token=b308bcf5-6d26-4874-9778-161825357b06",
     title: "¡Comparte tus experiencias con la comunidad!",
     desc: "Comenta y comparte sobre las visitas que hayas hecho, las obras que más te gustaron y te sorprendieron",
     boton: "Dar Feedback",
+    path: MYRESERVES_URL,
   },
 ];
 export default function Carrousel() {
@@ -67,7 +68,6 @@ export default function Carrousel() {
     maxScrollWidth.current = carousel.current
       ? carousel.current.scrollWidth - carousel.current.offsetWidth
       : 0;
-    console.log(carousel.current.offsetWidth);
   }, []);
 
   return (

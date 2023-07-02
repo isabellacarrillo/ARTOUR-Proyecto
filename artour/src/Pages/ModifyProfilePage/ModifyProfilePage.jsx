@@ -47,6 +47,7 @@ const Modify_Profile = () => {
         return (
           <PopUp
             type="done"
+            helper="Refrezque la pagina para ver los cambios realizados"
             message="Se han guardado los cambios con exito"
             display="Cerrar"
             action={HOME_URL}
@@ -89,7 +90,6 @@ const Modify_Profile = () => {
     setSave(false);
     setloadingChange(true);
     e.preventDefault();
-    console.log(data);
     const result = await updateUser(user, data, onSuccess, onNothing, onError);
     setloadingChange(false);
   };
@@ -187,6 +187,7 @@ const Modify_Profile = () => {
       {loadingChange ? <PopUpLoading /> : <></>}
       {save ? (
         <PopUpConfirm
+          setter={setSave}
           message="¿Seguro que quiere guardar los nuevos datos?"
           display="Confirmar"
           helper="Los cambios guardados son permanentes y no pueden ser deshechos"

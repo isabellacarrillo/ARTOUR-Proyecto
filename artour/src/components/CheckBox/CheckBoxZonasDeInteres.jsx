@@ -28,8 +28,6 @@ const CheckBoxZonasDeInteres = () => {
 
   const handleOnChange = (e) => {
     if (!e.target.checked) {
-      console.log(e.target.value);
-      console.log(puntos_dis);
       setPuntos(puntos.filter((v) => v !== e.target.value));
     } else {
       setPuntos([...puntos, e.target.value]);
@@ -65,16 +63,19 @@ const CheckBoxZonasDeInteres = () => {
         {puntos_dis ? (
           puntos_dis.map((p) => {
             return (
-              <div className="flex items-center mb-2  bg-orange rounded-2xl p-2 px-4">
+              <div
+                className="flex items-center mb-2  bg-orange rounded-2xl p-2 px-4"
+                key={p.nombre}
+              >
                 <input
-                  id="checkbox-1"
+                  id={p.name}
                   type="checkbox"
                   value={p.nombre}
                   className="w-4 h-4 text-blue bg-bluegray border-bluegrayrounded focus:ring-blue dark:focus:ring-blue dark:ring-offset-bluegray dark:focus:ring-offset-bluegray focus:ring-2 dark:bg-blue dark:border-blue"
                   onChange={handleOnChange}
                 />
                 <label
-                  htmlFor="checkbox-1"
+                  htmlFor={p.name}
                   className="ml-2 text-sm font-medium text-white"
                 >
                   {p.nombre}

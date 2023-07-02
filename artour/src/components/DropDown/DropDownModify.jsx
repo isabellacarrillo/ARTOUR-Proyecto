@@ -61,7 +61,6 @@ export default function DropDownModify({ punto }) {
       create != "" &&
       puntos_dis.some((p) => p.nombre.toLowerCase() === create.toLowerCase())
     ) {
-      console.log(puntos_dis.some((p) => p.nombre === create));
       setError("punto_de_interes", {
         type: "already exists",
         message: "Seleccione el punto de interes prexistente",
@@ -98,6 +97,8 @@ export default function DropDownModify({ punto }) {
         puntos_dis.map((p) => {
           return (
             <button
+            key={p.nombre}
+              id={p.nombre}
               className={select === `${p.nombre}` ? selected : deselected}
               value={p.nombre}
               onClick={onClick}

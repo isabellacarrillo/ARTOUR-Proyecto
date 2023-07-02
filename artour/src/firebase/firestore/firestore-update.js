@@ -11,12 +11,8 @@ import {
   arrayUnion,
   deleteDoc,
 } from "firebase/firestore";
-import {
-  deleteObject,
-  ref,
-} from "firebase/storage";
+import { deleteObject, ref } from "firebase/storage";
 import { fetchPuntos, getDates, uploadPic } from "./firestore-add";
-
 
 /* Funcion para verficar que dos arreglos contienen los mismos elementos */
 
@@ -48,13 +44,22 @@ function sameRange(newRange, objRange) {
 function getUpRange(newRange, objRange, capacidad) {
   let upRange = [];
   let newObjRange = getDates(newRange, capacidad);
+
   for (let i = 0; i < newObjRange.length; i++) {
-    console.log(newObjRange[i].fecha, objRange[i].fecha);
-    if (newObjRange[i].fecha === objRange[i].fecha) {
-      upRange.push({
-        fecha: newObjRange[i].fecha,
-        capacidad: objRange[i].capacidad,
-      });
+    console.log(newObjRange, objRange[i]);
+    if (objRange[i]) {
+      if (newObjRange[i].fecha === objRange[i].fecha) {
+        console.log(newObjRange, objRange);
+        upRange.push({
+          fecha: newObjRange[i].fecha,
+          capacidad: objRange[i].capacidad,
+        });
+      } else {
+        upRange.push({
+          fecha: newObjRange[i].fecha,
+          capacidad: capacidad,
+        });
+      }
     } else {
       upRange.push({
         fecha: newObjRange[i].fecha,
@@ -69,7 +74,6 @@ function getUpRange(newRange, objRange, capacidad) {
 const deletePic = async (nombre, path, pi) => {
   try {
     if (pi) {
-      console.log("hola");
       const storeRef = ref(storage, `${path}/${pi}/${nombre}`);
       await deleteObject(storeRef);
     } else {
@@ -93,18 +97,14 @@ export const updateObra = async (
   try {
     let updated = {};
     Object.keys(newData).forEach((k) => {
-      console.log(k);
-
       if (newData[k] != "" && newData[k] != obra[k]) {
         updated = { ...updated, [k]: newData[k] };
       }
     });
 
     if (Object.keys(updated).includes("img")) {
-      console.log(updated);
       let url;
       if (Object.keys(updated).includes("punto_de_interes")) {
-        console.log(Object.keys(newData));
         if (Object.keys(updated).includes("nombre_obra")) {
           url = await uploadPic(
             newData.img,
@@ -113,7 +113,6 @@ export const updateObra = async (
             newData.punto_de_interes.toLowerCase().replace(/ /g, "_")
           );
         } else {
-          console.log(obra);
           url = await uploadPic(
             newData.img,
             "obras_de_arte",
@@ -127,7 +126,6 @@ export const updateObra = async (
           "obras_de_arte"
         );
       } else {
-        console.log("else");
         if (Object.keys(updated).includes("nombre_obra")) {
           url = await uploadPic(
             newData.img,
@@ -136,7 +134,6 @@ export const updateObra = async (
             obra.punto_de_interes.toLowerCase().replace(/ /g, "_")
           );
         } else {
-          console.log(obra.nombre_obra);
           url = await uploadPic(
             newData.img,
             "obras_de_arte",
@@ -159,7 +156,6 @@ export const updateObra = async (
         Object.keys(updated).includes("nombre_obra") ||
         Object.keys(updated).includes("nombre_autor")
       ) {
-        console.log(obra.punto_de_interes, updated.punto_de_interes, obra.id);
         await updatePunto(obra, updated);
       }
       const ref = doc(db, "obras", obra.id);
@@ -186,8 +182,6 @@ export const updateTour = async (
   try {
     let updated = {};
     Object.keys(newData).forEach((k) => {
-      console.log(k);
-
       if (
         newData[k] != "" &&
         newData[k] != tour[k] &&
@@ -201,7 +195,7 @@ export const updateTour = async (
       const puntos = await fetchPuntos(newData["puntos_de_interes"]);
       updated = { ...updated, puntos_de_interes: puntos };
     }
-    if (!sameRange(newData["fecha"], tour["fecha"])) {
+    if (newData.fecha && !sameRange(newData["fecha"], tour["fecha"])) {
       let dateObject;
       if (Object.keys(updated).includes("capacidad")) {
         dateObject = getUpRange(
@@ -230,8 +224,6 @@ export const updateTour = async (
       updated = { ...updated, img: url };
     }
 
-    console.log(updated);
-
     if (Object.keys(updated).length === 0) {
       if (onNothing) {
         onNothing();
@@ -247,6 +239,7 @@ export const updateTour = async (
     if (onError) {
       onError();
     }
+    console.log(error);
   }
 };
 
@@ -264,7 +257,6 @@ const updatePunto = async (obra, updated) => {
       res.forEach((d) => {
         ref = d.id;
       });
-      console.log(updated);
       const docref = doc(collection(db, "puntos de interes"), ref);
       const fullDoc = await getDoc(docref);
       const data = fullDoc.data();
@@ -322,10 +314,8 @@ const getObj = (obra, updated) => {
     Obj = { ...Obj, ["nombre_autor"]: obra.nombre_autor };
   }
   if (Object.keys(updated).includes("img")) {
-    console.log(updated.img);
     Obj = { ...Obj, ["img"]: `${updated.img}` };
   } else {
-    console.log(obra.img);
     Obj = { ...Obj, ["img"]: `${obra.img}` };
   }
   if (Object.keys(updated).includes("punto_de_interes")) {

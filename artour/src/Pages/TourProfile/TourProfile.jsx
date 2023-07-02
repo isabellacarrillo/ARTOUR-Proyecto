@@ -5,10 +5,10 @@ import Comment from "../../components/Comment/Comment";
 import PopUp from "../../components/PopUp/PopUp";
 import Boton from "../../components/Boton/Boton";
 import { AUXILIAR, BACK } from "../../components/Boton/styles";
-import { useNavigate, useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import useTours from "../../hooks/useTours";
 import { Bars } from "react-loader-spinner";
-import { HOME_URL } from "../../constants/URLS";
+import { HOME_URL, UNAUTHORIZED_URL } from "../../constants/URLS";
 
 export default function TourProfile() {
   const navigate = useNavigate();
@@ -78,7 +78,7 @@ export default function TourProfile() {
       <div className="bg-bluegray p-8 gap-4 flex flex-col rounded-2xl max-h- drop-shadow-md  overflow-auto md:w-[700px] xl:w-[1200px]  self-center">
         {tour.comentarios.length > 0 ? (
           tour.comentarios.map((c) => {
-            return <Comment comment={c} />;
+            return <Comment key={c.user} comment={c} />;
           })
         ) : (
           <div className="text-blue">No hay comentarios disponibles</div>

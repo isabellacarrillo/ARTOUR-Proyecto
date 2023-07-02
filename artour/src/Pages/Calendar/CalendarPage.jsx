@@ -40,7 +40,7 @@ export default function CalendarPage() {
         Ver Tours por Fecha
       </h1>
       <div className="h-fit flex flex-col md:flex-row gap-5 px-4 py-8 bg-white">
-        <div className="max-w-2/5 lg:w-2/5 bg-white drop-shadow-lg rounded-2xl p-5">
+        <div className="max-w-2/5 bg-white drop-shadow-lg rounded-2xl p-5">
           <h5 className="text-blue/60 font-bold">
             Selecciona una fecha marcada para detallar los tours disponibles
           </h5>
@@ -54,7 +54,7 @@ export default function CalendarPage() {
               </h2>
               <div className="flex justify-start flex-row flex-wrap gap-2 p-2">
                 {dateTours.map((t) => {
-                  return <MiniTour tour={t} row />;
+                  return <MiniTour key={t.id} tour={t} row />;
                 })}
               </div>
             </div>

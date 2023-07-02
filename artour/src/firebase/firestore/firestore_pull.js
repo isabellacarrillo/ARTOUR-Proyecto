@@ -87,7 +87,6 @@ export const pullQuery = async (search, filter, tours) => {
         Object.keys(t).forEach((k) => {
           if (k === "puntos_de_interes") {
             const p = t[k];
-            console.log(p);
             if (p.some((pun) => pun.nombre === puntos[0])) {
               tourfiltered.push(t);
             }
@@ -178,7 +177,6 @@ export const getDateTours = async (date) => {
     const tour = p.data();
 
     tour.fecha.forEach((f) => {
-      console.log(f.fecha, date);
       if (f.fecha === date && f.capacidad > 0) {
         tours.push(tour);
       }

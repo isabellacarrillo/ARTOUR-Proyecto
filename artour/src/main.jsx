@@ -29,6 +29,9 @@ import {
   CONTACT_URL,
   RESERVE_URL,
   FEEDBACK_URL,
+  CALENDAR_URL,
+  PROFILE_URL,
+  MYRESERVES_URL,
 } from "./constants/URLS";
 import Edit_tour from "./Pages/EditTourPage/EditTourPage";
 import Edit_Art from "./Pages/EditArtPage/EditArtPage";
@@ -42,6 +45,7 @@ import ReservePage from "./Pages/ReservePage/ReservePage";
 import { FEEDBACK } from "./components/Boton/styles";
 import Feedback from "./Pages/FeedbackPage/FeedbackPage";
 import CalendarPage from "./Pages/Calendar/CalendarPage";
+import MyReservesPage from "./Pages/MyReservesPage/MyReservesPage";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -54,15 +58,16 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path={EDIT_PROFILE} element={<Modify_Profile />} />
           <Route path={CONTACT_URL} element={<ContactPage />} />
           <Route
-            path={"/calendario"}
+            path={CALENDAR_URL}
             element={
               <ProtectedUserRoute>
                 <CalendarPage />
               </ProtectedUserRoute>
             }
           />
+          <Route path={MYRESERVES_URL} element={<MyReservesPage />} />
           <Route path={RESERVE_URL()} element={<ReservePage />} />
-          <Route path={FEEDBACK_URL} element={<Feedback />} />
+          <Route path={FEEDBACK_URL()} element={<Feedback />} />
           <Route
             path={SEARCH_URL}
             element={
@@ -106,7 +111,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             }
           />
           <Route
-            path="/profile"
+            path={PROFILE_URL}
             element={
               <ProtectedUserRoute>
                 <ModifyProfilePage />

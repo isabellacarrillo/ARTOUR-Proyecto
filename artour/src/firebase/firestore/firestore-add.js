@@ -26,7 +26,6 @@ const addObraPunto = async (data, id) => {
     const res = await getDocs(q);
     let ref;
     if (!res.empty) {
-      console.log("if");
       res.forEach((d) => {
         ref = d.id;
       });
@@ -69,20 +68,18 @@ export const uploadPic = async (blob, path, name, pi) => {
     if (blob != null) {
       let storeRef;
       if (pi) {
-        console.log(`${path}/${pi}/${name}`);
         storeRef = ref(storage, `${path}/${pi}/${name}`);
       } else {
         storeRef = ref(storage, `${path}/${name}`);
       }
       await uploadBytes(storeRef, blob).then((h) => {});
-      console.log(storeRef);
       const url = await getDownloadURL(storeRef);
       return url;
     } else {
       return null;
     }
   } catch (error) {
-    console.log("upload", error);
+    console.log(error);
   }
 };
 
@@ -146,7 +143,6 @@ export const createNewObra = async (data) => {
       return "error";
     }
   } catch (error) {
-    console.log(error);
     return "error";
   }
 };
@@ -187,7 +183,6 @@ export const createNewTour = async (data) => {
       return "error";
     }
   } catch (error) {
-    console.log("create", error);
     return "error";
   }
 };

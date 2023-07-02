@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Boton from "../../components/Boton/Boton";
 import { AUXILIAR, BACK } from "../../components/Boton/styles";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams, Navigate } from "react-router-dom";
 import useTours from "../../hooks/useTours";
 import { Bars } from "react-loader-spinner";
 import { useUserContext } from "../../contexts/UserContext";
