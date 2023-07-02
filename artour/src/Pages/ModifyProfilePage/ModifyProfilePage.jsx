@@ -118,41 +118,6 @@ const Modify_Profile = () => {
             <form className="flex flex-col gap-8 md:justify-start">
               <div className="flex flex-col gap-8   md:flex-row md:justify-start">
                 <div className="md:w-2/5">
-                  <div className="m-4">
-                    <div className="relative z-0">
-                      <input
-                        type="text"
-                        id="email"
-                        disabled
-                        className="peer block min-h-[auto] w-full  border border-black bg-white px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear rounded-2xl focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none focus:border-blue focus:ring-1 focus:ring-blue"
-                        placeholder={user.email}
-                      />
-                      <label
-                        htmlFor="email"
-                        className="pointer-events-none absolute left-3 px-2 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out -translate-y-[0.9rem] scale-[0.8] text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] bg-white peer-focus:text-blue"
-                      >
-                        Email
-                      </label>
-                    </div>
-                  </div>
-                  <div className="m-4">
-                    <div className="relative z-0">
-                      <input
-                        type="text"
-                        id="password"
-                        disabled
-                        className="peer block min-h-[auto] w-full  border border-black bg-white px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear rounded-2xl focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none focus:border-blue focus:ring-1 focus:ring-blue"
-                        placeholder={user.password}
-                      />
-                      <label
-                        htmlFor="password"
-                        className="pointer-events-none absolute left-3 px-2 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out -translate-y-[0.9rem] scale-[0.8] text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] bg-white peer-focus:text-blue"
-                      >
-                        Contraseña
-                      </label>
-                    </div>
-                  </div>
-
                   <InputModify
                     label="Nombre del Usuario"
                     type="text"
