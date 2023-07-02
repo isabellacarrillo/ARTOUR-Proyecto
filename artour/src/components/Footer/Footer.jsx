@@ -2,7 +2,7 @@
 
 import React from "react";
 import ItemsContainer from "./ItemsContainer";
-
+import SocialIcons from "./SocialMIcons";
 
 export default function Footer() {
   return (
