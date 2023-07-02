@@ -28,6 +28,7 @@ export const CONTACT_URL = "/contacto";
 
 export const PROFILE_URL = "/profile";
 
+export const MYRESERVES_URL = "/misreservas";
 
 export const RESERVE_URL = (tourID = ":tourID") => {
   return `/tours/${tourID}/reservar`;
