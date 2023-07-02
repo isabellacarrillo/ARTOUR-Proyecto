@@ -24,7 +24,6 @@ export default function ItemsContainer() {
         <p className="ps-8 text-xs font-light">comunicaciones@unimet.edu.ve</p>
         <br />
         <br></br>
-        <SocialIcons />{""}
       </div>
       <div>
         <Items title="CAMPUS PUERTO LA CRUZ Y LECHERÍA" />

@@ -57,7 +57,7 @@ export default function NavBar() {
             hover:font-bold"
           to="/login"
         >
-          Iniciar Sesion
+          Iniciar Sesión
         </Link>
       );
     }

@@ -38,13 +38,13 @@ export default function MiniReserva({ reserva }) {
         </div>
         <div className="flex flex-row gap-2 leading-none break-words">
           <h6 className="font-semibold text-left w-fit whitespace-nowrap">
-            Numero de entradas
+            Número de entradas
           </h6>
           <p>{reserva.num_entradas}</p>
         </div>
         <div className="flex flex-col gap-2 leading-none overflow-clip">
           <h6 className="font-semibold text-left w-fit whitespace-nowrap">
-            Descripcion
+            Descripción
           </h6>
           <p className="truncate">{reserva.descripcion}</p>
         </div>

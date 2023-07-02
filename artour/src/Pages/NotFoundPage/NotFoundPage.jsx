@@ -8,7 +8,7 @@ export default function UnauthorizedPage() {
           PÁGINA NO ENCONTRADA
         </h2>
         <p className="text-center">
-          Parece que estas intentado acceder a una pagina que no existe
+          Parece que estas intentado acceder a una página que no existe
         </p>
       </div>
     </div>

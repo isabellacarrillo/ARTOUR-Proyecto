@@ -18,10 +18,6 @@ export const EDIT_TOUR = (tourID = ":tourID") => {
   return `/tours/${tourID}/modificar`;
 };
 
-<<<<<<< HEAD
-export const EDIT_ART = "/modificar_obra";
-export const CONTACT_URL = "/contacto";
-=======
 export const EDIT_ART = (obraID = ":obraID") => {
   return `/obras/${obraID}/modificar`;
 };
@@ -42,15 +38,9 @@ export const FEEDBACK_URL = (tourID = ":tourID", reservaID = ":reservaID") => {
   return `/misreservas/${reservaID}/${tourID}/feedback`;
 };
 
->>>>>>> d166608ab561a53717057062a4a8360a9538ba0d
 export const TOUR_DETAIL = (tourID = ":tourID") => {
   return `/tours/${tourID}`;
 };
 export const OBRA_DETAIL = (obraID = ":obraID") => {
   return `/obras/${obraID}`;
 };
-<<<<<<< HEAD
-
-export const EDIT_PROFILE = "/modificar_perfil";
-=======
->>>>>>> d166608ab561a53717057062a4a8360a9538ba0d

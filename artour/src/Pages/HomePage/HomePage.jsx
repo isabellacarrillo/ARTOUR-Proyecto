@@ -46,12 +46,7 @@ export default function HomePage() {
         </div>
       );
     }
-<<<<<<< HEAD
-  }
-
-=======
   };
->>>>>>> d166608ab561a53717057062a4a8360a9538ba0d
 
   return (
     <div className="w-full bg-white">

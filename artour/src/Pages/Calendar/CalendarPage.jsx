@@ -64,7 +64,7 @@ export default function CalendarPage() {
                 No hay tours disponibles en {selected}
               </h2>
               <p className="text-blue/60 font-bold">
-                Seleccione los dias marcados para visualizar tours disponibles
+                Seleccione los días marcados para visualizar tours disponibles
               </p>
             </div>
           )

@@ -89,7 +89,7 @@ export default function ReservePage() {
             </div>
             <div className="flex flex-col gap-4">
               <h6 className="text-sm text-blue">
-                Si necesitas alguna asistencia especial o consideracion, dejanos
+                Si necesitas alguna asistencia especial o consideración, dejanos
                 tu comentario
               </h6>
               <TextArea display="Comentarios" name="comentarios" />

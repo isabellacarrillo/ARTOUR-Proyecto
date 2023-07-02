@@ -79,7 +79,7 @@ const Create_Art = () => {
                           required: { value: true, message: "Obligatorio" },
                           pattern: {
                             value: /[A-Za-z]/,
-                            message: "Por favor, introduzca un nombre valido",
+                            message: "Por favor, introduzca un nombre válido",
                           },
                         }}
                       />
@@ -93,7 +93,7 @@ const Create_Art = () => {
                           required: { value: true, message: "Obligatorio" },
                           pattern: {
                             value: /[A-Za-z]/,
-                            message: "Por favor, introduzca un nombre valido",
+                            message: "Por favor, introduzca un nombre válido",
                           },
                         }}
                       />
@@ -107,7 +107,7 @@ const Create_Art = () => {
                       required: { value: true, message: "Obligatorio" },
                       pattern: {
                         value: /[A-Za-z]/,
-                        message: "Por favor, introduzca una descripcion valida",
+                        message: "Por favor, introduzca una descripcion válida",
                       },
                     }}
                   />

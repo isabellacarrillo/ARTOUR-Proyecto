@@ -57,7 +57,7 @@ const Create_Art = () => {
         return (
           <PopUp
             type="done"
-            message="Se han guardado los cambios con exito"
+            message="Se han guardado los cambios con éxito"
             display="Cerrar"
             action={HOME_URL}
           />
@@ -85,7 +85,7 @@ const Create_Art = () => {
         return (
           <PopUp
             type="done"
-            message="Se ha eliminado con exito"
+            message="Se ha eliminado con éxito"
             display="Cerrar"
             action={HOME_URL}
           />
@@ -154,7 +154,7 @@ const Create_Art = () => {
                       outlined
                     />
                     <InputModify
-                      label="Duracion"
+                      label="Duración"
                       type="text"
                       name="duracion"
                       id="duracion"
@@ -207,7 +207,7 @@ const Create_Art = () => {
           display="Confirmar"
           del={true}
           setter={setDel}
-          helper="Eliminar el perfil va a remover toda su informacion del sistema"
+          helper="Eliminar el perfil va a remover toda su información del sistema"
           action={methods.handleSubmit(handleDelete)}
         />
       ) : (

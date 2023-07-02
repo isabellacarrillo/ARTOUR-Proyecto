@@ -3,14 +3,6 @@ import Input from "../../components/Input/Input";
 import Boton from "../../components/Boton/Boton";
 import { PRINCIPAL, SECOND } from "../../components/Boton/styles";
 import { FormProvider, useForm } from "react-hook-form";
-<<<<<<< HEAD
-import UploadPic from "../../components/UploadPic/UploadPic";
-
-const Modify_Profile = () => {
-  const methods = useForm();
-
-  const handleOnSubmit = (data, e) => {
-=======
 import { useUserContext } from "../../contexts/UserContext";
 import { Bars } from "react-loader-spinner";
 import InputModify from "../../components/Input/InputModify";
@@ -97,7 +89,6 @@ const Modify_Profile = () => {
   const handleSubmit = async (data, e) => {
     setSave(false);
     setloadingChange(true);
->>>>>>> d166608ab561a53717057062a4a8360a9538ba0d
     e.preventDefault();
     const result = await updateUser(user, data, onSuccess, onNothing, onError);
     setloadingChange(false);
@@ -174,14 +165,6 @@ const Modify_Profile = () => {
           </div>
         </FormProvider>
       </div>
-<<<<<<< HEAD
-
-      <Boton
-        display="Guardar Cambios"
-        style={PRINCIPAL}
-        action={methods.handleSubmit(handleOnSubmit)}
-      />
-=======
       <div className="flex flex-row justify-center">
         <Boton
           display="Guardar Cambios"
@@ -225,13 +208,8 @@ const Modify_Profile = () => {
       ) : (
         <></>
       )}
->>>>>>> d166608ab561a53717057062a4a8360a9538ba0d
     </div>
   );
 };
 
-<<<<<<< HEAD
 export default Modify_Profile;
-=======
-export default Modify_Profile;
->>>>>>> d166608ab561a53717057062a4a8360a9538ba0d
