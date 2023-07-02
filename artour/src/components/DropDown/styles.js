@@ -1,3 +1,6 @@
+{/* Los posibles estilos que toman los elementos del dropdown segun el estado que tengan */}
+
+
 export const deselected =
   "bg-orange w-fit py-1 px-4 rounded-2xl text-white transition ease-in-out  duration-300 delay-0 hover:bg-blue";
 

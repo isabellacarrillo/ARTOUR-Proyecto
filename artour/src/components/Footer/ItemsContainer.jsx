@@ -23,9 +23,8 @@ export default function ItemsContainer() {
         <br />
         <p className="ps-8 text-xs font-light">comunicaciones@unimet.edu.ve</p>
         <br />
-        <p className="ps-8 text-orange text-bold">Follow Us</p>
         <br></br>
-        <SocialIcons />{" "}
+        <SocialIcons />{""}
       </div>
       <div>
         <Items title="CAMPUS PUERTO LA CRUZ Y LECHERÍA" />
@@ -59,6 +58,7 @@ export default function ItemsContainer() {
         <br></br>
         <p className="ps-8">Jardines</p>
       </div>
+
     </div>
   );
 }

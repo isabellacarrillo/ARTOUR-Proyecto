@@ -1,3 +1,7 @@
+{
+  /*Componente para proteger rutas que requiere credenciales de administracion  */
+}
+
 import React from "react";
 import { useUserContext } from "../../contexts/UserContext";
 import { Navigate } from "react-router-dom";
@@ -10,7 +14,7 @@ export default function ProtectedAdminRoute({ children }) {
     return <Navigate to={LOGIN_URL} />;
   } else if (!isLoading && user && role === "admin") {
     return children;
-  } else if(!isLoading){
+  } else if (!isLoading) {
     return <Navigate to={UNAUTHORIZED_URL} />;
   }
 }
