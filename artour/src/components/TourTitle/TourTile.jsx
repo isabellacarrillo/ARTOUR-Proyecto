@@ -8,8 +8,10 @@ import { PRINCIPAL } from "../Boton/styles";
 import { useUserContext } from "../../contexts/UserContext";
 import { EDIT_TOUR, RESERVE_URL } from "../../constants/URLS";
 import Rating from "../Rating/Rating";
+import { FormProvider, useForm } from "react-hook-form";
 
 export default function TourTile({ tour }) {
+  const methods = useForm();
   const { role } = useUserContext();
 
   return (
@@ -28,7 +30,9 @@ export default function TourTile({ tour }) {
             className="rounded-2xl md:h-fit"
           />
           <div className="flex flex-row justify-between">
-            <Rating rating={tour.rating} dis={true} />
+            <FormProvider {...methods}>
+              <Rating rating={tour.rating} dis={true} />
+            </FormProvider>
             <div className="p-2 px-6 bg-bluegray/80 h-fit text-blue rounded-2xl font-semibold w-fit ">
               <h4>
                 {tour.disponibilidad === "full" ? "Disponible" : "Agotado"}

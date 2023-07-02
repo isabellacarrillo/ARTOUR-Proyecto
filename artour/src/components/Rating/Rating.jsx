@@ -24,8 +24,10 @@ export default function Rating({ rating, dis }) {
   };
 
   useEffect(() => {
-    setValue("like", liked);
-    handleError();
+    if (!dis) {
+      setValue("like", liked);
+      handleError();
+    }
   }, [liked]);
 
   return (
