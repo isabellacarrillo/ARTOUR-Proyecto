@@ -97,6 +97,12 @@ export const addFeedback = async (
       });
     }
 
+    user.reservas.forEach((r, index) => {
+      if (r.reserva_id === reservaID) {
+        user["reservas"][index] = { ...r, feedback: true };
+      }
+    });
+
     const refUser = doc(collection(db, "users"), user.id);
     const docUser = await getDoc(refUser);
     const userData = docUser.data();

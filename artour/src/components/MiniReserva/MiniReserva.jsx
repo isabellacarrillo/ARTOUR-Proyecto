@@ -16,7 +16,7 @@ export default function MiniReserva({ reserva }) {
   }, []);
 
   return (
-    <div className="w-full h-[480px]  sm:w-72 bg-bluegray p-5 rounded-2xl flex flex-col gap-2 drop-shadow-sm hover:-translate-y-4 hover:-translate-x-1 hover:drop-shadow-xl transition ease-in-out duration-300 delay-0">
+    <div className="w-full h-[480px] justify-between  sm:w-72 bg-bluegray p-5 rounded-2xl flex flex-col drop-shadow-sm hover:-translate-y-4 hover:-translate-x-1 hover:drop-shadow-xl transition ease-in-out duration-300 delay-0">
       <img
         src={
           reserva.img
@@ -25,8 +25,8 @@ export default function MiniReserva({ reserva }) {
         }
         className="object-cover rounded-xl"
       />
-      <div className="w-full flex flex-col gap-1 p-4">
-        <h3 className="font-extrabold text-2xl text-blue">
+      <div className="w-full flex flex-col gap-1 py-1 px-4">
+        <h3 className="font-extrabold text-2xl text-blue leading-none">
           {reserva.nombre_tour}
         </h3>
 

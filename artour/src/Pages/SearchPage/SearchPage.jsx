@@ -46,7 +46,10 @@ export default function SearchPage() {
             <h1 className=" text-2xl font-extrabold text-orange">
               {handleResultMessage()} {search}
             </h1>
-            <p>Intente revisar la búsqueda realizada por errores</p>
+            <p>
+              Intente revisar la búsqueda realizada por errores. Cuide las
+              mayúsculas y los acentos
+            </p>
           </div>
         </div>
       );

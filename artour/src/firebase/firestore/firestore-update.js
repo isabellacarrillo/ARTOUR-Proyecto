@@ -454,12 +454,12 @@ export const updateUser = async (
 
 export const deleteUser = async (user, onSuccessDelete, onError) => {
   try {
+    await auth.currentUser.delete();
     const ref = doc(collection(db, "users"), user.id);
     await deleteDoc(ref);
     if (user.img != null) {
       await deletePic(user.name.toLowerCase().replace(/ /g, "_"), "users");
     }
-    await auth.currentUser.delete();
     if (onSuccessDelete) {
       onSuccessDelete();
     }
