@@ -21,6 +21,7 @@
     "config": "^3.3.9",
     "dayjs": "^1.11.8",
     "firebase": "^9.22.2",
+    "firebase-tools": "^12.4.2",
     "framer-motion": "^10.12.16",
     "loader": "^2.1.1",
     "mobiscroll": "^3.0.0-beta6",
