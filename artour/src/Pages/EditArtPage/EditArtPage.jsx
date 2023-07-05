@@ -36,7 +36,7 @@ const Create_Art = () => {
   }, [getObra]);
 
   const onFail = () => {
-    return <Navigate to={UNAUTHORIZED_URL} />;
+    return navigate("*");
   };
   const onSuccess = () => {
     setloadingChange(false);
